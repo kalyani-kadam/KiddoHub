@@ -1,7 +1,9 @@
 package com.app.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +31,8 @@ public class Parent extends BaseEntity{
 	@Column(name="email_id",nullable = false)
 	private String emailId;	
 	
-	//@OneToMany(mappedBy = "parent")
+//	@OneToMany(mappedBy = "parent",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+//	private 
 	
 	public Parent() {
 		super();
