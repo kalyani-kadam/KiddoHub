@@ -6,6 +6,14 @@ public class DoctorDTO extends BaseDTO {
 	private String name;
 	private String specilization;
 	private Long phoneNo;
+	private Long childId;
+	
+	public Long getChildId() {
+		return childId;
+	}
+	public void setChildId(Long childId) {
+		this.childId = childId;
+	}
 	public Long getDoctorId() {
 		return doctorId;
 	}
@@ -30,11 +38,12 @@ public class DoctorDTO extends BaseDTO {
 	public void setPhoneNo(Long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
+	
 	@Override
 	public String toString() {
 		return "DoctorDTO [doctorId=" + doctorId + ", name=" + name + ", specilization=" + specilization + ", phoneNo="
-				+ phoneNo + ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()=" + getUpdatedOn() + "]";
+				+ phoneNo + ", childId=" + childId + ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
+				+ getUpdatedOn() + "]";
 	}
-	
 	
 }

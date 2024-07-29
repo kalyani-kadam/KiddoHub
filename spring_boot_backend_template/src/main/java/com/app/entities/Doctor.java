@@ -1,10 +1,14 @@
 package com.app.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +24,14 @@ public class Doctor extends BaseEntity{
 	@Column(name="phone_no",nullable = false)
 	private Long PhoneNo;
 	
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(name="child_id",nullable=false)
+	private Child child;
+	
 	public Doctor() {
 		super();
 	}
+	
 	public Doctor(Long doctorId, String name, String specialization, Long phoneNo) {
 		super();
 		this.doctorId = doctorId;
@@ -30,6 +39,12 @@ public class Doctor extends BaseEntity{
 		this.specialization = specialization;
 		PhoneNo = phoneNo;
 	}
+	
+	
+	public Child getChild() {
+		return child;
+	}
+	
 	public Long getDoctorId() {
 		return doctorId;
 	}

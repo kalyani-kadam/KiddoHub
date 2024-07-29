@@ -11,6 +11,14 @@ public class ChildDTO extends BaseDTO{
 	private String allergies;
 	private String medicalInfo;
 	private Long emergencyContact;
+	private Long parentId;
+	
+	public Long getParentId() {
+		return parentId;
+	}
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
 	public Long getChildId() {
 		return childId;
 	}
@@ -57,8 +65,11 @@ public class ChildDTO extends BaseDTO{
 	public String toString() {
 		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
-				+ ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()=" + getUpdatedOn() + "]";
+				+ ", parentId=" + parentId + ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
+				+ getUpdatedOn() + "]";
 	}
+	
+	
 	
 	
 }
