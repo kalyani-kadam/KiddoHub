@@ -1,10 +1,6 @@
 package com.app.dto;
 
-import java.sql.Date;
 import java.time.LocalDate;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
