@@ -29,7 +29,7 @@ public class DoctorServiceImpl implements DoctorService {
 		
 		return doctorRepository.findAll()
 				.stream()
-				.map(entiry -> modelMapper.map(entiry, DoctorDTO.class))
+				.map(entity -> modelMapper.map(entity, DoctorDTO.class))
 				.collect(Collectors.toList());
 	}
 

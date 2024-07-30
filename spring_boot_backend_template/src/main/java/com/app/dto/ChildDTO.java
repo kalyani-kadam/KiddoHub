@@ -2,6 +2,8 @@ package com.app.dto;
 
 import java.sql.Date;
 
+import com.app.entities.Parent;
+
 public class ChildDTO extends BaseDTO{
 	
 	private Long childId;
@@ -11,14 +13,7 @@ public class ChildDTO extends BaseDTO{
 	private String allergies;
 	private String medicalInfo;
 	private Long emergencyContact;
-	private Long parentId;
 	
-	public Long getParentId() {
-		return parentId;
-	}
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
 	public Long getChildId() {
 		return childId;
 	}
@@ -65,11 +60,23 @@ public class ChildDTO extends BaseDTO{
 	public String toString() {
 		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
-				+ ", parentId=" + parentId + ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
+				+  ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
 				+ getUpdatedOn() + "]";
 	}
-	
-	
+	public ChildDTO(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
+			Long emergencyContact, Parent parentId) {
+		super();
+		this.childId = childId;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.allergies = allergies;
+		this.medicalInfo = medicalInfo;
+		this.emergencyContact = emergencyContact;
+	}
+	public ChildDTO() {
+		super();
+	}	
 	
 	
 }

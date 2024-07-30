@@ -1,19 +1,13 @@
 package com.app.dto;
 
-public class DoctorDTO extends BaseDTO {
+import javax.persistence.Column;
+
+public class DoctorDTO {
 
 	private Long doctorId;
 	private String name;
-	private String specilization;
-	private Long phoneNo;
-	private Long childId;
-	
-	public Long getChildId() {
-		return childId;
-	}
-	public void setChildId(Long childId) {
-		this.childId = childId;
-	}
+	private String specialization;	
+	private Long PhoneNo;
 	public Long getDoctorId() {
 		return doctorId;
 	}
@@ -26,24 +20,33 @@ public class DoctorDTO extends BaseDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getSpecilization() {
-		return specilization;
+	public String getSpecialization() {
+		return specialization;
 	}
-	public void setSpecilization(String specilization) {
-		this.specilization = specilization;
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
 	}
 	public Long getPhoneNo() {
-		return phoneNo;
+		return PhoneNo;
 	}
 	public void setPhoneNo(Long phoneNo) {
-		this.phoneNo = phoneNo;
+		PhoneNo = phoneNo;
 	}
-	
 	@Override
 	public String toString() {
-		return "DoctorDTO [doctorId=" + doctorId + ", name=" + name + ", specilization=" + specilization + ", phoneNo="
-				+ phoneNo + ", childId=" + childId + ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
-				+ getUpdatedOn() + "]";
+		return "DoctorDTO [doctorId=" + doctorId + ", name=" + name + ", specialization=" + specialization
+				+ ", PhoneNo=" + PhoneNo + "]";
 	}
+	public DoctorDTO() {
+		super();
+	}
+	public DoctorDTO(Long doctorId, String name, String specialization, Long phoneNo) {
+		super();
+		this.doctorId = doctorId;
+		this.name = name;
+		this.specialization = specialization;
+		PhoneNo = phoneNo;
+	}
+	
 	
 }

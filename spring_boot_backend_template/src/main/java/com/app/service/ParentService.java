@@ -6,4 +6,5 @@ import com.app.dto.ParentDTO;
 
 public interface ParentService {
 	List<ParentDTO> getAllParents();
+	
 }

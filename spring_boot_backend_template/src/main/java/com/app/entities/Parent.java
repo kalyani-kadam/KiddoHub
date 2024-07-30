@@ -1,5 +1,7 @@
 package com.app.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,8 +34,8 @@ public class Parent extends BaseEntity{
 	private String emailId;	
 	
 //	@OneToMany(mappedBy = "parent",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-//	private 
-	
+//	private List<Child> childs;
+
 	public Parent() {
 		super();
 	}
@@ -51,6 +53,13 @@ public class Parent extends BaseEntity{
 		return parentId;
 	}
 
+//	public List<Child> getChilds() {
+//		return childs;
+//	}
+//
+//	public void setChilds(List<Child> childs) {
+//		this.childs = childs;
+//	}
 	public void setParentId(Long parentId) {
 		this.parentId = parentId;
 	}

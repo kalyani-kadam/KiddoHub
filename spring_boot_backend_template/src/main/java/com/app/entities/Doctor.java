@@ -20,6 +20,7 @@ public class Doctor extends BaseEntity{
 	@Column(name="doctor_id",nullable = false)
 	private Long doctorId;
 	private String name;
+	@Column(nullable = false)
 	private String specialization;	
 	@Column(name="phone_no",nullable = false)
 	private Long PhoneNo;
@@ -40,7 +41,10 @@ public class Doctor extends BaseEntity{
 		PhoneNo = phoneNo;
 	}
 	
-	
+	public void setChild(Child child) {
+		this.child = child;
+	}
+
 	public Child getChild() {
 		return child;
 	}

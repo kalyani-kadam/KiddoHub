@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.ChildDTO;
+import com.app.entities.Child;
 import com.app.service.ChildService;
 
 @RestController
@@ -21,6 +22,14 @@ public class ChildController {
 	@GetMapping
 	List<ChildDTO> getAllChild(){
 		System.out.println("in list of all childs");
-		return childService.getAllChilds();
+		List<ChildDTO> test1=childService.getAllChilds();
+		//return childService.getAllChilds();
+		System.out.println(test1);
+		return test1;
+	}
+	
+	@GetMapping("/childlist")
+	List<Child> getAll(){
+		return childService.getAllChild();
 	}
 }

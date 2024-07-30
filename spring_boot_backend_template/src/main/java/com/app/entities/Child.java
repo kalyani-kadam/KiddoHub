@@ -1,6 +1,7 @@
 package com.app.entities;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -40,29 +42,54 @@ public class Child extends BaseEntity{
 	@Column(name="emergency_contact",nullable = false)
 	private Long emergencyContact;
 		
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="parent_id",nullable=false)
 	private Parent parent;
+	
+//	@OneToMany(mappedBy = "child",cascade=CascadeType.ALL)
+//	private List<Child> childs;
 	
 	public Child() {
 		super();
 	}
 	
-	public Child(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
-			Long emergencyContact) {
-		super();
-		this.childId = childId;
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.allergies = allergies;
-		this.medicalInfo = medicalInfo;
-		this.emergencyContact = emergencyContact;
-	}
+//	public Child(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
+//			Long emergencyContact) {
+//		super();
+//		this.childId = childId;
+//		this.name = name;
+//		this.dateOfBirth = dateOfBirth;
+//		this.gender = gender;
+//		this.allergies = allergies;
+//		this.medicalInfo = medicalInfo;
+//		this.emergencyContact = emergencyContact;
+//	}
 
+//	public Parent getParent() {
+//		return parent;
+//	}
+	
 	public Parent getParent() {
 		return parent;
 	}
+
+//	public void setParent(Parent parent) {
+//		this.parent = parent;
+//	}
+
+	public Child(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
+		Long emergencyContact, Parent parent, List<Child> childs) {
+	super();
+	this.childId = childId;
+	this.name = name;
+	this.dateOfBirth = dateOfBirth;
+	this.gender = gender;
+	this.allergies = allergies;
+	this.medicalInfo = medicalInfo;
+	this.emergencyContact = emergencyContact;
+	this.parent = parent;
+//	this.childs = childs;
+}
 
 	public Long getChildId() {
 		return childId;
