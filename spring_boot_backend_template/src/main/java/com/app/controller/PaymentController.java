@@ -7,17 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.DoctorDTO;
-import com.app.service.DoctorService;
+import com.app.dto.PaymentDTO;
+import com.app.service.PaymentService;
 
 @RestController
-@RequestMapping("/doctors")
-public class DoctorController {
+@RequestMapping("/Payment")
+public class PaymentController {
+
 	@Autowired
-	private DoctorService doctorService;
+	private PaymentService _paymentService;
 	
-	@GetMapping("/getAllDoctorDetails")
-	List<DoctorDTO> getAllDoctors(){
-		return doctorService.getAllDoctors();
+	@GetMapping("/getAllPaymentDetails")
+	public List<PaymentDTO> getAllActivities() {
+		return (_paymentService.getAllPayments());
 	}
+	
 }
