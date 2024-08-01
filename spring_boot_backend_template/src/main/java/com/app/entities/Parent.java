@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="parent")
+@Table(name="parents")
 public class Parent extends BaseEntity{
 
 	@Id

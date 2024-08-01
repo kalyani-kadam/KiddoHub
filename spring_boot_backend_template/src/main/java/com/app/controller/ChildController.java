@@ -28,7 +28,7 @@ public class ChildController {
 		return test1;
 	}
 	
-	@GetMapping("/childlist")
+	@GetMapping("/getAllChildDetails")
 	List<Child> getAll(){
 		return childService.getAllChild();
 	}

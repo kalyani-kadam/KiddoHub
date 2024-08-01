@@ -7,17 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.DoctorDTO;
-import com.app.service.DoctorService;
+import com.app.entities.Staff;
+import com.app.service.StaffService;
 
 @RestController
-@RequestMapping("/doctors")
-public class DoctorController {
+@RequestMapping("/staff")
+public class StaffController {
+
 	@Autowired
-	private DoctorService doctorService;
+	private StaffService _staffService;
 	
-	@GetMapping("/getAllDoctorDetails")
-	List<DoctorDTO> getAllDoctors(){
-		return doctorService.getAllDoctors();
+
+	@GetMapping("getAllStaffDetails")
+	public List<Staff> getAllStaff() {
+		
+		return (_staffService.getAllStaff());
 	}
 }

@@ -17,7 +17,7 @@ public class ParentController {
 	@Autowired
 	private ParentService parentService;
 	
-	@GetMapping
+	@GetMapping("/getAllParentDetails")
 	List<ParentDTO> getAllParents(){
 		return parentService.getAllParents();
 	}
