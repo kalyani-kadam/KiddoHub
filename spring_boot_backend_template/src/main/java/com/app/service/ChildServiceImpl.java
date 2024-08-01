@@ -7,12 +7,11 @@ import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.entities.Child;
-import com.app.entities.Parent;
 import com.app.repository.ChildRepository;
 import com.app.repository.ParentRepository;
 
@@ -51,5 +50,12 @@ public class ChildServiceImpl implements ChildService {
 	
 	public List<Child> getAllChild(){
 		return childRepository.findAll();
+	}
+	
+	@Override
+	public ApiResponse addChild(Child child) {
+		Child newchild = modelMapper.map(child, Child.class);
+		childRepository.save(newchild);
+		return new ApiResponse("Addded new Child with ID:"+child.getChildId());		
 	}
 }

@@ -78,5 +78,4 @@ public class ChildDTO extends BaseDTO{
 		super();
 	}	
 	
-	
 }
