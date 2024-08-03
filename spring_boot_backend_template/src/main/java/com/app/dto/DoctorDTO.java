@@ -4,16 +4,17 @@ import javax.persistence.Column;
 
 public class DoctorDTO {
 
-	private Long doctorId;
+//	private Long doctorId;
 	private String name;
 	private String specialization;	
 	private Long PhoneNo;
-	public Long getDoctorId() {
-		return doctorId;
-	}
-	public void setDoctorId(Long doctorId) {
-		this.doctorId = doctorId;
-	}
+	
+//	public Long getDoctorId() {
+//		return doctorId;
+//	}
+//	public void setDoctorId(Long doctorId) {
+//		this.doctorId = doctorId;
+//	}
 	public String getName() {
 		return name;
 	}
@@ -34,7 +35,7 @@ public class DoctorDTO {
 	}
 	@Override
 	public String toString() {
-		return "DoctorDTO [doctorId=" + doctorId + ", name=" + name + ", specialization=" + specialization
+		return "DoctorDTO [name=" + name + ", specialization=" + specialization
 				+ ", PhoneNo=" + PhoneNo + "]";
 	}
 	public DoctorDTO() {
@@ -42,7 +43,7 @@ public class DoctorDTO {
 	}
 	public DoctorDTO(Long doctorId, String name, String specialization, Long phoneNo) {
 		super();
-		this.doctorId = doctorId;
+//		this.doctorId = doctorId;
 		this.name = name;
 		this.specialization = specialization;
 		PhoneNo = phoneNo;

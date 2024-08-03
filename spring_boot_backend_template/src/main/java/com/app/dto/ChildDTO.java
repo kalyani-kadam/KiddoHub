@@ -2,6 +2,7 @@ package com.app.dto;
 
 import java.sql.Date;
 
+import com.app.entities.GenderEnum;
 import com.app.entities.Parent;
 
 public class ChildDTO extends BaseDTO{
@@ -9,11 +10,19 @@ public class ChildDTO extends BaseDTO{
 	private Long childId;
 	private String name;
 	private Date dateOfBirth;
-	private String gender;
+	private GenderEnum gender;
 	private String allergies;
 	private String medicalInfo;
 	private Long emergencyContact;
+	private ParentDTO parentId;
 	
+	
+	public ParentDTO getParentId() {
+		return parentId;
+	}
+	public void setParentId(ParentDTO parentId) {
+		this.parentId = parentId;
+	}
 	public Long getChildId() {
 		return childId;
 	}
@@ -32,10 +41,10 @@ public class ChildDTO extends BaseDTO{
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public String getGender() {
+	public GenderEnum getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(GenderEnum gender) {
 		this.gender = gender;
 	}
 	public String getAllergies() {
@@ -56,17 +65,18 @@ public class ChildDTO extends BaseDTO{
 	public void setEmergencyContact(Long emergencyContact) {
 		this.emergencyContact = emergencyContact;
 	}
+	
 	@Override
 	public String toString() {
-		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
+		return "ChildDTO [name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
 				+  ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
 				+ getUpdatedOn() + "]";
 	}
-	public ChildDTO(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
+	public ChildDTO(String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
 			Long emergencyContact, Parent parentId) {
 		super();
-		this.childId = childId;
+//		this.childId = childId;
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 		this.gender = gender;

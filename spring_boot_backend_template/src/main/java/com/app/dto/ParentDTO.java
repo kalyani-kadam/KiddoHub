@@ -6,8 +6,15 @@ public class ParentDTO extends BaseDTO {
 	private String name;
 	private Long phoneNo;
 	private String emailId;
+	private String address;
 	
-	public Long getParentId() {
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+		public Long getParentId() {
 		return parentId;
 	}
 	public void setParentId(Long parentId) {
@@ -34,9 +41,10 @@ public class ParentDTO extends BaseDTO {
 	@Override
 	public String toString() {
 		return "ParentDTO [parentId=" + parentId + ", name=" + name + ", phoneNo=" + phoneNo + ", emailId=" + emailId
-				+ ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
-				+ getUpdatedOn() + "]";
+				+ ", address=" + address + "]";
 	}
+	
+	
 	
 	
 }

@@ -7,5 +7,4 @@ import com.app.dto.PaymentDTO;
 public interface PaymentService {
 	
 	List<PaymentDTO> getAllPayments();
-
 }

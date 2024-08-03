@@ -6,13 +6,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,8 +30,10 @@ public class Child extends BaseEntity{
 	@Column(name="date_of_birth",nullable = false)
 	private Date dateOfBirth;
 	
-	@Column(name="gender",nullable = false)
-	private String gender;
+//	@Column(name="gender",nullable = false)
+	
+	@Enumerated(EnumType.STRING)
+	private GenderEnum gender;
 	
 	@Column(name="allergies",nullable = false)
 	private String allergies;
@@ -53,31 +55,15 @@ public class Child extends BaseEntity{
 		super();
 	}
 	
-//	public Child(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
-//			Long emergencyContact) {
-//		super();
-//		this.childId = childId;
-//		this.name = name;
-//		this.dateOfBirth = dateOfBirth;
-//		this.gender = gender;
-//		this.allergies = allergies;
-//		this.medicalInfo = medicalInfo;
-//		this.emergencyContact = emergencyContact;
-//	}
-
-//	public Parent getParent() {
-//		return parent;
-//	}
-	
 	public Parent getParent() {
 		return parent;
 	}
 
-//	public void setParent(Parent parent) {
-//		this.parent = parent;
-//	}
+	public void setParent(Parent parent) {
+		this.parent = parent;
+	}
 
-	public Child(Long childId, String name, Date dateOfBirth, String gender, String allergies, String medicalInfo,
+	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
 		Long emergencyContact, Parent parent, List<Child> childs) {
 	super();
 	this.childId = childId;
@@ -115,11 +101,11 @@ public class Child extends BaseEntity{
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getGender() {
+	public GenderEnum getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(GenderEnum gender) {
 		this.gender = gender;
 	}
 

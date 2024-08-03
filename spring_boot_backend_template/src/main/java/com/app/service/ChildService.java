@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.entities.Child;
@@ -13,4 +14,6 @@ public interface ChildService {
 	public List<Child> getAllChild();
 	
 	public ApiResponse addChild(Child child);
+	public ApiResponse deleteChildDetails(Long id);
+	public ApiResponse updateChildDetails(Long id,ChildDTO childdto)throws ResourceNotFoundException;
 }

@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="doctor")
+@Table(name="doctors")
 public class Doctor extends BaseEntity{
 
 	@Id
