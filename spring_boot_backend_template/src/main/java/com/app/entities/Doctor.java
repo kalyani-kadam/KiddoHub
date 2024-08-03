@@ -2,6 +2,7 @@ package com.app.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,9 +26,10 @@ public class Doctor extends BaseEntity{
 	@Column(name="phone_no",nullable = false)
 	private Long PhoneNo;
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="child_id",nullable=false)
-	private Child child;
+//	@ElementCollection
+//	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//	@JoinColumn(name="child_id",nullable=false)
+//	private Child child;
 	
 	public Doctor() {
 		super();
@@ -41,13 +43,13 @@ public class Doctor extends BaseEntity{
 		PhoneNo = phoneNo;
 	}
 	
-	public void setChild(Child child) {
-		this.child = child;
-	}
-
-	public Child getChild() {
-		return child;
-	}
+//	public void setChild(Child child) {
+//		this.child = child;
+//	}
+//
+//	public Child getChild() {
+//		return child;
+//	}
 	
 	public Long getDoctorId() {
 		return doctorId;

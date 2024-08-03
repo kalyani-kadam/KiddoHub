@@ -44,9 +44,9 @@ public class Child extends BaseEntity{
 	@Column(name="emergency_contact",nullable = false)
 	private Long emergencyContact;
 		
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="parent_id",nullable=false)
-	private Parent parent;
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name="parent_id",nullable=false)
+//	private Parent parent;
 	
 //	@OneToMany(mappedBy = "child",cascade=CascadeType.ALL)
 //	private List<Child> childs;
@@ -55,13 +55,13 @@ public class Child extends BaseEntity{
 		super();
 	}
 	
-	public Parent getParent() {
-		return parent;
-	}
-
-	public void setParent(Parent parent) {
-		this.parent = parent;
-	}
+//	public Parent getParent() {
+//		return parent;
+//	}
+//
+//	public void setParent(Parent parent) {
+//		this.parent = parent;
+//	}
 
 	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
 		Long emergencyContact, Parent parent, List<Child> childs) {
@@ -73,7 +73,7 @@ public class Child extends BaseEntity{
 	this.allergies = allergies;
 	this.medicalInfo = medicalInfo;
 	this.emergencyContact = emergencyContact;
-	this.parent = parent;
+//	this.parent = parent;
 //	this.childs = childs;
 }
 
