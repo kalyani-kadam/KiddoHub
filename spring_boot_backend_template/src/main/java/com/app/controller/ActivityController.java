@@ -21,7 +21,7 @@ import com.app.entities.Activity;
 import com.app.service.ActivityService;
 
 @RestController
-@RequestMapping("/Activity")
+@RequestMapping("/activity")
 public class ActivityController {
 	
 	@Autowired

@@ -39,6 +39,7 @@ public class Payment extends BaseEntity{
 	@Column(name="payment_type")
 	private PayType pType;
 
+	
 	public Long gettId() {
 		return tId;
 	}
@@ -46,7 +47,6 @@ public class Payment extends BaseEntity{
 	public void settId(Long tId) {
 		this.tId = tId;
 	}
-
 	
 	public Parent getParentId() {
 		return parentId;
