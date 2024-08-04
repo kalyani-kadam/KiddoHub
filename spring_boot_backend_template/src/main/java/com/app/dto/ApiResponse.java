@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 
 //DTO : resp DTO : to send API resp from rest server --> rest client
 public class ApiResponse {
+	
 	private LocalDateTime timestamp;
 	private String message;
+	
 	public ApiResponse(String message) {
 		super();
 		this.message = message;

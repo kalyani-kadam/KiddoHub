@@ -28,7 +28,6 @@ public class Staff {
 	@NotNull
 	private Posts post;
 	
-	
 	@Column(name="joining_date")
 	private LocalDate joiningDate;
 	
@@ -64,11 +63,11 @@ public class Staff {
 
 
 
-	public Long getStaff_id() {
+	public Long getStaffId() {
 		return staffId;
 	}
 
-	public void setStaff_id(Long staff_id) {
+	public void setStaffId(Long staff_id) {
 		this.staffId = staff_id;
 	}
 

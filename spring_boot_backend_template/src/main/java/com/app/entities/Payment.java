@@ -18,15 +18,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="payments")
-public class Payment {
+public class Payment extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	@Column(name="transaction_id",unique = true)
 	private Long tId;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)
+	//(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="parent_id",nullable=false)
 	private Parent parentId;
 	
