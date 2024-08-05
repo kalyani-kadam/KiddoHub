@@ -82,7 +82,7 @@ public class ChildServiceImpl implements ChildService {
 	public ApiResponse childApprovalByDoctor(Long id, Child child) throws Exception {
 		Child checkchild = childRepository.findById(id).orElseThrow(()->new Exception("Sorry!! Child id not exists!"));
 		checkchild.setChildRegStatusEnum(child.getChildRegStatusEnum());
-		System.out.println("______+++++++++++++++++++++++___________"+child.getChildRegStatusEnum());
+//		System.out.println("______+++++++++++++++++++++++___________"+child.getChildRegStatusEnum());
 //		checkchild.getChildRegStatusEnum().equals(checkchild);
 		if(checkchild.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED)) {
 			regiSteredChild.addChild(checkchild);
