@@ -45,6 +45,10 @@ public class Child extends BaseEntity{
 	@Column(name="emergency_contact",nullable = false)
 	private Long emergencyContact;
 		
+	@Enumerated(EnumType.STRING)
+	@Column(name="childstatusreg")
+	private ChildRegStatusEnum childRegStatusEnum;
+	
 	@ManyToOne(/*cascade = CascadeType.ALL,*/)
 	@JoinColumn(name="parent_id",nullable=false)
 	private Parent parent;
@@ -56,6 +60,20 @@ public class Child extends BaseEntity{
 		super();
 	}
 	
+	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
+			Long emergencyContact, ChildRegStatusEnum childRegStatusEnum, Parent parent) {
+		super();
+		this.childId = childId;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.allergies = allergies;
+		this.medicalInfo = medicalInfo;
+		this.emergencyContact = emergencyContact;
+		this.childRegStatusEnum = childRegStatusEnum.PENDING;
+		this.parent = parent;
+	}
+
 	public Parent getParent() {
 		return parent;
 	}
@@ -64,19 +82,13 @@ public class Child extends BaseEntity{
 		this.parent = parent;
 	}
 
-	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-		Long emergencyContact, Parent parent, List<Child> childs) {
-	super();
-	this.childId = childId;
-	this.name = name;
-	this.dateOfBirth = dateOfBirth;
-	this.gender = gender;
-	this.allergies = allergies;
-	this.medicalInfo = medicalInfo;
-	this.emergencyContact = emergencyContact;
-//	this.parent = parent;
-//	this.childs = childs;
-}
+	public ChildRegStatusEnum getChildRegStatusEnum() {
+		return childRegStatusEnum;
+	}
+
+	public void setChildRegStatusEnum(ChildRegStatusEnum childRegStatusEnum) {
+		this.childRegStatusEnum = childRegStatusEnum;
+	}
 
 	public Long getChildId() {
 		return childId;

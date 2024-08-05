@@ -16,4 +16,5 @@ public interface ChildService {
 	public ApiResponse addChild(Child child);
 	public ApiResponse deleteChildDetails(Long id);
 	public ApiResponse updateChildDetails(Long id,ChildDTO childdto)throws ResourceNotFoundException;
+	public ApiResponse childApprovalByDoctor(Long id,Child child)throws Exception;
 }

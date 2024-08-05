@@ -2,6 +2,7 @@ package com.app.dto;
 
 import java.sql.Date;
 
+import com.app.entities.ChildRegStatusEnum;
 import com.app.entities.GenderEnum;
 import com.app.entities.Parent;
 
@@ -15,8 +16,16 @@ public class ChildDTO extends BaseDTO{
 	private String medicalInfo;
 	private Long emergencyContact;
 	private ParentDTO parentId;
+	private ChildRegStatusEnum childRegStatusEnum;
 	
 	
+	
+	public ChildRegStatusEnum getChildRegStatusEnum() {
+		return childRegStatusEnum;
+	}
+	public void setChildRegStatusEnum(ChildRegStatusEnum childRegStatusEnum) {
+		this.childRegStatusEnum = childRegStatusEnum;
+	}
 	public ParentDTO getParentId() {
 		return parentId;
 	}
@@ -68,21 +77,21 @@ public class ChildDTO extends BaseDTO{
 	
 	@Override
 	public String toString() {
-		return "ChildDTO [name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
+		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
-				+  ", getCreationDate()=" + getCreationDate() + ", getUpdatedOn()="
-				+ getUpdatedOn() + "]";
+				+ ", parentId=" + parentId + ", childRegStatusEnum=" + childRegStatusEnum + "]";
 	}
 	public ChildDTO(String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-			Long emergencyContact, Parent parentId) {
+			Long emergencyContact, ParentDTO parentId, ChildRegStatusEnum childRegStatusEnum) {
 		super();
-//		this.childId = childId;
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 		this.gender = gender;
 		this.allergies = allergies;
 		this.medicalInfo = medicalInfo;
 		this.emergencyContact = emergencyContact;
+		this.parentId = parentId;
+		this.childRegStatusEnum = childRegStatusEnum;
 	}
 	public ChildDTO() {
 		super();

@@ -59,4 +59,9 @@ public class ChildController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, childDTO));
 //				ok(childService.updateChildDetails(id,childDTO));
 	}
+	
+	@PutMapping("/updatestatus/{id}")
+	public ResponseEntity<?> registeredchild(@PathVariable Long id,@RequestBody Child child) throws Exception{
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.childApprovalByDoctor(id, child));
+	}
 }

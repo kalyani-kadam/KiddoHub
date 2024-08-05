@@ -2,14 +2,23 @@ package com.app.dto;
 
 import javax.persistence.Column;
 
+import com.app.entities.ChildRegStatusEnum;
+
 public class DoctorDTO {
 
 //	private Long doctorId;
 	private String name;
 	private String specialization;	
 	private Long PhoneNo;
+	private ChildRegStatusEnum childRegStatusEnum;
 	
-//	public Long getDoctorId() {
+public ChildRegStatusEnum getChildRegStatusEnum() {
+		return childRegStatusEnum;
+	}
+	public void setChildRegStatusEnum(ChildRegStatusEnum childRegStatusEnum) {
+		this.childRegStatusEnum = childRegStatusEnum;
+	}
+	//	public Long getDoctorId() {
 //		return doctorId;
 //	}
 //	public void setDoctorId(Long doctorId) {
@@ -41,13 +50,14 @@ public class DoctorDTO {
 	public DoctorDTO() {
 		super();
 	}
-	public DoctorDTO(Long doctorId, String name, String specialization, Long phoneNo) {
+	public DoctorDTO(String name, String specialization, Long phoneNo, ChildRegStatusEnum childRegStatusEnum) {
 		super();
-//		this.doctorId = doctorId;
 		this.name = name;
 		this.specialization = specialization;
 		PhoneNo = phoneNo;
+		this.childRegStatusEnum = childRegStatusEnum;
 	}
+	
 	
 	
 }

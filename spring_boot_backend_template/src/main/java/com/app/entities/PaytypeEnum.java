@@ -1,6 +1,6 @@
 package com.app.entities;
 
-public enum PayType {
+public enum PaytypeEnum {
 
 	ONLINE,CASH;
 }

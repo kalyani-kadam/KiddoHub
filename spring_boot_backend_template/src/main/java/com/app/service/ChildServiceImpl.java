@@ -13,7 +13,9 @@ import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.entities.Child;
+import com.app.entities.ChildRegStatusEnum;
 import com.app.repository.ChildRepository;
+import com.app.repository.DoctorRepository;
 import com.app.repository.ParentRepository;
 
 @Transactional
@@ -29,6 +31,12 @@ public class ChildServiceImpl implements ChildService {
 	@Autowired 
 	private ModelMapper modelMapper;
 	
+	@Autowired 
+	private DoctorRepository doctorRepository;
+	
+	@Autowired
+	private RegiSteredChild regiSteredChild;
+	
 	@Override
 	public List<ChildDTO> getAllChilds(){
 		return childRepository.findAll()
@@ -43,10 +51,6 @@ public class ChildServiceImpl implements ChildService {
 	
 	@Override
 	public ApiResponse addChild(Child child) {
-//		Child child = new Child();
-//		modelMapper.map(childDTO, child);		
-//		Parent checkparent = parentRepository.findById(childDTO.getParentId());
-//		child.setParent(checkparent);
 		Child newchild = modelMapper.map(child, Child.class);
 		childRepository.save(newchild);
 		return new ApiResponse("Addded new Child with ID:"+newchild.getChildId());	
@@ -72,5 +76,18 @@ public class ChildServiceImpl implements ChildService {
 		existingchild.setName(childdto.getName());
 		existingchild.setMedicalInfo(childdto.getMedicalInfo());		
 		return new ApiResponse("Child details updated successfully!");
+	}
+
+	@Override
+	public ApiResponse childApprovalByDoctor(Long id, Child child) throws Exception {
+		Child checkchild = childRepository.findById(id).orElseThrow(()->new Exception("Sorry!! Child id not exists!"));
+		checkchild.setChildRegStatusEnum(child.getChildRegStatusEnum());
+		System.out.println("______+++++++++++++++++++++++___________"+child.getChildRegStatusEnum());
+//		checkchild.getChildRegStatusEnum().equals(checkchild);
+		if(checkchild.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED)) {
+			regiSteredChild.addChild(checkchild);
+			return new ApiResponse("Child regestration Successful!!");
+		}
+		return new ApiResponse("Child registration rejected!!");
 	}
 }

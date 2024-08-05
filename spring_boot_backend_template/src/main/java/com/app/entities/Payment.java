@@ -37,7 +37,7 @@ public class Payment extends BaseEntity{
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="payment_type")
-	private PayType pType;
+	private PaytypeEnum pType;
 
 	
 	public Long gettId() {
@@ -72,11 +72,11 @@ public class Payment extends BaseEntity{
 		this.amount = amount;
 	}
 
-	public PayType getpType() {
+	public PaytypeEnum getpType() {
 		return pType;
 	}
 
-	public void setpType(PayType pType) {
+	public void setpType(PaytypeEnum pType) {
 		this.pType = pType;
 	}
 
@@ -85,7 +85,7 @@ public class Payment extends BaseEntity{
 		return "Payment [tId=" + tId + ", date=" + date + ", amount=" + amount + ", pType=" + pType + "]";
 	}
 
-	public Payment(Long tId, Parent parentId, LocalDate date, @NotNull int amount, PayType pType) {
+	public Payment(Long tId, Parent parentId, LocalDate date, @NotNull int amount, PaytypeEnum pType) {
 		super();
 		this.tId = tId;
 		this.parentId = parentId;
