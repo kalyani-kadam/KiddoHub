@@ -1,6 +1,6 @@
 package com.app.dto;
 
-public class PaymentDTO {
+public class PaymentDTO extends BaseDTO {
 	
 //	private Long tId;
 	private int amount;

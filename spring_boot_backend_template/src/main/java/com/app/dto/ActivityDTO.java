@@ -1,19 +1,17 @@
 package com.app.dto;
 
+import java.time.LocalDate;
+
 import com.app.entities.Staff;
 
 public class ActivityDTO {
 	
-	//private Staff staff_id;
-	
-	private String name;
-	
-	private String description;
-	
+	private Staff staffId;	
+	private String name;	
+	private String description;	
 	private int no_childs;
-
 	private String ageGroup;
-	
+	private LocalDate schedule;
 	
 
 	public ActivityDTO() {
@@ -21,17 +19,25 @@ public class ActivityDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-
-	public ActivityDTO(Staff staff_id, String name, String description, int no_childs, String ageGroup) {
+	public ActivityDTO(Staff staff_id, String name, String description, int no_childs, String ageGroup,
+			LocalDate schedule) {
 		super();
-		//this.staff_id = staff_id;
+		this.staffId = staff_id;
 		this.name = name;
 		this.description = description;
 		this.no_childs = no_childs;
 		this.ageGroup = ageGroup;
+		this.schedule = schedule;
 	}
 
+
+	public Staff getStaffId() {
+		return staffId;
+	}
+
+	public void setStaffId(Staff staff_id) {
+		this.staffId = staff_id;
+	}
 
 	public String getName() {
 		return name;
@@ -66,6 +72,13 @@ public class ActivityDTO {
 	}
 
 
+	public LocalDate getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(LocalDate schedule) {
+		this.schedule = schedule;
+	}
 
 	@Override
 	public String toString() {

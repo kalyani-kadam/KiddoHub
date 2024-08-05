@@ -18,15 +18,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="payments")
-public class Payment {
+public class Payment extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	@Column(name="transaction_id",unique = true)
 	private Long tId;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)
+	//(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="parent_id",nullable=false)
 	private Parent parentId;
 	
@@ -39,6 +39,7 @@ public class Payment {
 	@Column(name="payment_type")
 	private PayType pType;
 
+	
 	public Long gettId() {
 		return tId;
 	}
@@ -46,7 +47,6 @@ public class Payment {
 	public void settId(Long tId) {
 		this.tId = tId;
 	}
-
 	
 	public Parent getParentId() {
 		return parentId;
@@ -83,6 +83,19 @@ public class Payment {
 	@Override
 	public String toString() {
 		return "Payment [tId=" + tId + ", date=" + date + ", amount=" + amount + ", pType=" + pType + "]";
+	}
+
+	public Payment(Long tId, Parent parentId, LocalDate date, @NotNull int amount, PayType pType) {
+		super();
+		this.tId = tId;
+		this.parentId = parentId;
+		this.date = date;
+		this.amount = amount;
+		this.pType = pType;
+	}
+
+	public Payment() {
+		super();
 	}
 	
 	

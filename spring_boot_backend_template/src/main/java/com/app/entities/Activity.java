@@ -23,8 +23,9 @@ public class Activity {
 	@Column( name = "activity_id", unique = true)
 	private Long activityId;
 	
-	//(fetch = FetchType.LAZY)
-	@OneToOne(cascade = CascadeType.ALL)
+	//(fetch = FetchType.LAZY) 
+	//(cascade = CascadeType.ALL) err : java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails
+	@OneToOne
 	@JoinColumn(name="staff_id",nullable=false)
 	private Staff staffId;
 	
