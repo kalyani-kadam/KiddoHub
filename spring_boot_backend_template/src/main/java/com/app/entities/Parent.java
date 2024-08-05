@@ -27,7 +27,7 @@ public class Parent extends BaseEntity{
 	@Column(name="address",nullable = false)
 	private String address;
 	
-	@Column(name="phone_no",nullable = false)
+	@Column(name="phoneNo",nullable = false)
 	private Long phoneNo;
 	
 	@Column(name="email_id",nullable = false)

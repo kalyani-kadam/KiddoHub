@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.app.dto.ParentDTO;
 import com.app.entities.Parent;
 import com.app.service.ParentService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/parents")
 public class ParentController {
@@ -27,9 +29,12 @@ public class ParentController {
 	@Autowired
 	private ParentService parentService;
 	
-	@GetMapping("/getAllParentDetails")
+	@GetMapping
 	List<ParentDTO> getAllParents(){
-		return parentService.getAllParents();
+		List<ParentDTO> test =parentService.getAllParents();
+		System.out.println(test);
+		//return parentService.getAllParents();
+		return test;
 	}
 	
 	@PostMapping("/add")

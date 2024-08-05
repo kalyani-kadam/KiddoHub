@@ -22,7 +22,7 @@ public class ParentChildEntity extends BaseEntity{
 	private Child child;
 	
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name="parent_id",nullable=false)
+	@JoinColumn(name="parent_id",nullable=false)//,insertable = false)
 	private Parent parent;
 
 	public Child getChild() {
