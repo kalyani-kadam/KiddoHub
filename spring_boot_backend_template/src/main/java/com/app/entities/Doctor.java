@@ -27,9 +27,9 @@ public class Doctor extends BaseEntity{
 	private Long PhoneNo;
 	
 //	@ElementCollection
-//	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//	@JoinColumn(name="child_id",nullable=false)
-//	private Child child;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="child_id",nullable=false)
+	private Child child;
 	
 	public Doctor() {
 		super();
