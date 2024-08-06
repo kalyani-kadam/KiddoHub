@@ -18,6 +18,8 @@ import com.app.repository.ChildRepository;
 import com.app.repository.DoctorRepository;
 import com.app.repository.ParentRepository;
 
+
+
 @Transactional
 @Service
 public class ChildServiceImpl implements ChildService {
@@ -35,7 +37,7 @@ public class ChildServiceImpl implements ChildService {
 	private DoctorRepository doctorRepository;
 	
 	@Autowired
-	private RegiSteredChild regiSteredChild;
+	private RegisteredChildService registeredChildService;
 	
 	@Override
 	public List<ChildDTO> getAllChilds(){
@@ -85,7 +87,7 @@ public class ChildServiceImpl implements ChildService {
 //		System.out.println("______+++++++++++++++++++++++___________"+child.getChildRegStatusEnum());
 //		checkchild.getChildRegStatusEnum().equals(checkchild);
 		if(checkchild.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED)) {
-			regiSteredChild.addChild(checkchild);
+			registeredChildService.addChild(checkchild);
 			return new ApiResponse("Child regestration Successful!!");
 		}
 		return new ApiResponse("Child registration rejected!!");

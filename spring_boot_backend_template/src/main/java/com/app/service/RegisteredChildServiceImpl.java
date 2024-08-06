@@ -4,17 +4,18 @@ import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.entities.Child;
 import com.app.entities.RegisteredChild;
-import com.app.repository.RegiSteredChildRepository;
+import com.app.repository.RegisteredChildRepository;
 
-//@Service
+@Service
 @Transactional
-public class RegiSteredChildImpl implements RegiSteredChild {
+public class RegisteredChildServiceImpl implements RegisteredChildService {
 	
 	@Autowired
-	private RegiSteredChildRepository regiSteredChildRepository;
+	private RegisteredChildRepository registeredChildRepository;
 
 	@Autowired
 	private ModelMapper modelMapper;
@@ -23,7 +24,7 @@ public class RegiSteredChildImpl implements RegiSteredChild {
 	public boolean addChild(Child child) {
 		RegisteredChild newchild = modelMapper.map(child, RegisteredChild.class);
 		newchild.setChild(child);
-		regiSteredChildRepository.save(newchild);
+		registeredChildRepository.save(newchild);
 		return true;	
 	}
 }
