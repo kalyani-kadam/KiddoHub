@@ -22,22 +22,23 @@ public class RegisteredChild {
 	private Child child;
 	
 	
+
+	public RegisteredChild() {
+		super();
+	}
+	
+	public RegisteredChild(Child child) {
+		super();
+		this.child = child;
+	}
+
 	public RegisteredChild(Long regChildId, Child child) {
 		super();
 		this.regChildId = regChildId;
 		this.child = child;
 	}
 
-	public RegisteredChild(Child child) {
-		super();
-		this.child = child;
-	}
 
-
-
-	public RegisteredChild() {
-		super();
-	}
 
 	public Long getRegChildId() {
 		return regChildId;
