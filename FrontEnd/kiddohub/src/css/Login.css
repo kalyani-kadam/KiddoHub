@@ -1,0 +1,16 @@
+.social .go, .social .fb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    padding: 10px 0;
+  }
+  
+  .social .go {
+    background-color: #db4437; /* Google button color */
+  }
+  
+  .social .fb {
+    background-color: #3b5998; /* Facebook button color */
+  }
+  
