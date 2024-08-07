@@ -1,5 +1,7 @@
 package com.app.dto;
 
+import javax.persistence.Column;
+
 public class ParentDTO extends BaseDTO {
 
 	private Long parentId;
@@ -7,7 +9,15 @@ public class ParentDTO extends BaseDTO {
 	private Long phoneNo;
 	private String emailId;
 	private String address;
+	private String password;
 	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getAddress() {
 		return address;
 	}

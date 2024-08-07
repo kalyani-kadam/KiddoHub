@@ -44,23 +44,40 @@ const Login = () => {
                             />
                         </Form.Group>
                         <br />
+                        {/* <div className="d-flex justify-content-center">
+                            <Button variant="primary" type="submit">
+                                Login
+                            </Button>
+                        </div> */}
+                        <div className="d-flex justify-content-center">
                         <Button as="a" variant="primary" type="submit" className="w-100">
                             Login
                         </Button>
+                        </div> 
+                        <br/>
+                        <p>Don't have an account  <a href="./signup">register</a></p>
+                        
+                        {/* <br /> */}
+                        {/* <br />
+                        <div className="d-flex justify-content-center">
+                        <Button as="a" variant="primary" type="submit" className="w-100">
+                            Login
+                        </Button>
+                        </div> */}
                         {/* <Row className="justify-content-center">
                             <Col md="auto">
                                 <Button variant="primary">Login</Button>
                             </Col>
                         </Row> */}
                     </Form>
-                    <div className="social mt-3">
+                    {/* <div className="social mt-3">
                         <div className="go btn btn-danger w-100 mb-2">
                             <FontAwesomeIcon icon={faGoogle} /> Google
                         </div>
                         <div className="fb btn btn-primary w-100">
                             <FontAwesomeIcon icon={faFacebook} /> Facebook
                         </div>
-                    </div>
+                    </div> */}
                 </Col>
             </Row>
         </Container >

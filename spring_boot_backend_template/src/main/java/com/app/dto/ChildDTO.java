@@ -17,9 +17,14 @@ public class ChildDTO extends BaseDTO{
 	private Long emergencyContact;
 	private ParentDTO parentId;
 	private ChildRegStatusEnum childRegStatusEnum;
+	private String password;
 	
-	
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public ChildRegStatusEnum getChildRegStatusEnum() {
 		return childRegStatusEnum;
 	}

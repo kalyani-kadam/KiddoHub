@@ -45,6 +45,9 @@ public class Child extends BaseEntity{
 	@Column(name="emergency_contact",nullable = false)
 	private Long emergencyContact;
 		
+	@Column(name="password",nullable=false)
+	private String password;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(name="childstatusreg")
 	private ChildRegStatusEnum childRegStatusEnum;
@@ -60,19 +63,36 @@ public class Child extends BaseEntity{
 		super();
 	}
 	
-	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-			Long emergencyContact, ChildRegStatusEnum childRegStatusEnum, Parent parent) {
-		super();
-		this.childId = childId;
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.allergies = allergies;
-		this.medicalInfo = medicalInfo;
-		this.emergencyContact = emergencyContact;
-		this.childRegStatusEnum = childRegStatusEnum.PENDING;
-		this.parent = parent;
+	
+
+	public String getPassword() {
+		return password;
 	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
+		Long emergencyContact, String password, ChildRegStatusEnum childRegStatusEnum, Parent parent) {
+	super();
+	this.childId = childId;
+	this.name = name;
+	this.dateOfBirth = dateOfBirth;
+	this.gender = gender;
+	this.allergies = allergies;
+	this.medicalInfo = medicalInfo;
+	this.emergencyContact = emergencyContact;
+	this.password = password;
+	this.childRegStatusEnum = childRegStatusEnum;
+	this.parent = parent;
+}
+
+
 
 	public Parent getParent() {
 		return parent;
