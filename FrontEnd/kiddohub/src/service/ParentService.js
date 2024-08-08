@@ -8,11 +8,10 @@ var baseUrl= "http://localhost:8080/parents"
 class ParentService{
     getAllParents(){
         return axios.get(baseUrl);
-
     }
 
-    deleteparent(parent_id){
-        return axios.delete(baseUrl+"/"+parent_id)
+    deleteparent(parentId){
+        return axios.delete(baseUrl+"/"+"delete/"+parentId)
     }
 
     addparent(parent){

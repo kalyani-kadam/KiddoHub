@@ -103,7 +103,11 @@ export default function HomeComponent() {
       <br />
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div class="carousel-item active">
+        {/* <div class="container"> */}
+            <img class="img-fluid" src="https://images.unsplash.com/photo-1533234427049-9e9bb093186d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="First slide"></img>
+          </div>
+          {/* <div class="carousel-item active">
             <img class="d-block w-100" src="https://img.freepik.com/free-photo/teacher-helping-kid-paint_23-2148673170.jpg?size=626&ext=jpg" alt="First slide"></img>
           </div>
           <div class="carousel-item">
@@ -111,7 +115,7 @@ export default function HomeComponent() {
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src="https://img.freepik.com/premium-photo/top-view-kindergarten-children-during-art-lesson_290431-26297.jpg?size=626&ext=jpg" alt="Third slide"></img>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -1,8 +1,8 @@
-// import React from "react";
-// import { useState } from "react";
-// import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-// import ParentService from "../service/ParentService";
+import ParentService from "../service/ParentService";
 
 // function ParentRegistration() {
 
@@ -151,54 +151,54 @@
 // } export default ParentRegistration;
 
 
-import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import ParentService from '../service/ParentService';
+// import React, { useState } from 'react';
+// import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+// import { useNavigate } from 'react-router-dom';
+// import ParentService from '../service/ParentService';
 
-const ParentRegistration = () => {
-    //   const [name, setName] = useState('');
-    //   const [address, setAddress] = useState('');
-    //   const [phoneNo, setPhoneNo] = useState('');
-    //   const [emailId, setEmailId] = useState('');
-    //   const [password, setPassword] = useState('');
+// const ParentRegistration = () => {
+//     //   const [name, setName] = useState('');
+//     //   const [address, setAddress] = useState('');
+//     //   const [phoneNo, setPhoneNo] = useState('');
+//     //   const [emailId, setEmailId] = useState('');
+//     //   const [password, setPassword] = useState('');
 
-    //   const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     // Handle registration logic here
-    //     console.log('Name:', name);
-    //     console.log('Address:', address);
-    //     console.log('Phone No:', phoneNo);
-    //     console.log('Email ID:', emailId);
-    //     console.log('Password:', password);
-    //   };
-    const [formdetails, setformdetails] = useState({ parentId:"",address: "", emailId: "", name: "", phoneNo: "", password: "" })
-    var navigate = useNavigate();
+//     //   const handleSubmit = (e) => {
+//     //     e.preventDefault();
+//     //     // Handle registration logic here
+//     //     console.log('Name:', name);
+//     //     console.log('Address:', address);
+//     //     console.log('Phone No:', phoneNo);
+//     //     console.log('Email ID:', emailId);
+//     //     console.log('Password:', password);
+//     //   };
+//     const [formdetails, setformdetails] = useState({ parentId:"",address: "", emailId: "", name: "", phoneNo: "", password: "" })
+//     var navigate = useNavigate();
 
-    const handlechange = (event) => {
-        var name = event.target.name;
-        setformdetails({ ...formdetails, [name]: event.target.value })
-    }
+//     const handlechange = (event) => {
+//         var name = event.target.name;
+//         setformdetails({ ...formdetails, [name]: event.target.value })
+//     }
 
-    const addparent = () => {
-        console.log("in addparent");
-        ParentService.addparent(formdetails)
-            .then((result) => {
-                console.log(result);
-                setformdetails({parentId:"", address: "", emailId: "", name: "", phoneNo: "", password: "" })
-                navigate("/login")
-            })
-            .catch((error) => {
-                console.log("something went wrong" + error.response);
-            });
-    }
+//     const addparent = () => {
+//         console.log("in addparent");
+//         ParentService.addparent(formdetails)
+//             .then((result) => {
+//                 console.log(result);
+//                 setformdetails({parentId:"", address: "", emailId: "", name: "", phoneNo: "", password: "" })
+//                 navigate("/login")
+//             })
+//             .catch((error) => {
+//                 console.log("something went wrong" + error.response);
+//             });
+//     }
 
-    return (
-        <Container>
-            <Row className="justify-content-md-center mt-5">
-                <Col md={6}>
-                    <h2>Parent Registration</h2>
-                    <form>
+//     return (
+//         <Container>
+//             <Row className="justify-content-md-center mt-5">
+//                 <Col md={6}>
+//                     <h2>Parent Registration</h2>
+//                     <form>
                         {/* <Form.Group controlId="formName">
                             <Form.Label>Name</Form.Label>
                             <Form.Control
@@ -209,7 +209,7 @@ const ParentRegistration = () => {
                                 required
                             />
                         </Form.Group> */}
-                        Id:
+                        {/* Id:
                         <input type="text" name="parentId" id="parentId" placeholder="Enter your name" value={formdetails.parentId}
                             onChange={handlechange}></input><br />
                         Name:
@@ -226,7 +226,9 @@ const ParentRegistration = () => {
                             onChange={handlechange}></input><br />
                         Password:
                         <input type="password" name="password" id="password" placeholder="Enter your password" value={formdetails.parent_id}
-                            onChange={handlechange}></input><br />
+                            onChange={handlechange}></input><br /> */}
+
+
                         {/* <Form.Group controlId="formAddress">
                             <Form.Label>Address</Form.Label>
                             <Form.Control
@@ -270,19 +272,179 @@ const ParentRegistration = () => {
                                 required
                             />
                         </Form.Group> */}
-                        <br />
-                        <div className="d-flex justify-content-center">
-                            <Button variant="primary" type="submit" onClick={addparent}>
-                                SignUp
-                            </Button>
-                        </div>
-                        <br />
-                    </form>
-                </Col>
-            </Row>
-        </Container>
-    );
-};
+//                         <br />
+//                         <div className="d-flex justify-content-center">
+//                             <Button variant="primary" type="submit" onClick={addparent}>
+//                                 SignUp
+//                             </Button>
+//                         </div>
+//                         <br />
+//                     </form>
+//                 </Col>
+//             </Row>
+//         </Container>
+//     );
+// };
+
+// export default ParentRegistration;
+
+
+const ParentRegistration = () => {
+
+    // const [name, setName] = useState('')
+    // const [username, setUsername] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
+
+
+    // function handleRegistrationForm(e){
+
+    //     e.preventDefault();
+
+    //     const register = {name, username, email, password}
+
+    //     console.log(register);
+    // }
+
+    const [formdetails, setformdetails] = useState({ parentId:"",address: "", emailId: "", name: "", phoneNo: "", password: "" })
+    var navigate = useNavigate();
+
+    const handlechange = (event) => {
+        var name = event.target.name;
+        setformdetails({ ...formdetails, [name]: event.target.value })
+    }
+
+    const addparent = () => {
+        if(formdetails.parentId==="" || formdetails.name==="" || formdetails.address==="" || formdetails.phoneNo==="" || formdetails.emailId==="" || formdetails.password===""){
+            alert("Please fill all details")
+            return;
+        }
+        console.log("in addparent");
+        ParentService.addparent(formdetails)
+            .then((result) => {
+                console.log(result);
+                setformdetails({parentId:"", address: "", emailId: "", name: "", phoneNo: "", password: "" })
+                navigate("/login")
+            })
+            .catch((error) => {
+                console.log("something went wrong" + error.response);
+            });
+    }
+  return (
+    <div className='container'>
+        <br /> <br />
+        <div className='row'>
+            <div className='col-md-6 offset-md-3'>
+                <div className='card'>
+                    <div className='card-header'>
+                        <h2 className='text-center'> Parent Registration Form </h2>
+                    </div>
+                    <div className='card-body'>
+                        <form>
+                        <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Id </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='parentId'
+                                        className='form-control'
+                                        placeholder='Enter name'
+                                        value={formdetails.parentId}
+                                        onChange={handlechange}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Name </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='name'
+                                        className='form-control'
+                                        placeholder='Enter name'
+                                        value={formdetails.name}
+                                        onChange={handlechange}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> PhoneNo </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='phoneNo'
+                                        className='form-control'
+                                        placeholder='Enter phoneNo'
+                                        value={formdetails.phoneNo}
+                                        onChange={handlechange}
+                                        // value={username}
+                                        // onChange={ (e) => setUsername(e.target.value)}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Address </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='address'
+                                        className='form-control'
+                                        placeholder='Enter address'
+                                        value={formdetails.address}
+                                        onChange={handlechange}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Email Id</label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='emailId'
+                                        className='form-control'
+                                        placeholder='Enter email address'
+                                        value={formdetails.emailId}
+                                        onChange={handlechange}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Password </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='password'
+                                        name='password'
+                                        className='form-control'
+                                        placeholder='Enter password'
+                                        value={formdetails.password}
+                                        onChange={handlechange}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+
+                            <div className='form-group mb-3'>
+                                <button type="button" className='btn btn-primary' onClick={ (e) => addparent(e)}>Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+  )
+}
 
 export default ParentRegistration;
 

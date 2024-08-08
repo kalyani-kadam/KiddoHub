@@ -17,6 +17,7 @@ const Login = () => {
     };
 
     return (
+        <div style={{ paddingTop: '160px', background: '#313842'}}>
         <Container>
             <Row className="justify-content-md-center mt-5">
                 <Col md={6}>
@@ -81,6 +82,7 @@ const Login = () => {
                 </Col>
             </Row>
         </Container >
+        </div>
     );
 };
 

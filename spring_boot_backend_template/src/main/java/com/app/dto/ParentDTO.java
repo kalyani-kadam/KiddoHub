@@ -11,7 +11,18 @@ public class ParentDTO extends BaseDTO {
 	private String address;
 	private String password;
 	
-	
+	public ParentDTO() {
+		super();
+	}
+	public ParentDTO(Long parentId, String name, Long phoneNo, String emailId, String address, String password) {
+		super();
+		this.parentId = parentId;
+		this.name = name;
+		this.phoneNo = phoneNo;
+		this.emailId = emailId;
+		this.address = address;
+		this.password = password;
+	}
 	public String getPassword() {
 		return password;
 	}
@@ -53,6 +64,8 @@ public class ParentDTO extends BaseDTO {
 		return "ParentDTO [parentId=" + parentId + ", name=" + name + ", phoneNo=" + phoneNo + ", emailId=" + emailId
 				+ ", address=" + address + "]";
 	}
+	
+	
 	
 	
 	
