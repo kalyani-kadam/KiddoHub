@@ -14,12 +14,17 @@ public class ChildDTO extends BaseDTO{
 	private GenderEnum gender;
 	private String allergies;
 	private String medicalInfo;
-	private Long emergencyContact;
+	private String emergencyContact;
 	private ParentDTO parentId;
 	private ChildRegStatusEnum childRegStatusEnum;
+	private String password;
 	
-	
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public ChildRegStatusEnum getChildRegStatusEnum() {
 		return childRegStatusEnum;
 	}
@@ -68,10 +73,10 @@ public class ChildDTO extends BaseDTO{
 	public void setMedicalInfo(String medicalInfo) {
 		this.medicalInfo = medicalInfo;
 	}
-	public Long getEmergencyContact() {
+	public String getEmergencyContact() {
 		return emergencyContact;
 	}
-	public void setEmergencyContact(Long emergencyContact) {
+	public void setEmergencyContact(String emergencyContact) {
 		this.emergencyContact = emergencyContact;
 	}
 	
@@ -82,7 +87,7 @@ public class ChildDTO extends BaseDTO{
 				+ ", parentId=" + parentId + ", childRegStatusEnum=" + childRegStatusEnum + "]";
 	}
 	public ChildDTO(String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-			Long emergencyContact, ParentDTO parentId, ChildRegStatusEnum childRegStatusEnum) {
+			String emergencyContact, ParentDTO parentId, ChildRegStatusEnum childRegStatusEnum) {
 		super();
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;

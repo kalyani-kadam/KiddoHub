@@ -14,6 +14,7 @@ import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.entities.Child;
 import com.app.entities.ChildRegStatusEnum;
+import com.app.entities.GenderEnum;
 import com.app.repository.ChildRepository;
 import com.app.repository.DoctorRepository;
 import com.app.repository.ParentRepository;
@@ -53,6 +54,8 @@ public class ChildServiceImpl implements ChildService {
 	
 	@Override
 	public ApiResponse addChild(Child child) {
+//		child.gen
+//		GenderEnum gender = GenderEnum.valueOf(child.getGender());
 		Child newchild = modelMapper.map(child, Child.class);
 		childRepository.save(newchild);
 		return new ApiResponse("Addded new Child with ID:"+newchild.getChildId());	

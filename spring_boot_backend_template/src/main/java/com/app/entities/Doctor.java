@@ -22,7 +22,10 @@ public class Doctor extends BaseEntity{
 	@Column(nullable = false)
 	private String specialization;	
 	@Column(name="phone_no",nullable = false)
-	private Long PhoneNo;
+	private Long phoneNo;
+	
+	@Column(name="password",nullable=false)
+	private String password;
 	
 //	@ElementCollection
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -33,14 +36,16 @@ public class Doctor extends BaseEntity{
 		super();
 	}
 	
-	public Doctor(Long doctorId, String name, String specialization, Long phoneNo) {
+	public Doctor(Long doctorId, String name, String specialization, Long phoneNo, String password, Child child) {
 		super();
 		this.doctorId = doctorId;
 		this.name = name;
 		this.specialization = specialization;
-		PhoneNo = phoneNo;
+		this.phoneNo = phoneNo;
+		this.password = password;
+		this.child = child;
 	}
-	
+
 	public void setChild(Child child) {
 		this.child = child;
 	}
@@ -68,15 +73,15 @@ public class Doctor extends BaseEntity{
 		this.specialization = specialization;
 	}
 	public Long getPhoneNo() {
-		return PhoneNo;
+		return phoneNo;
 	}
 	public void setPhoneNo(Long phoneNo) {
-		PhoneNo = phoneNo;
+		phoneNo = phoneNo;
 	}
 	@Override
 	public String toString() {
 		return "Doctor [doctorId=" + doctorId + ", name=" + name + ", specialization=" + specialization + ", PhoneNo="
-				+ PhoneNo + "]";
+				+ phoneNo + "]";
 	}
 	
 }

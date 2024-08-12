@@ -16,6 +16,8 @@ import com.app.entities.Child;
 import com.app.entities.Parent;
 import com.app.repository.ParentRepository;
 
+import net.bytebuddy.asm.Advice.Return;
+
 @Service
 @Transactional
 public class ParentServiceImpl implements ParentService {
@@ -56,6 +58,11 @@ public class ParentServiceImpl implements ParentService {
 		existingParent.setPhoneNo(parentdto.getPhoneNo());
 		
 		return new ApiResponse("Parents details updated successfully");
+	}
+	@Override
+	public ApiResponse login(String emailId, String password) throws ResourceNotFoundException {
+		parentRepository.findByEmailIdAndPassword(emailId, password);
+		return new ApiResponse("Parent found");
 	}
 
 }

@@ -13,26 +13,29 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="parents")
-public class Parent extends BaseEntity{
+@Table(name = "parents")
+public class Parent extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="parent_id")
+	@Column(name = "parent_id")
 	private Long parentId;
-	
-	@Column(name="name",nullable = false)
+
+	@Column(name = "name", nullable = false)
 	private String name;
-	
-	@Column(name="address",nullable = false)
+
+	@Column(name = "address", nullable = false)
 	private String address;
-	
-	@Column(name="phoneNo",nullable = false)
+
+	@Column(name = "phoneNo", nullable = false)
 	private Long phoneNo;
-	
-	@Column(name="email_id",nullable = false)
-	private String emailId;	
-	
+
+	@Column(name = "email_id", nullable = false)
+	private String emailId;
+
+	@Column(name = "password", nullable = false)
+	private String password;
+
 //	@OneToMany(mappedBy = "parent",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 //	private List<Child> childs;
 
@@ -40,13 +43,14 @@ public class Parent extends BaseEntity{
 		super();
 	}
 
-	public Parent(Long parentId, String name, String address, Long phoneNo, String emailId) {
+	public Parent(Long parentId, String name, String address, Long phoneNo, String emailId, String password) {
 		super();
 		this.parentId = parentId;
 		this.name = name;
 		this.address = address;
 		this.phoneNo = phoneNo;
 		this.emailId = emailId;
+		this.password = password;
 	}
 
 	public Long getParentId() {
@@ -96,10 +100,18 @@ public class Parent extends BaseEntity{
 		this.emailId = emailId;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "Parent [parentId=" + parentId + ", name=" + name + ", address=" + address + ", phoneNo=" + phoneNo
 				+ ", emailId=" + emailId + "]";
 	}
-	
+
 }
