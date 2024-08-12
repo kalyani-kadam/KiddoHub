@@ -39,7 +39,7 @@ public class ParentController {
 	}
 	@CrossOrigin("*")
 	@PostMapping("/add")
-	public ResponseEntity<?> addParent(ParentDTO parentDTO){
+	public ResponseEntity<?> addParent(@RequestBody ParentDTO parentDTO){
 		return ResponseEntity.status(HttpStatus.CREATED).body(parentService.addParent(parentDTO));
 	}
 	
@@ -52,5 +52,11 @@ public class ParentController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteParentDetails(@PathVariable Long id){
 		return ResponseEntity.ok(parentService.deleteParentDetails(id));
+	}
+	
+	@CrossOrigin("*")
+	@PostMapping("/login")
+	public ResponseEntity<?> login(@RequestBody String emailId,@RequestBody String password) throws ResourceNotFoundException{
+		return ResponseEntity.status(HttpStatus.OK).body(parentService.login(emailId, password));
 	}
 }

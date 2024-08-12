@@ -20,7 +20,7 @@ const Header = () => {
                         </li>
                     </ul>
 
-                </div> */}
+                </div> */}2
                     <ul className='navbar-nav'>
                         <li className='nav-item'>
                             <NavLink to="/signup" className="nav-link">Register</NavLink>

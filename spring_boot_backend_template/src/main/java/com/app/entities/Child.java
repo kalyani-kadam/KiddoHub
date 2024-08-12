@@ -43,8 +43,11 @@ public class Child extends BaseEntity{
 	private String medicalInfo;
 	
 	@Column(name="emergency_contact",nullable = false)
-	private Long emergencyContact;
+	private String emergencyContact;
 		
+	@Column(name = "email_id", nullable = false)
+	private String emailId;
+	
 	@Column(name="password",nullable=false)
 	private String password;
 	
@@ -63,36 +66,30 @@ public class Child extends BaseEntity{
 		super();
 	}
 	
-	
-
 	public String getPassword() {
 		return password;
 	}
-
-
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-
-
 	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-		Long emergencyContact, String password, ChildRegStatusEnum childRegStatusEnum, Parent parent) {
-	super();
-	this.childId = childId;
-	this.name = name;
-	this.dateOfBirth = dateOfBirth;
-	this.gender = gender;
-	this.allergies = allergies;
-	this.medicalInfo = medicalInfo;
-	this.emergencyContact = emergencyContact;
-	this.password = password;
-	this.childRegStatusEnum = childRegStatusEnum;
-	this.parent = parent;
-}
-
-
+			String emergencyContact, String emailId, String password, ChildRegStatusEnum childRegStatusEnum,
+			Parent parent) {
+		super();
+		this.childId = childId;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.allergies = allergies;
+		this.medicalInfo = medicalInfo;
+		this.emergencyContact = emergencyContact;
+		this.emailId = emailId;
+		this.password = password;
+		this.childRegStatusEnum = childRegStatusEnum.PENDING;
+		this.parent = parent;
+	}
 
 	public Parent getParent() {
 		return parent;
@@ -150,6 +147,15 @@ public class Child extends BaseEntity{
 		this.allergies = allergies;
 	}
 
+	
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
 	public String getMedicalInfo() {
 		return medicalInfo;
 	}
@@ -158,11 +164,11 @@ public class Child extends BaseEntity{
 		this.medicalInfo = medicalInfo;
 	}
 
-	public Long getEmergencyContact() {
+	public String getEmergencyContact() {
 		return emergencyContact;
 	}
 
-	public void setEmergencyContact(Long emergencyContact) {
+	public void setEmergencyContact(String emergencyContact) {
 		this.emergencyContact = emergencyContact;
 	}
 
@@ -170,6 +176,9 @@ public class Child extends BaseEntity{
 	public String toString() {
 		return "Child [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
-				+ "]";
+				+ ", emailId=" + emailId + ", password=" + password + ", childRegStatusEnum=" + childRegStatusEnum
+				+ ", parent=" + parent + "]";
 	}
+
+	
 }

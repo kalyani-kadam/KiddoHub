@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ParentService from "../service/ParentService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function ParentTable(){
@@ -8,6 +8,8 @@ export default function ParentTable(){
     useEffect(()=>{
         fetchdata();
     },[]);
+
+    const navigate = useNavigate();
 
     const fetchdata=()=>{
         ParentService.getAllParents()
@@ -26,16 +28,20 @@ export default function ParentTable(){
     const deleteParent=(parentId)=>{
         ParentService.deleteparent(parseFloat(parentId))
         .then((result)=>{
+            console.log("parent delete succcessful")
             console.log(result)
+            navigate("/parenttable")
         })
         .catch((err)=>{
+            console.log("parent delete unsucccessful")
             console.log(err);
+            navigate("/home")
         })
     }
     return(
         <div>
-            <Link to="/insert">
-                <button type="button" name="btn" id="btn" className="btn btn-primary">App Parent</button>
+            <Link to="/parentregister">
+                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Parent</button>
             </Link>
             <Link to="/login">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
