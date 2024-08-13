@@ -1,7 +1,5 @@
 package com.app.dto;
 
-import javax.persistence.Column;
-
 public class ParentDTO extends BaseDTO {
 
 	private Long parentId;

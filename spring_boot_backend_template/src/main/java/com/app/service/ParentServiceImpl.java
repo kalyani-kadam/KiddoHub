@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -12,11 +13,8 @@ import org.springframework.stereotype.Service;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.ParentDTO;
-import com.app.entities.Child;
 import com.app.entities.Parent;
 import com.app.repository.ParentRepository;
-
-import net.bytebuddy.asm.Advice.Return;
 
 @Service
 @Transactional
@@ -27,6 +25,10 @@ public class ParentServiceImpl implements ParentService {
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
+//	@Autowired
+//    private BCryptPasswordEncoder passwordEncoder;
+	
 	@Override
 	public List<ParentDTO> getAllParents() {
 		
@@ -59,10 +61,34 @@ public class ParentServiceImpl implements ParentService {
 		
 		return new ApiResponse("Parents details updated successfully");
 	}
-	@Override
-	public ApiResponse login(String emailId, String password) throws ResourceNotFoundException {
-		parentRepository.findByEmailIdAndPassword(emailId, password);
-		return new ApiResponse("Parent found");
-	}
+	
+//	@Override
+//	public ApiResponse login(String emailId, String password) throws ResourceNotFoundException {
+//		Parent p = parentRepository.findByEmailIdAndPassword(emailId, password);
+//		if(p != null)
+//			return new ApiResponse("Parent found");
+//		return new ApiResponse("Parent not found");
+//	}
 
+	@Override
+	public boolean login(String emailId, String password) throws ResourceNotFoundException {
+        Optional<Parent> parentOpt = parentRepository.findByEmailId(emailId);
+        
+        if (parentOpt.isPresent()) {
+            Parent parent = parentOpt.get();
+//            if (parent != null && passwordEncoder.matches(password, parent.getPassword())) {
+//                return true;
+//            }
+            if (parent.getPassword().equals(password)) {
+//                return parent;
+            	return true;
+            } else {
+//                throw new Exception("Invalid Password");
+            	return false;
+            }
+        } else {
+//            throw new Exception("Parent not found with emailId: " + emailId);
+        	return false;
+        }
+    }
 }

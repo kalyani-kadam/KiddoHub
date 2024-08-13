@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ChildDTO;
 import com.app.entities.Child;
+import com.app.repository.ParentRepository;
 import com.app.service.ChildService;
+import com.app.service.ParentService;
 
 @CrossOrigin("*")
 @RestController
@@ -29,6 +31,8 @@ public class ChildController {
 	@Autowired
 	private ChildService childService;
 	
+	@Autowired
+	private ParentRepository parentRepository;
 	@GetMapping
 	List<ChildDTO> getAllChild(){
 		System.out.println("in list of all childs");
@@ -44,7 +48,16 @@ public class ChildController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> addChild(@RequestBody Child child){
+	public ResponseEntity<?> addChild(@RequestBody Child child) throws Exception{
+//		return ResponseEntity.status(HttpStatus.CREATED)
+//				.body(childService.addChild(child));
+		
+//		if (!parentRepository.existsById(child.getParent().getParentId())) {
+//            return new ResponseEntity<>("Parent with ID " + child.getParent().getParentId() + " does not exist", HttpStatus.BAD_REQUEST);
+//        }
+        // Add child if parent exists
+//        childService.addChild(child);
+//        return new ResponseEntity<>("Child added successfully", HttpStatus.CREATED);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(childService.addChild(child));
 	}

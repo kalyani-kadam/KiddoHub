@@ -45,7 +45,7 @@ public class Child extends BaseEntity{
 	@Column(name="emergency_contact",nullable = false)
 	private String emergencyContact;
 		
-	@Column(name = "email_id", nullable = false)
+	@Column(name = "email_id", nullable = false,unique = true)
 	private String emailId;
 	
 	@Column(name="password",nullable=false)

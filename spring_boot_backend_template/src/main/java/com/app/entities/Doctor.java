@@ -23,7 +23,8 @@ public class Doctor extends BaseEntity{
 	private String specialization;	
 	@Column(name="phone_no",nullable = false)
 	private Long phoneNo;
-	
+	@Column(name = "email_id", nullable = false,unique = true)
+	private String emailId;
 	@Column(name="password",nullable=false)
 	private String password;
 	
@@ -36,15 +37,43 @@ public class Doctor extends BaseEntity{
 		super();
 	}
 	
-	public Doctor(Long doctorId, String name, String specialization, Long phoneNo, String password, Child child) {
+	public Doctor(Long doctorId, String name, String specialization, Long phoneNo, String emailId, String password,
+			Child child) {
 		super();
 		this.doctorId = doctorId;
 		this.name = name;
 		this.specialization = specialization;
 		this.phoneNo = phoneNo;
+		this.emailId = emailId;
 		this.password = password;
 		this.child = child;
 	}
+
+
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 
 	public void setChild(Child child) {
 		this.child = child;
@@ -78,10 +107,12 @@ public class Doctor extends BaseEntity{
 	public void setPhoneNo(Long phoneNo) {
 		phoneNo = phoneNo;
 	}
+
 	@Override
 	public String toString() {
-		return "Doctor [doctorId=" + doctorId + ", name=" + name + ", specialization=" + specialization + ", PhoneNo="
-				+ phoneNo + "]";
+		return "Doctor [doctorId=" + doctorId + ", name=" + name + ", specialization=" + specialization + ", phoneNo="
+				+ phoneNo + ", emailId=" + emailId + ", password=" + password + ", child=" + child + "]";
 	}
+	
 	
 }

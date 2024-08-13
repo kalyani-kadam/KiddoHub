@@ -14,11 +14,13 @@ import Login from './Components/Login';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import ParentTable from './Components/ParentTable';
+import ParentDashboard from './Components/ParentDashboard';
 
 function App() {
   return (
     <div>
       {/* <Header></Header> */}
+      {/* <HomeComponent/> */}
           <Routes>
               <Route path="/" element={<HomeComponent/>}></Route>
               <Route path="/home" element={<HomeComponent/>}></Route>
@@ -31,6 +33,7 @@ function App() {
               <Route path="/childregister" element={<Childregistration/>}></Route>
               <Route path="/parentregister" element={<Parentregistration/>}></Route>
               <Route path="/parenttable" element={<ParentTable/>}></Route>
+              <Route path="/parentdashboard" element={<ParentDashboard/>}></Route>
           </Routes>
           <Footer/>
           {/* </Footer> */}

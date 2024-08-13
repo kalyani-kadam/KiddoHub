@@ -30,7 +30,12 @@ var baseUrl= "http://localhost:8080/parents"
 // }
 // export default new ParentService();
 
-const loginAPICall = (usernameOrEmail, password) => axios.post(baseUrl + '/login', { usernameOrEmail, password});
+// const loginAPICall = (emailId, password) => axios.post(baseUrl + "/login",JSON.stringify({"emailId": emailId,"password": password}),{ headers: {"Content-Type": "application/json"}});
+
+const loginAPICall =(emailId,password) =>{
+    const payload = { emailId, password };
+    return httpClient.post('parents/login',payload);
+};
 
 const addparent=(data) => {
     return httpClient.post('parents/add',data)

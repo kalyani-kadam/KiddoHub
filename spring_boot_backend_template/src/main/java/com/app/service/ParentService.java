@@ -12,5 +12,5 @@ public interface ParentService {
 	public ApiResponse addParent(ParentDTO parentDTO);
 	public ApiResponse deleteParentDetails(Long id);
 	public ApiResponse updateParentDetails(Long id,ParentDTO Parentdto)throws ResourceNotFoundException;
-	public ApiResponse login(String emailId,String password)throws ResourceNotFoundException;
+	public boolean login(String emailId,String password)throws ResourceNotFoundException;
 }

@@ -12,6 +12,16 @@ public class DoctorDTO {
 	private Long PhoneNo;
 	private ChildRegStatusEnum childRegStatusEnum;
 	private String password;
+	private String emailId;
+	
+	
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
 
 	public String getPassword() {
 		return password;
@@ -68,12 +78,17 @@ public class DoctorDTO {
 		super();
 	}
 
-	public DoctorDTO(String name, String specialization, Long phoneNo, ChildRegStatusEnum childRegStatusEnum) {
+	public DoctorDTO(String name, String specialization, Long phoneNo, ChildRegStatusEnum childRegStatusEnum,
+			String password, String emailId) {
 		super();
 		this.name = name;
 		this.specialization = specialization;
 		PhoneNo = phoneNo;
 		this.childRegStatusEnum = childRegStatusEnum;
+		this.password = password;
+		this.emailId = emailId;
 	}
+
+	
 
 }
