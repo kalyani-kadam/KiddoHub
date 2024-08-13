@@ -30,7 +30,7 @@ public class Parent extends BaseEntity {
 	@Column(name = "phoneNo", nullable = false)
 	private Long phoneNo;
 
-	@Column(name = "email_id", nullable = false)
+	@Column(name = "email_id", nullable = false,unique=true)
 	private String emailId;
 
 	@Column(name = "password", nullable = false)

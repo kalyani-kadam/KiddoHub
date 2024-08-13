@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import com.app.entities.ChildRegStatusEnum;
 import com.app.entities.GenderEnum;
-import com.app.entities.Parent;
 
 public class ChildDTO extends BaseDTO{
 	
@@ -18,7 +17,37 @@ public class ChildDTO extends BaseDTO{
 	private ParentDTO parentId;
 	private ChildRegStatusEnum childRegStatusEnum;
 	private String password;
+	private String emailId;
 	
+	
+	public ChildDTO(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies,
+			String medicalInfo, String emergencyContact, ParentDTO parentId, ChildRegStatusEnum childRegStatusEnum,
+			String password, String emailId) {
+		super();
+		this.childId = childId;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.allergies = allergies;
+		this.medicalInfo = medicalInfo;
+		this.emergencyContact = emergencyContact;
+		this.parentId = parentId;
+		this.childRegStatusEnum = childRegStatusEnum;
+		this.password = password;
+		this.emailId = emailId;
+	}
+	
+	
+	public String getEmailId() {
+		return emailId;
+	}
+
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+
 	public String getPassword() {
 		return password;
 	}
@@ -80,26 +109,17 @@ public class ChildDTO extends BaseDTO{
 		this.emergencyContact = emergencyContact;
 	}
 	
+	public ChildDTO() {
+		super();
+	}
+
+
 	@Override
 	public String toString() {
 		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
-				+ ", parentId=" + parentId + ", childRegStatusEnum=" + childRegStatusEnum + "]";
-	}
-	public ChildDTO(String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-			String emergencyContact, ParentDTO parentId, ChildRegStatusEnum childRegStatusEnum) {
-		super();
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.allergies = allergies;
-		this.medicalInfo = medicalInfo;
-		this.emergencyContact = emergencyContact;
-		this.parentId = parentId;
-		this.childRegStatusEnum = childRegStatusEnum;
-	}
-	public ChildDTO() {
-		super();
+				+ ", parentId=" + parentId + ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password
+				+ ", emailId=" + emailId + "]";
 	}	
 	
 }

@@ -15,6 +15,7 @@ import com.app.dto.ChildDTO;
 import com.app.entities.Child;
 import com.app.entities.ChildRegStatusEnum;
 import com.app.entities.GenderEnum;
+import com.app.entities.Parent;
 import com.app.repository.ChildRepository;
 import com.app.repository.DoctorRepository;
 import com.app.repository.ParentRepository;
@@ -53,12 +54,23 @@ public class ChildServiceImpl implements ChildService {
 	}
 	
 	@Override
-	public ApiResponse addChild(Child child) {
+	public ApiResponse addChild(Child child) throws Exception {
 //		child.gen
 //		GenderEnum gender = GenderEnum.valueOf(child.getGender());
-		Child newchild = modelMapper.map(child, Child.class);
-		childRepository.save(newchild);
-		return new ApiResponse("Addded new Child with ID:"+newchild.getChildId());	
+//		Parent parent =
+				parentRepository.findById(child.getParent().getParentId()).orElseThrow(() -> new Exception("Parent not found"));
+//		if (parentRepository.existsById(child.getParent().getParentId())) {
+//		if(parent != null) {
+             Child newchild = childRepository.save(child);
+             return new ApiResponse("Child added with Id "+newchild.getChildId());
+//        }
+//             else {
+//            throw new RuntimeException("Parent with ID " + child.getParent().getParentId() + " does not exist");
+//        	return new ApiResponse("Parent with ID " + child.getParent().getParentId() + " does not exist");
+//        }
+//		Child newchild = modelMapper.map(child, Child.class);
+//		childRepository.save(newchild);
+//		return new ApiResponse("Addded new Child with ID:"+newchild.getChildId());	
 	}
 	
 	@Override
