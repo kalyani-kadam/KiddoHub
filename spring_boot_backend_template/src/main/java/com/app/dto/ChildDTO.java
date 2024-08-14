@@ -14,30 +14,53 @@ public class ChildDTO extends BaseDTO{
 	private String allergies;
 	private String medicalInfo;
 	private String emergencyContact;
-	private ParentDTO parentId;
+	
 	private ChildRegStatusEnum childRegStatusEnum;
 	private String password;
 	private String emailId;
+	private Long parentID;
 	
 	
-	public ChildDTO(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies,
-			String medicalInfo, String emergencyContact, ParentDTO parentId, ChildRegStatusEnum childRegStatusEnum,
-			String password, String emailId) {
-		super();
-		this.childId = childId;
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.allergies = allergies;
-		this.medicalInfo = medicalInfo;
-		this.emergencyContact = emergencyContact;
-		this.parentId = parentId;
-		this.childRegStatusEnum = childRegStatusEnum;
-		this.password = password;
-		this.emailId = emailId;
+	
+	
+//	public ChildDTO(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies,
+//			String medicalInfo, String emergencyContact, ChildRegStatusEnum childRegStatusEnum,
+//			String password, String emailId, Long parent) {
+//		super();
+//		this.childId = childId;
+//		this.name = name;
+//		this.dateOfBirth = dateOfBirth;
+//		this.gender = gender;
+//		this.allergies = allergies;
+//		this.medicalInfo = medicalInfo;
+//		this.emergencyContact = emergencyContact;
+//		
+//		this.childRegStatusEnum = childRegStatusEnum;
+//		this.password = password;
+//		this.emailId = emailId;
+//		this.parentID = parent;
+//	}
+	
+	
+
+	
+	public Long getParent() {
+		return parentID;
 	}
-	
-	
+
+
+	public ChildDTO(Long childId, Long parentID) {
+	super();
+	this.childId = childId;
+	this.parentID = parentID;
+}
+
+
+	public void setParent(Long parent) {
+		this.parentID = parent;
+	}
+
+
 	public String getEmailId() {
 		return emailId;
 	}
@@ -60,12 +83,7 @@ public class ChildDTO extends BaseDTO{
 	public void setChildRegStatusEnum(ChildRegStatusEnum childRegStatusEnum) {
 		this.childRegStatusEnum = childRegStatusEnum;
 	}
-	public ParentDTO getParentId() {
-		return parentId;
-	}
-	public void setParentId(ParentDTO parentId) {
-		this.parentId = parentId;
-	}
+	
 	public Long getChildId() {
 		return childId;
 	}
@@ -118,8 +136,12 @@ public class ChildDTO extends BaseDTO{
 	public String toString() {
 		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
-				+ ", parentId=" + parentId + ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password
-				+ ", emailId=" + emailId + "]";
-	}	
+				+ ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password + ", emailId=" + emailId
+				+ ", parent=" + parentID + "]";
+	}
+
+
+	
+
 	
 }

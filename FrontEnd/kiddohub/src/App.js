@@ -15,6 +15,9 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import ParentTable from './Components/ParentTable';
 import ParentDashboard from './Components/ParentDashboard';
+import StaffRegistrationComponent from './Components/StaffRegistrationComponent'
+import AdminComponent from './Components/AdminComponent'
+import ParentEdit from './Components/ParentEdit';
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
               <Route path="/parentregister" element={<Parentregistration/>}></Route>
               <Route path="/parenttable" element={<ParentTable/>}></Route>
               <Route path="/parentdashboard" element={<ParentDashboard/>}></Route>
+              <Route path="/admin" element={<AdminComponent/>}></Route>
+              <Route path="/staffregister" element={<StaffRegistrationComponent/>}></Route>
+              <Route path="/update/:id" element={<ParentEdit/>}></Route>
           </Routes>
           <Footer/>
           {/* </Footer> */}

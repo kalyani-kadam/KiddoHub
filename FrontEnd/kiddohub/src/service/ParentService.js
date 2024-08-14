@@ -19,10 +19,10 @@ var baseUrl= "http://localhost:8080/parents"
 //         return axios.post(baseUrl+"/"+"add",formdetails,{Headers:myheader})
 //     }
 
-//     updateparent(parent){
-//         var myheader = {'Content-Type': 'application/json',}
-//         return axios.put(baseUrl+"/"+parent.parentId,parent,{Headers:myheader})
-//     }
+    // updateparent(parent){
+    //     var myheader = {'Content-Type': 'application/json',}
+    //     return axios.put(baseUrl+"/"+parent.parentId,parent,{Headers:myheader})
+    // }
 
 //     getAdmin(admin){
 //         return axios.get(adminurl)
@@ -31,7 +31,12 @@ var baseUrl= "http://localhost:8080/parents"
 // export default new ParentService();
 
 // const loginAPICall = (emailId, password) => axios.post(baseUrl + "/login",JSON.stringify({"emailId": emailId,"password": password}),{ headers: {"Content-Type": "application/json"}});
-
+const getAllParents =()=>{
+    return httpClient.get('parents');
+};
+const updateparent=(data)=>{
+    return httpClient.put('parents/update/id',data,data.parentId);
+};
 const loginAPICall =(emailId,password) =>{
     const payload = { emailId, password };
     return httpClient.post('parents/login',payload);
@@ -41,4 +46,4 @@ const addparent=(data) => {
     return httpClient.post('parents/add',data)
 };
 
-export default {addparent,loginAPICall};
+export default {addparent,loginAPICall,getAllParents,updateparent};

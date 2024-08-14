@@ -75,8 +75,8 @@ public class Child extends BaseEntity{
 	}
 
 	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-			String emergencyContact, String emailId, String password, ChildRegStatusEnum childRegStatusEnum,
-			Parent parent) {
+			String emergencyContact, String emailId, String password, ChildRegStatusEnum childRegStatusEnum
+			) {
 		super();
 		this.childId = childId;
 		this.name = name;
@@ -88,7 +88,7 @@ public class Child extends BaseEntity{
 		this.emailId = emailId;
 		this.password = password;
 		this.childRegStatusEnum = childRegStatusEnum.PENDING;
-		this.parent = parent;
+//		this.parentId = parent;
 	}
 
 	public Parent getParent() {
@@ -179,6 +179,8 @@ public class Child extends BaseEntity{
 				+ ", emailId=" + emailId + ", password=" + password + ", childRegStatusEnum=" + childRegStatusEnum
 				+ ", parent=" + parent + "]";
 	}
+
+	
 
 	
 }

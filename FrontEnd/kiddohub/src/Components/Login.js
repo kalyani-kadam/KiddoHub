@@ -39,7 +39,6 @@ const Login = () => {
             formErrors.password = "Password must be at least 8 characters long, contain one uppercase letter, one number, and one special character";
             valid = false;
         }
-
         setErrors(formErrors);
         return valid;
     };
@@ -57,15 +56,6 @@ const Login = () => {
         console.log("in login");
         if (validate()) {
             const response = await ParentService.loginAPICall(formdata.emailId,formdata.password)
-           
-            // .then((result) => {
-            //     console.log(result);
-            //     setformdata({emailId: "",password: "" })
-            //     navigate("/home")
-            // })
-            // .catch((error) => {
-            //     console.log("something went wrong" + error.response);
-            // });
 
             .then(response => {
                 if (response.status === 200) {
@@ -136,6 +126,7 @@ const Login = () => {
                             <div className='form-group mb-3'>
                                 <button type="button" className='btn btn-primary' onClick={ (e) => login(e)}>Submit</button>
                             </div>
+                            <p>Don't have an account <a href="/signup">Signup</a></p>
                         </form>
 
                     </div>

@@ -18,6 +18,7 @@ public class Doctor extends BaseEntity{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="doctor_id",nullable = false)
 	private Long doctorId;
+	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
 	private String specialization;	
@@ -49,31 +50,21 @@ public class Doctor extends BaseEntity{
 		this.child = child;
 	}
 
-
-
 	public String getEmailId() {
 		return emailId;
 	}
-
-
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
 
-
-
 	public String getPassword() {
 		return password;
 	}
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	public void setChild(Child child) {
 		this.child = child;

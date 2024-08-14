@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import ParentService from "../service/ParentService";
 
-const ParentRegistration = () => {
+const ParentEdit = () => {
     const [formdetails, setFormdetails] = useState({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
@@ -65,7 +65,7 @@ const ParentRegistration = () => {
     const addParent = (e) => {
         e.preventDefault();
         if (validate()) {
-            ParentService.addparent(formdetails)
+            ParentService.updateparent(formdetails)
                 .then((result) => {
                     console.log(result);
                     setFormdetails({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
@@ -176,4 +176,4 @@ const ParentRegistration = () => {
     );
 };
 
-export default ParentRegistration;
+export default ParentEdit;

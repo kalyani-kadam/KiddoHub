@@ -54,23 +54,26 @@ public class ChildServiceImpl implements ChildService {
 	}
 	
 	@Override
-	public ApiResponse addChild(Child child) throws Exception {
+	public ApiResponse addChild(ChildDTO child) throws Exception {
 //		child.gen
 //		GenderEnum gender = GenderEnum.valueOf(child.getGender());
-//		Parent parent =
-				parentRepository.findById(child.getParent().getParentId()).orElseThrow(() -> new Exception("Parent not found"));
+		Parent parent =
+				parentRepository.findById(child.getParent()).orElseThrow(() -> new Exception("Parent not found"));
 //		if (parentRepository.existsById(child.getParent().getParentId())) {
 //		if(parent != null) {
-             Child newchild = childRepository.save(child);
-             return new ApiResponse("Child added with Id "+newchild.getChildId());
+//             Child newchild = childRepository.save(child);
+//             return new ApiResponse("Child added with Id "+newchild.getChildId());
 //        }
 //             else {
 //            throw new RuntimeException("Parent with ID " + child.getParent().getParentId() + " does not exist");
 //        	return new ApiResponse("Parent with ID " + child.getParent().getParentId() + " does not exist");
 //        }
-//		Child newchild = modelMapper.map(child, Child.class);
-//		childRepository.save(newchild);
-//		return new ApiResponse("Addded new Child with ID:"+newchild.getChildId());	
+		System.out.println("in service"+child);
+		Child newchild = modelMapper.map(child, Child.class);
+		System.out.println("in service after modelmapper"+newchild);
+		newchild.setParent(parent);
+		childRepository.save(newchild);
+		return new ApiResponse("Addded new Child with ID:"+newchild.getChildId());	
 	}
 	
 	@Override
