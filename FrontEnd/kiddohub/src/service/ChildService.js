@@ -13,6 +13,7 @@ class ChildService{
         }
     
         addchild(formdetails){
+            console.log(formdetails)
             var myheader= {'Content-Type': 'application/json'}
             return axios.post(baseUrl+"/"+"add",formdetails,{Headers:myheader})
         }

@@ -48,8 +48,9 @@ public class ChildController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> addChild(@RequestBody Child child) throws Exception{
-		System.out.println("Received child object: " + child);
+	public ResponseEntity<?> addChild(@RequestBody ChildDTO child) throws Exception{
+		System.out.println("in child controller test");
+		System.out.println("Received child object: " + child.getParent());
 //		return ResponseEntity.status(HttpStatus.CREATED)
 //				.body(childService.addChild(child));
 		

@@ -473,7 +473,7 @@ const ChildRegistration = () => {
         name: "",
         gender: "",
         password: "",
-        parentId: ""
+        parent: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -493,7 +493,7 @@ const ChildRegistration = () => {
         if (!formdetails.medicalInfo) errors.medicalInfo = "Medical information is required";
         if (!formdetails.emailId) errors.emailId = "Email ID is required";
         if (!formdetails.password) errors.password = "Password is required";
-        if (!formdetails.parentId) errors.parentId = "Parent ID is required";
+        if (!formdetails.parent) errors.parent = "Parent ID is required";
 
         // Phone validation
         const phonePattern = /^[0-9]{10}$/; 
@@ -527,7 +527,7 @@ const ChildRegistration = () => {
 
         console.log("In addChild");
         const data = { ...formdetails };
-        console.log(data);
+        // console.log(data);
         ChildService.addchild(data)
             .then((result) => {
                 console.log(result);
@@ -540,7 +540,7 @@ const ChildRegistration = () => {
                     name: "",
                     gender: "",
                     password: "",
-                    parentId: ""
+                    parent: ""
                 });
                 navigate("/login");
             })
@@ -687,10 +687,10 @@ const ChildRegistration = () => {
                                     <div className='col-md-9'>
                                         <input
                                             type='text'
-                                            name='parentId'
+                                            name='parent'
                                             className='form-control'
                                             placeholder='Enter parent ID'
-                                            value={formdetails.parentId}
+                                            value={formdetails.parent}
                                             onChange={handleChange}
                                         />
                                     </div>

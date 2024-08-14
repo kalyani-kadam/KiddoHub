@@ -13,7 +13,7 @@ public interface ChildService {
 	List<ChildDTO> getAllChilds();
 	public List<Child> getAllChild();
 	
-	public ApiResponse addChild(Child child)throws Exception;
+	public ApiResponse addChild(ChildDTO child)throws Exception;
 	public ApiResponse deleteChildDetails(Long id);
 	public ApiResponse updateChildDetails(Long id,ChildDTO childdto)throws ResourceNotFoundException;
 	public ApiResponse childApprovalByDoctor(Long id,Child child)throws Exception;

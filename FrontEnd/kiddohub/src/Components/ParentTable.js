@@ -74,7 +74,7 @@ export default function ParentTable(){
                         <td>
                             <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deleteParent(parent.parentId)}}>Delete</button>
                         
-                            <Link to={`/edit/${parent.parent_id}`} state={{parentdata:parent}}>
+                            <Link to={`/update/${parent.parentId}`} state={{parentdata:parent}}>
                             <button type="button" name="btn" id="btn" className="btn btn-info">Edit</button>
                             </Link>
                         </td>
