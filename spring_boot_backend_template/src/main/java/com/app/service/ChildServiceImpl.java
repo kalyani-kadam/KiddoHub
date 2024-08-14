@@ -12,15 +12,13 @@ import org.springframework.stereotype.Service;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
+import com.app.dto.ChildDTOCopy;
 import com.app.entities.Child;
 import com.app.entities.ChildRegStatusEnum;
-import com.app.entities.GenderEnum;
 import com.app.entities.Parent;
 import com.app.repository.ChildRepository;
 import com.app.repository.DoctorRepository;
 import com.app.repository.ParentRepository;
-
-
 
 @Transactional
 @Service
@@ -42,32 +40,85 @@ public class ChildServiceImpl implements ChildService {
 	private RegisteredChildService registeredChildService;
 	
 	@Override
-	public List<ChildDTO> getAllChilds(){
+	public List<ChildDTOCopy> getAllChilds(){
+		
 		return childRepository.findAll()
 				.stream()
-				.map(entity -> modelMapper.map(entity, ChildDTO.class))
-				.collect(Collectors.toList());		
-	}
+				.map(entity -> modelMapper.map(entity, ChildDTOCopy.class))
+				.collect(Collectors.toList());	
 		
+//		List<ChildDTO> childDTOs = childRepository.findAll().stream()
+//			    .map(child -> {
+//			        ChildDTO dto = modelMapper.map(child, ChildDTO.class);
+//			        dto.setParent(child.getParent().getParentId()); // Correct mapping for parentId
+//			        return dto;
+//			    })
+//			    .collect(Collectors.toList());
+//		return childDTOs;
+//		modelMapper.typeMap(Child.class, ChildDTO.class).addMappings(mapper -> {
+//		    mapper.map(src -> src.getParent().getParentId(), ChildDTO::setParentId);
+//		});
+		
+//		List<Child> children = childRepository.findAll();
+//		System.out.println("======= child details ======="+children);
+//        return children.stream()
+//            .map(child -> {
+//                ChildDTO dto = modelMapper.map(child, ChildDTO.class);
+//                dto.setParentID(child.getParent().getParentId());  // Set parentId correctly
+//                System.out.println("dto with fk"+dto);
+//                return dto;
+//            })
+//            .collect(Collectors.toList());
+	}
+//	@Override
+//	public List<ChildDTO> getAllChilds(){
+//		List<Child> children = childRepository.findAll();
+//		System.out.println("======= child details ======= " + children);
+//
+//		return children.stream()
+//		    .map(child -> {
+//		        // Map the Child entity to a ChildDTO using ModelMapper
+//		        ChildDTO dto = modelMapper.map(child, ChildDTO.class);
+//		        
+//		        // Safely set the parentID if the parent is not null
+//		        if (child.getParent() != null) {
+//		            try {
+//		                Long parentId = child.getParent().getParentId();
+//		                dto.setParentID(parentId);  // Directly set the parentId
+//		            } catch (NumberFormatException e) {
+//		                System.err.println("NumberFormatException for parentId: " + e.getMessage());
+//		                dto.setParentID(null);  // or handle it according to your use case
+//		            }
+//		        } else {
+//		            dto.setParentID(null);  // Handle the case where parent is null
+//		        }
+//		        
+//		        System.out.println("dto with fk: " + dto);
+//		        return dto;
+//		    })
+//		    .collect(Collectors.toList());  // Collect the DTOs into a list and return
+//	}
+	
+//	public List<ChildDTO> getAllChilds() {
+//	    List<Child> children = childRepository.findAll();
+//	    return children.stream()
+//	        .map(child -> {
+//	        	System.out.println("Mapping Child ID: " + child.getChildId() + ", Parent ID: " + child.getParent().getParentId());
+//	            ChildDTO dto = new ChildDTO();
+//	            dto.setParentID(child.getParent().getParentId());  // Only set parentId
+//	            return dto;
+//	        })
+//	        .collect(Collectors.toList());
+//	}
+
 	public List<Child> getAllChild(){
 		return childRepository.findAll();
 	}
 	
 	@Override
 	public ApiResponse addChild(ChildDTO child) throws Exception {
-//		child.gen
-//		GenderEnum gender = GenderEnum.valueOf(child.getGender());
 		Parent parent =
-				parentRepository.findById(child.getParent()).orElseThrow(() -> new Exception("Parent not found"));
-//		if (parentRepository.existsById(child.getParent().getParentId())) {
-//		if(parent != null) {
-//             Child newchild = childRepository.save(child);
-//             return new ApiResponse("Child added with Id "+newchild.getChildId());
-//        }
-//             else {
-//            throw new RuntimeException("Parent with ID " + child.getParent().getParentId() + " does not exist");
-//        	return new ApiResponse("Parent with ID " + child.getParent().getParentId() + " does not exist");
-//        }
+				parentRepository.findById(child.getParentID()).orElseThrow(() -> new Exception("Parent not found"));
 		System.out.println("in service"+child);
 		Child newchild = modelMapper.map(child, Child.class);
 		System.out.println("in service after modelmapper"+newchild);

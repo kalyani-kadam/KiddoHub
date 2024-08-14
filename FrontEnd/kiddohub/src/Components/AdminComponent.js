@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 import React from "react";
 import '../Style/sidebar.css'
 
 export default function AdminComponent(){
 
+=======
+import React, { useState } from "react";
+import '../Style/sidebar.css';
+
+export default function AdminComponent(){
+    const[entities,setentities] = useState([]);
+    const handleAction = ()=>{
+
+    }
+>>>>>>> 041f5dc599e6d3242f40ddcfa9817b202681d74c
     return(
         <div>
 
@@ -13,8 +24,14 @@ export default function AdminComponent(){
         <body>
         <div class="sidebar">
             <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+<<<<<<< HEAD
             <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
             <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+=======
+            <a href="/parentdashboard"><i class="fa fa-fw fa-wrench"></i> Parent</a>
+            <a href="/doctor"><i class="fa fa-fw fa-wrench"></i> Add Doctor</a>
+            <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Clients</a>
+>>>>>>> 041f5dc599e6d3242f40ddcfa9817b202681d74c
             <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
             <a href="/parentregister"><i class="fa fa-fw fa-user"></i> Parent Registeration</a>
             <a href="/childregister"><i class="fa fa-fw fa-child"></i> Child Registeration</a>
@@ -24,7 +41,22 @@ export default function AdminComponent(){
             
         </div>
         
+<<<<<<< HEAD
         
+=======
+        {/* <div className="admin-portal">
+      <h1>Admin Portal</h1>
+      {entities.map((parent) => (
+        <div key={parent} className="entity-section">
+          <h2>{parent} Management</h2>
+          <button onClick={() => handleAction('Add', parent)}>Add {parent}</button>
+          <button onClick={() => handleAction('Update', parent)}>Update {parent}</button>
+          <button onClick={() => handleAction('Delete', parent)}>Delete {parent}</button>
+          <button onClick={() => handleAction('View', parent)}>View {parent}</button>
+        </div>
+      ))}
+    </div> */}
+>>>>>>> 041f5dc599e6d3242f40ddcfa9817b202681d74c
         </body>
         </div>
     )

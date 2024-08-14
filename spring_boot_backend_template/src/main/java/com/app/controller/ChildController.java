@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ChildDTO;
+import com.app.dto.ChildDTOCopy;
 import com.app.entities.Child;
 import com.app.repository.ParentRepository;
 import com.app.service.ChildService;
@@ -34,32 +35,23 @@ public class ChildController {
 	@Autowired
 	private ParentRepository parentRepository;
 	@GetMapping
-	List<ChildDTO> getAllChild(){
+	List<ChildDTOCopy> getAllChild(){
 		System.out.println("in list of all childs");
-		List<ChildDTO> test1=childService.getAllChilds();
-		//return childService.getAllChilds();
-		System.out.println(test1);
-		return test1;
+//		List<ChildDTO> test1=childService.getAllChilds();
+		return childService.getAllChilds();
+//		System.out.println(test1);
+//		return test1;
 	}
 	
-	@GetMapping("/getAllChildren")
-	List<Child> getAll(){
-		return childService.getAllChild();
-	}
-	
+//	@GetMapping("/getAllChildren")
+//	List<Child> getAll(){
+//		return childService.getAllChild();
+//	}
+//	
 	@PostMapping("/add")
 	public ResponseEntity<?> addChild(@RequestBody ChildDTO child) throws Exception{
-		System.out.println("in child controller test");
-		System.out.println("Received child object: " + child.getParent());
-//		return ResponseEntity.status(HttpStatus.CREATED)
-//				.body(childService.addChild(child));
-		
-//		if (!parentRepository.existsById(child.getParent().getParentId())) {
-//            return new ResponseEntity<>("Parent with ID " + child.getParent().getParentId() + " does not exist", HttpStatus.BAD_REQUEST);
-//        }
-        // Add child if parent exists
-//        childService.addChild(child);
-//        return new ResponseEntity<>("Child added successfully", HttpStatus.CREATED);
+//		System.out.println("in child controller test");
+//		System.out.println("Received child object: " + child.getParentID());
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(childService.addChild(child));
 	}

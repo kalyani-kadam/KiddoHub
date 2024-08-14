@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import ChildService from "../service/ChildService";
+import DoctorService from "../service/DoctorService";
 
-const ChildRegistration = () => {
+const DoctorRegistration = () => {
     const [formdetails, setformdetails] = useState({
-        emergencyContact: "",
-        allergies: "",
-        dateOfBirth: "",
+        phoneNo: "",
         emailId: "",
-        medicalInfo: "",
         name: "",
-        gender: "",
+        specialization:"",
         password: "",
-        parent: "",
-        childRegStatusEnum:"PENDING"
+        childId: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -27,20 +23,17 @@ const ChildRegistration = () => {
     const validate = () => {
         const errors = {};
         if (!formdetails.name) errors.name = "Name is required";
-        if (!formdetails.dateOfBirth) errors.dateOfBirth = "Date of birth is required";
-        if (!formdetails.gender) errors.gender = "Gender is required";
-        if (!formdetails.allergies) errors.allergies = "Allergies are required";
-        if (!formdetails.medicalInfo) errors.medicalInfo = "Medical information is required";
+        if (!formdetails.specialization) errors.specialization = "specialization are required";
         if (!formdetails.emailId) errors.emailId = "Email ID is required";
         if (!formdetails.password) errors.password = "Password is required";
-        if (!formdetails.parent) errors.parent = "Parent ID is required";
+        if (!formdetails.childId) errors.childId = "childId ID is required";
 
         // Phone validation
         const phonePattern = /^[0-9]{10}$/; 
-        if (!formdetails.emergencyContact) {
-            errors.emergencyContact = "Phone number is required";
-        } else if (!phonePattern.test(formdetails.emergencyContact)) {
-            errors.emergencyContact = "Phone number must be 10 digits";
+        if (!formdetails.phoneNo) {
+            errors.phoneNo = "Phone number is required";
+        } else if (!phonePattern.test(formdetails.phoneNo)) {
+            errors.phoneNo = "Phone number must be 10 digits";
         }
 
         // Email validation
@@ -58,30 +51,26 @@ const ChildRegistration = () => {
         return errors;
     };
 
-    const addChild = () => {
+    const adddoctor = () => {
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
 
-        console.log("In addChild");
+        console.log("In addchildId");
         const data = { ...formdetails };
         // console.log(data);
-        ChildService.addchild(data)
+        DoctorService.adddoctor(data)
             .then((result) => {
                 console.log(result);
                 setformdetails({
-                    emergencyContact: "",
-                    allergies: "",
-                    dateOfBirth: "",
+                    phoneNo: "",
+                    specialization: "",
                     emailId: "",
-                    medicalInfo: "",
                     name: "",
-                    gender: "",
                     password: "",
-                    parent: "",
-                    childRegStatusEnum:""
+                    childId: ""
                 });
                 navigate("/login");
             })
@@ -97,10 +86,10 @@ const ChildRegistration = () => {
                 <div className='col-md-6 offset-md-3'>
                     <div className='card'>
                         <div className='card-header'>
-                            <h2 className='text-center'>Child Registration Form</h2>
+                            <h2 className='text-center'>Doctor Registration Form</h2>
                         </div>
                         <div className='card-body'>
-                            <form onSubmit={(e) => { e.preventDefault(); addChild(); }}>
+                            <form onSubmit={(e) => { e.preventDefault(); adddoctor(); }}>
                                 {Object.keys(errors).length > 0 && (
                                     <div className='alert alert-danger'>
                                         {Object.values(errors).map((error, index) => (
@@ -123,90 +112,29 @@ const ChildRegistration = () => {
                                 </div>
 
                                 <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Date of Birth</label>
+                                    <label className='col-md-3 control-label'>specialization</label>
                                     <div className='col-md-9'>
                                         <input
-                                            type='date'
-                                            name='dateOfBirth'
+                                            type='text'
+                                            name='specialization'
                                             className='form-control'
-                                            placeholder='Enter date of birth'
-                                            value={formdetails.dateOfBirth}
+                                            placeholder='Enter specialization'
+                                            value={formdetails.specialization}
                                             onChange={handleChange}
                                         />
                                     </div>
                                 </div>
 
+                                
                                 <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Gender</label>
-                                    <div className='col-md-9'>
-                                        <select
-                                            name='gender'
-                                            className='form-control'
-                                            value={formdetails.gender}
-                                            onChange={handleChange}
-                                        >
-                                            <option value='' disabled>Select gender</option>
-                                            <option value='MALE'>MALE</option>
-                                            <option value='FEMALE'>FEMALE</option>
-                                            <option value='OTHER'>OTHER</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>childRegStatusEnum</label>
-                                    <div className='col-md-9'>
-                                        <select
-                                            name='childRegStatusEnum'
-                                            className='form-control'
-                                            value={formdetails.childRegStatusEnum}
-                                            onChange={handleChange}
-                                        >
-                                            <option value='PENDING' disabled> childRegStatusEnum</option>
-                                            {/* <option value='MALE'>MALE</option>
-                                            <option value='FEMALE'>FEMALE</option>
-                                            <option value='OTHER'>OTHER</option> */}
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Allergies</label>
+                                    <label className='col-md-3 control-label'>Phone No</label>
                                     <div className='col-md-9'>
                                         <input
                                             type='text'
-                                            name='allergies'
+                                            name='phoneNo'
                                             className='form-control'
-                                            placeholder='Enter allergies'
-                                            value={formdetails.allergies}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Medical Information</label>
-                                    <div className='col-md-9'>
-                                        <input
-                                            type='text'
-                                            name='medicalInfo'
-                                            className='form-control'
-                                            placeholder='Enter medical information'
-                                            value={formdetails.medicalInfo}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Emergency Contact</label>
-                                    <div className='col-md-9'>
-                                        <input
-                                            type='text'
-                                            name='emergencyContact'
-                                            className='form-control'
-                                            placeholder='Enter emergency contact'
-                                            value={formdetails.emergencyContact}
+                                            placeholder='Enter Phone number'
+                                            value={formdetails.phoneNo}
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -241,14 +169,14 @@ const ChildRegistration = () => {
                                 </div>
 
                                 <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Parent Id</label>
+                                    <label className='col-md-3 control-label'>child Id</label>
                                     <div className='col-md-9'>
                                         <input
                                             type='text'
-                                            name='parent'
+                                            name='childId'
                                             className='form-control'
-                                            placeholder='Enter parent ID'
-                                            value={formdetails.parent}
+                                            placeholder='Enter child ID'
+                                            value={formdetails.childId}
                                             onChange={handleChange}
                                         />
                                     </div>
@@ -271,4 +199,4 @@ const ChildRegistration = () => {
     );
 };
 
-export default ChildRegistration;
+export default DoctorRegistration;

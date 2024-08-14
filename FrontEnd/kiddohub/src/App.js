@@ -18,6 +18,7 @@ import ParentDashboard from './Components/ParentDashboard';
 import StaffRegistrationComponent from './Components/StaffRegistrationComponent'
 import AdminComponent from './Components/AdminComponent'
 import ParentEdit from './Components/ParentEdit';
+import DoctorRegistration from './Components/DoctorRegistration';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/logout" element={<LogOutComponent/>}></Route>
               <Route path="/childregister" element={<Childregistration/>}></Route>
               <Route path="/parentregister" element={<Parentregistration/>}></Route>
+              <Route path="/doctorregister" element={<DoctorRegistration/>}></Route>
               <Route path="/parenttable" element={<ParentTable/>}></Route>
               <Route path="/parentdashboard" element={<ParentDashboard/>}></Route>
               <Route path="/admin" element={<AdminComponent/>}></Route>

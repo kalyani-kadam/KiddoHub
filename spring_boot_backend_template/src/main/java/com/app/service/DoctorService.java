@@ -9,7 +9,7 @@ import com.app.entities.Doctor;
 
 public interface DoctorService {
 	List<DoctorDTO> getAllDoctors();
-	public ApiResponse addDoctor(Doctor doctor);
+	public ApiResponse addDoctor(DoctorDTO doctor)throws Exception;
 	public ApiResponse deleteDoctorDetails(Long id)throws ResourceNotFoundException;
-	public ApiResponse updateDoctorDetails(Long id,DoctorDTO doctorDTO)throws ResourceNotFoundException;
+//	public ApiResponse updateDoctorDetails(Long id,DoctorDTO doctorDTO)throws ResourceNotFoundException;
 }

@@ -23,7 +23,7 @@ public class Doctor extends BaseEntity{
 	@Column(nullable = false)
 	private String specialization;	
 	@Column(name="phone_no",nullable = false)
-	private Long phoneNo;
+	private String phoneNo;
 	@Column(name = "email_id", nullable = false,unique = true)
 	private String emailId;
 	@Column(name="password",nullable=false)
@@ -38,8 +38,8 @@ public class Doctor extends BaseEntity{
 		super();
 	}
 	
-	public Doctor(Long doctorId, String name, String specialization, Long phoneNo, String emailId, String password,
-			Child child) {
+	public Doctor(Long doctorId, String name, String specialization, String phoneNo, String emailId, String password
+			) {
 		super();
 		this.doctorId = doctorId;
 		this.name = name;
@@ -47,7 +47,7 @@ public class Doctor extends BaseEntity{
 		this.phoneNo = phoneNo;
 		this.emailId = emailId;
 		this.password = password;
-		this.child = child;
+//		this.child = child;
 	}
 
 	public String getEmailId() {
@@ -92,11 +92,12 @@ public class Doctor extends BaseEntity{
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
-	public Long getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
-	public void setPhoneNo(Long phoneNo) {
-		phoneNo = phoneNo;
+	
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 
 	@Override
