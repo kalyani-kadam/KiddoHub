@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import '../Style/sidebar.css';
 
 export default function AdminComponent(){
-
+    const[entities,setentities] = useState([]);
     const handleAction = ()=>{
-        
+
     }
     return(
         <div>
@@ -16,23 +16,24 @@ export default function AdminComponent(){
         <body>
         <div class="sidebar">
             <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+            <a href="/parentdashboard"><i class="fa fa-fw fa-wrench"></i> Parent</a>
+            <a href="/doctor"><i class="fa fa-fw fa-wrench"></i> Add Doctor</a>
             <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Clients</a>
             <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
         </div>
         
-        <div className="admin-portal">
+        {/* <div className="admin-portal">
       <h1>Admin Portal</h1>
-      {entities.map((entity) => (
-        <div key={entity} className="entity-section">
-          <h2>{entity} Management</h2>
-          <button onClick={() => handleAction('Add', entity)}>Add {entity}</button>
-          <button onClick={() => handleAction('Update', entity)}>Update {entity}</button>
-          <button onClick={() => handleAction('Delete', entity)}>Delete {entity}</button>
-          <button onClick={() => handleAction('View', entity)}>View {entity}</button>
+      {entities.map((parent) => (
+        <div key={parent} className="entity-section">
+          <h2>{parent} Management</h2>
+          <button onClick={() => handleAction('Add', parent)}>Add {parent}</button>
+          <button onClick={() => handleAction('Update', parent)}>Update {parent}</button>
+          <button onClick={() => handleAction('Delete', parent)}>Delete {parent}</button>
+          <button onClick={() => handleAction('View', parent)}>View {parent}</button>
         </div>
       ))}
-    </div>
+    </div> */}
         </body>
 
         

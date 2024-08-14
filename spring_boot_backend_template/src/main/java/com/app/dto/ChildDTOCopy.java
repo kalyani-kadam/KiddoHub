@@ -5,7 +5,7 @@ import java.sql.Date;
 import com.app.entities.ChildRegStatusEnum;
 import com.app.entities.GenderEnum;
 
-public class ChildDTO extends BaseDTO {
+public class ChildDTOCopy extends BaseDTO {
 
 	private Long childId;
 	private String name;
@@ -17,25 +17,7 @@ public class ChildDTO extends BaseDTO {
 	private ChildRegStatusEnum childRegStatusEnum;
 	private String password;
 	private String emailId;
-	private Long parentID;
-
-	public ChildDTO(Long childId, Long parentID) {
-		super();
-		this.childId = childId;
-		this.parentID = parentID;
-	}
-
-	public Long getParentID() {
-		return parentID;
-	}
-
-	public void setParentID(Long parentID) {
-		this.parentID = parentID;
-	}
-
-	public void setParent(Long parent) {
-		this.parentID = parent;
-	}
+	
 
 	public String getEmailId() {
 		return emailId;
@@ -117,7 +99,7 @@ public class ChildDTO extends BaseDTO {
 		this.emergencyContact = emergencyContact;
 	}
 
-	public ChildDTO() {
+	public ChildDTOCopy() {
 		super();
 	}
 
@@ -126,7 +108,7 @@ public class ChildDTO extends BaseDTO {
 		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
 				+ ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password + ", emailId=" + emailId
-				+ ", parent=" + parentID + "]";
+				+ ", parent=" + "]";
 	}
 
 }

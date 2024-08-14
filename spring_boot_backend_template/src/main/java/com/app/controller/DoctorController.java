@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.DoctorDTO;
-import com.app.entities.Doctor;
 import com.app.service.DoctorService;
 
 @CrossOrigin("*")
@@ -33,14 +32,15 @@ public class DoctorController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> addDoctor(@RequestBody Doctor doctor){
+	public ResponseEntity<?> addDoctor(@RequestBody DoctorDTO doctor) throws Exception{
+		System.out.println("in doctor controller "+doctor);
 		return ResponseEntity.ok(doctorService.addDoctor(doctor));
 	}
 	
-	@PutMapping("/update/{id}")
-	public ResponseEntity<?> updateDoctorDetails(@PathVariable Long id,@RequestBody DoctorDTO doctorDTO) throws ResourceNotFoundException{
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(doctorService.updateDoctorDetails(id, doctorDTO));
-	}
+//	@PutMapping("/update/{id}")
+//	public ResponseEntity<?> updateDoctorDetails(@PathVariable Long id,@RequestBody DoctorDTO doctorDTO) throws ResourceNotFoundException{
+//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(doctorService.updateDoctorDetails(id, doctorDTO));
+//	}
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteDoctorDetails(@PathVariable Long id) throws ResourceNotFoundException{

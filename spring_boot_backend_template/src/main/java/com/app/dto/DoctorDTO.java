@@ -1,19 +1,17 @@
 package com.app.dto;
 
-import javax.persistence.Column;
-
 import com.app.entities.ChildRegStatusEnum;
 
 public class DoctorDTO {
 
-//	private Long doctorId;
+	private Long doctorId;
 	private String name;
 	private String specialization;
-	private Long PhoneNo;
+	private String phoneNo;
 	private ChildRegStatusEnum childRegStatusEnum;
 	private String password;
 	private String emailId;
-	
+	private Long childId;
 	
 	public String getEmailId() {
 		return emailId;
@@ -39,12 +37,14 @@ public class DoctorDTO {
 		this.childRegStatusEnum = childRegStatusEnum;
 	}
 
-	// public Long getDoctorId() {
-//		return doctorId;
-//	}
-//	public void setDoctorId(Long doctorId) {
-//		this.doctorId = doctorId;
-//	}
+	
+	public Long getDoctorId() {
+		return doctorId;
+	}
+
+	public void setDoctorId(Long doctorId) {
+		this.doctorId = doctorId;
+	}
 	public String getName() {
 		return name;
 	}
@@ -61,34 +61,48 @@ public class DoctorDTO {
 		this.specialization = specialization;
 	}
 
-	public Long getPhoneNo() {
-		return PhoneNo;
+	public String getPhoneNo() {
+		return phoneNo;
 	}
 
-	public void setPhoneNo(Long phoneNo) {
-		PhoneNo = phoneNo;
-	}
-
-	@Override
-	public String toString() {
-		return "DoctorDTO [name=" + name + ", specialization=" + specialization + ", PhoneNo=" + PhoneNo + "]";
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 
 	public DoctorDTO() {
 		super();
 	}
 
-	public DoctorDTO(String name, String specialization, Long phoneNo, ChildRegStatusEnum childRegStatusEnum,
-			String password, String emailId) {
-		super();
-		this.name = name;
-		this.specialization = specialization;
-		PhoneNo = phoneNo;
-		this.childRegStatusEnum = childRegStatusEnum;
-		this.password = password;
-		this.emailId = emailId;
-	}
+//	public DoctorDTO(String name, String specialization, Long phoneNo, ChildRegStatusEnum childRegStatusEnum,
+//			String password, String emailId) {
+//		super();
+//		this.name = name;
+//		this.specialization = specialization;
+//		PhoneNo = phoneNo;
+//		this.childRegStatusEnum = childRegStatusEnum;
+//		this.password = password;
+//		this.emailId = emailId;
+//	}
 
 	
+	public Long getChildId() {
+		return childId;
+	}
 
+	public void setChildId(Long childId) {
+		this.childId = childId;
+	}
+
+	public DoctorDTO(Long doctorId, Long childId) {
+		super();
+		this.doctorId = doctorId;
+		this.childId = childId;
+	}
+
+	@Override
+	public String toString() {
+		return "DoctorDTO [doctorId=" + doctorId + ", name=" + name + ", specialization=" + specialization
+				+ ", PhoneNo=" + phoneNo + ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password
+				+ ", emailId=" + emailId + ", childId=" + childId + "]";
+	}
 }

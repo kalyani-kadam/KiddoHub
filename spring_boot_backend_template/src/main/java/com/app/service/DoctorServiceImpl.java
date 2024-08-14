@@ -12,7 +12,10 @@ import org.springframework.stereotype.Service;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.DoctorDTO;
+import com.app.entities.Child;
 import com.app.entities.Doctor;
+import com.app.entities.Parent;
+import com.app.repository.ChildRepository;
 import com.app.repository.DoctorRepository;
 
 @Service
@@ -21,6 +24,9 @@ import com.app.repository.DoctorRepository;
 public class DoctorServiceImpl implements DoctorService {
 	@Autowired
 	private DoctorRepository doctorRepository;
+	
+	@Autowired
+	private ChildRepository childRepository;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -34,9 +40,18 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public ApiResponse addDoctor(Doctor doctor) {
-		 Doctor newdoctor = doctorRepository.save(doctor);
-		 return new ApiResponse("New doctor added with id:"+newdoctor.getDoctorId());
+	public ApiResponse addDoctor(DoctorDTO doctor) throws Exception {
+		Child child =
+				childRepository.findById(doctor.getChildId()).orElseThrow(() -> new Exception("child not found"));
+		System.out.println("in service"+doctor);
+		Doctor newdoctor = modelMapper.map(doctor, Doctor.class);
+		System.out.println("in service after modelmapper"+newdoctor);
+		newdoctor.setChild(child);
+		
+		doctorRepository.save(newdoctor);
+		return new ApiResponse("Addded new Child with ID:"+newdoctor.getDoctorId());	
+//		 Doctor newdoctor = doctorRepository.save(doctor);
+//		 return new ApiResponse("New doctor added with id:"+newdoctor.getDoctorId());
 	}
 
 	@Override
@@ -48,13 +63,13 @@ public class DoctorServiceImpl implements DoctorService {
 		return new ApiResponse("Doctor details not deleted");
 	}
 
-	@Override
-	public ApiResponse updateDoctorDetails(Long id, DoctorDTO doctorDTO) throws ResourceNotFoundException {
-		Doctor checkdoctor = doctorRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Doctor id not found!"));		
-		checkdoctor.setName(doctorDTO.getName());
-		checkdoctor.setPhoneNo(doctorDTO.getPhoneNo());
-		checkdoctor.setSpecialization(doctorDTO.getSpecialization());
-		return new ApiResponse("Doctor details updated");
-	}
+//	@Override
+//	public ApiResponse updateDoctorDetails(Long id, DoctorDTO doctorDTO) throws ResourceNotFoundException {
+//		Doctor checkdoctor = doctorRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Doctor id not found!"));		
+//		checkdoctor.setName(doctorDTO.getName());
+//		checkdoctor.setPhoneNo(doctorDTO.getPhoneNo());
+//		checkdoctor.setSpecialization(doctorDTO.getSpecialization());
+//		return new ApiResponse("Doctor details updated");
+//	}
 
 }

@@ -1,14 +1,11 @@
 package com.app.entities;
 
 import java.sql.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="children")
+
 public class Child extends BaseEntity{
 	
 	@Id
