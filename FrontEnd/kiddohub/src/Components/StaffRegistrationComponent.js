@@ -59,7 +59,7 @@ const StaffRegisteration = () =>{
                                     </div>
                                 </div>
     
-                                <div className='row mb-3'>
+                                {/* <div className='row mb-3'>
                                     <label className='col-md-3 control-label'> Post </label>
                                     <div className='col-md-9'>
                                         <input
@@ -72,12 +72,16 @@ const StaffRegisteration = () =>{
                                         >
                                         </input>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                 {/* <div className='row mb-3'>
+                                 <div className='row mb-3'>
                                     <label className='col-md-3 control-label'> Post </label>
                                     <div className='col-md-9'>
-                                        <select id="post" name="post">
+                                        <select 
+                                            id="post" 
+                                            name="post" 
+                                            value={formdetails.post}
+                                            onChange={handlechange}>
                                             <option value="" disabled selected>Select Post</option>
                                             <option value="DIRECTOR">DIRECTOR</option>
                                             <option value={formdetails.post}>SUPERVISOR</option>
@@ -86,7 +90,7 @@ const StaffRegisteration = () =>{
                                             
                                         </select>
                                     </div>
-                                </div> */}
+                                </div>
                                
                                 <div className='row mb-3'>
                                     <label className='col-md-3 control-label'> Joining Date </label>

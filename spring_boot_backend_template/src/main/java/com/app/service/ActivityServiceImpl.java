@@ -15,6 +15,7 @@ import com.app.entities.Activity;
 import com.app.entities.Parent;
 import com.app.entities.Staff;
 import com.app.repository.ActivityRepository;
+import com.app.repository.StaffRepository;
 
 @Service
 @Transactional
@@ -22,6 +23,10 @@ public class ActivityServiceImpl implements ActivityService {
 
 	@Autowired
 	private ActivityRepository _activityRepository;
+	
+	@Autowired
+	private StaffRepository _staffRepository;
+	
 	@Autowired
 	private ModelMapper mapper;
 	
@@ -34,8 +39,12 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public ApiResponse addActivity(Activity activity) {
+	public ApiResponse addActivity(ActivityDTO activity) throws Exception {
+		
+		Staff staff = _staffRepository.findById(activity.getStaffId()).orElseThrow(()-> new Exception("staff Not Found"));
 		Activity newActivity = mapper.map(activity, Activity.class);
+		System.out.println("in service after modelmapper"+newActivity);
+		newActivity.setStaffId(staff);
 		_activityRepository.save(newActivity);
 		return new ApiResponse("New Activity Added Successfully!");
 	}

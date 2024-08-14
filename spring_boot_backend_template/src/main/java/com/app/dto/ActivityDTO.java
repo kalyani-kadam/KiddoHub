@@ -6,7 +6,8 @@ import com.app.entities.Staff;
 
 public class ActivityDTO {
 	
-	private Staff staffId;	
+	private Long activityId;
+	private Long staffId;	
 	private String name;	
 	private String description;	
 	private int no_childs;
@@ -19,10 +20,11 @@ public class ActivityDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ActivityDTO(Staff staff_id, String name, String description, int no_childs, String ageGroup,
+	public ActivityDTO(Long activityId, Long staffId, String name, String description, int no_childs, String ageGroup,
 			LocalDate schedule) {
 		super();
-		this.staffId = staff_id;
+		this.activityId = activityId;
+		this.staffId = staffId;
 		this.name = name;
 		this.description = description;
 		this.no_childs = no_childs;
@@ -30,12 +32,19 @@ public class ActivityDTO {
 		this.schedule = schedule;
 	}
 
+	public Long getActivityId() {
+		return activityId;
+	}
 
-	public Staff getStaffId() {
+	public void setActivityId(Long activityId) {
+		this.activityId = activityId;
+	}
+
+	public Long getStaffId() {
 		return staffId;
 	}
 
-	public void setStaffId(Staff staff_id) {
+	public void setStaffId(Long staff_id) {
 		this.staffId = staff_id;
 	}
 

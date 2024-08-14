@@ -13,7 +13,7 @@ public interface ActivityService {
 	
 	List<ActivityDTO> getAllActivities();
 	
-	ApiResponse addActivity(Activity activity);
+	ApiResponse addActivity(ActivityDTO activity) throws Exception;
 	
 	ApiResponse updateActivityDetails(Long id,ActivityDTO activityDTO) throws ResourceNotFoundException;
 	
