@@ -35,7 +35,7 @@ public class ActivityController {
 
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> addActivity(@RequestBody Activity activity){
+	public ResponseEntity<?> addActivity(@RequestBody ActivityDTO activity) throws Exception{
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(_activityService.addActivity(activity));
 	}
