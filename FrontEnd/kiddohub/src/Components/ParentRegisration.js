@@ -166,6 +166,7 @@ const ParentRegistration = () => {
                                 <div className='form-group mb-3'>
                                     <button type="submit" className='btn btn-primary' onClick={addParent}>Submit</button>
                                 </div>
+                                <p>Have an account <a href="/login">Login</a></p>
                             </form>
                         </div>
                     </div>
@@ -176,5 +177,3 @@ const ParentRegistration = () => {
 };
 
 export default ParentRegistration;
-
-

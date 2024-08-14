@@ -42,13 +42,14 @@ public class ChildController {
 		return test1;
 	}
 	
-	@GetMapping("/getAllChildDetails")
+	@GetMapping("/getAllChildren")
 	List<Child> getAll(){
 		return childService.getAllChild();
 	}
 	
 	@PostMapping("/add")
 	public ResponseEntity<?> addChild(@RequestBody Child child) throws Exception{
+		System.out.println("Received child object: " + child);
 //		return ResponseEntity.status(HttpStatus.CREATED)
 //				.body(childService.addChild(child));
 		
