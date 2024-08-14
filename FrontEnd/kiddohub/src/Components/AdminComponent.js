@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import '../Style/sidebar.css';
 
-export default function AdminComponent(){
-    const[entities,setentities] = useState([]);
-    const handleAction = ()=>{
-
-    }
+export default function AdminComponent(){  
     return(
         <div>
 
@@ -15,11 +11,11 @@ export default function AdminComponent(){
         <link href="css/sidebar.css" rel="stylesheet" media="all"/>
         <body>
         <div class="sidebar">
-            <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="/parentdashboard"><i class="fa fa-fw fa-wrench"></i> Parent</a>
-            <a href="/doctor"><i class="fa fa-fw fa-wrench"></i> Add Doctor</a>
-            <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Clients</a>
-            <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="/childdashboard"><i class="fa fa-fw fa-wrench"></i> Child</a>
+            <a href="/doctordashboard"><i class="fa fa-fw fa-wrench"></i> Doctor</a>
+            <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parent</a>
+            <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
         </div>
         
         {/* <div className="admin-portal">

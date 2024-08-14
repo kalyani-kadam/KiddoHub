@@ -1,34 +1,40 @@
-import { useNavigate } from 'react-router-dom';
-import ParentService from "../service/ParentService";
-
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import '../css/ParentDashboard.css'
 import ChildService from '../service/ChildService';
 
 const ParentDashboard = () => {
   const [children, setChildren] = useState([]);
+  const navigate=useNavigate();
 
   useEffect(() => {
     // Fetch data from the backend
     ChildService.getAllchilds()
-    .then((result)=>{
-      console.log(result.data);
-      setChildren(result.data);
-     //setarr([...arr,result.data])
-      console.log("database data")
-      console.log(children);
-  })
-  .catch((err)=>{
-      console.log(err);
-  });
-      // .then(response => response.json())
-      // .then(data => setChildren(data))
-      // .catch(error => console.error('Error fetching children data:', error));
+      .then((result) => {
+        console.log(result.data);
+        setChildren(result.data);
+        console.log("database data")
+        console.log(children);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+
+  const deleteParent = (childId) => {
+    ChildService.deletechild(parseFloat(childId))
+      .then((result) => {
+        console.log(result)
+        navigate("/childdashboard")
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   return (
     <div className="parent-dashboard">
-      <h1>Parent Dashboard</h1>
+      <h1>Child Dashboard</h1>
       <table>
         <thead>
           <tr>
@@ -41,8 +47,8 @@ const ParentDashboard = () => {
             <th>Emergency Contact</th>
             <th>Email ID</th>
             <th>Password</th>
-            <th>Child Registration Status</th>
-            <th>Parent</th>
+            <th>Registration Status</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +64,14 @@ const ParentDashboard = () => {
               <td>{child.emailId}</td>
               <td>{child.password}</td>
               <td>{child.childRegStatusEnum}</td>
-              <td>{child.parent}</td>
+              
+              <td>
+                <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={() => { deleteParent(child.childId) }}>Delete</button>
+                {"  "}
+                <Link to={`/update/${child.childId}`} state={{ childdata: child }}>
+                  <button type="button" name="btn" id="btn" className="btn btn-info">Update</button>
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

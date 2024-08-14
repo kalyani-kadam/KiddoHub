@@ -61,6 +61,7 @@ public class ChildController {
 		return ResponseEntity.ok(childService.deleteChildDetails(id));
 	}
 	
+	@CrossOrigin("*")
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> updatechild(@PathVariable Long id,@RequestBody ChildDTO childDTO) throws ResourceNotFoundException{
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, childDTO));

@@ -18,9 +18,10 @@ class ChildService{
             return axios.post(baseUrl+"/"+"add",formdetails,{Headers:myheader})
         }
     
-        updatechild(parent){
+        updatechild(formdetails){
+            console.log(formdetails)
             var myheader = {'Content-Type': 'application/json',}
-            return axios.put(baseUrl+"/"+parent.ChildId,parent,{Headers:myheader})
+            return axios.put(baseUrl+"/"+formdetails.ChildId,formdetails,{Headers:myheader})
         }
     
         // getAdmin(admin){
