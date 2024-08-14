@@ -35,6 +35,14 @@ const ParentDashboard = () => {
   return (
     <div className="parent-dashboard">
       <h1>Child Dashboard</h1>
+            <Link to="/parentregister">
+                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Parent</button>
+            </Link>
+            {"  "}
+            <Link to="/childregister">
+                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Child</button>
+            </Link>
+            <br></br>
       <table>
         <thead>
           <tr>

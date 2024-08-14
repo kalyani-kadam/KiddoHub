@@ -57,6 +57,21 @@ const ChildRegistration = () => {
 
         return errors;
     };
+    const reset = (e) => {
+        e.preventDefault();
+        setformdetails({
+            emergencyContact: "",
+            allergies: "",
+            dateOfBirth: "",
+            emailId: "",
+            medicalInfo: "",
+            name: "",
+            gender: "",
+            password: "",
+            parent: "",
+            childRegStatusEnum:""
+        });
+    }
 
     const addChild = () => {
         const validationErrors = validate();
@@ -260,6 +275,9 @@ const ChildRegistration = () => {
                                     >
                                         Submit
                                     </button>
+                                    {"   "}
+                                    <button type="submit" className='btn btn-danger' onClick={reset}>Reset</button>
+                                
                                 </div>
                                 <p>Have an account? <a href="/login">Login</a></p>
                             </form>
