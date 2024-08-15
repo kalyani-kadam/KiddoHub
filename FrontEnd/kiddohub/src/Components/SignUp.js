@@ -3,9 +3,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
 
 const SignUp = () => {
+  const backgroundcolor = {
+    backgroundcolor:"#fafcfb"
+  };
   return (
-
-    <div style={{ paddingTop: '160px', background: '#313842' }}>
+    
+    <div style={{ paddingTop: '160px', background: '#fcfcfc' }}>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
       {/* <!-- sidebar CSS--> */}
@@ -16,16 +19,13 @@ const SignUp = () => {
           <div class="sidebar">
             <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
             <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+            <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
+            <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
             <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-            <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
-            <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
-            <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
-            <a href="/staffregister"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
-            <a href="/activityregister"><i class="fa fa-fw fa-calendar"></i> Activities</a>
           </div>
         {/* </body> */}
       </div>
-      <div style={{ padding: '30px', textAlign: 'center', color: '#fafcfb', textShadow: '1px 1px 2px #0000' }}>
+      <div style={{ padding: '30px', textAlign: 'center', color: '#261d1d', textShadow: '1px 1px 2px #0000' }}>
         <h1 style={{ fontFamily: 'cursive', fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}>
           👼A Second Home for Your Little One!🎉
         </h1>
@@ -34,10 +34,10 @@ const SignUp = () => {
           and we are dedicated to creating a warm, welcoming atmosphere where your child feels loved and valued 😊
         </p>
         <h3>Choose Your Role</h3>
-        <Container>
+        <Container style={backgroundcolor}>
         <Row className="mb-5">
           <Col sm={5}>
-            <h3><Link to='/parentregister'> Custodian</Link></h3>
+            <h3><Link to='/parentregister'> Custodian </Link></h3>
             <div className="img-wrapper">
               <Link to="/parentregister">
                 <img className="inner-img img-fluid" src="./images/parent1.png" alt="Parent" />

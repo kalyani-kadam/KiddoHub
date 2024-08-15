@@ -1,0 +1,79 @@
+/* ChildLogin.css */
+
+/* Container for the form */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Form heading */
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #343a40;
+  }
+  
+  /* Form group styles */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Form label styles */
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Input styles */
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Input focus styles */
+  .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
+  /* Alert styles */
+  .alert {
+    margin-top: 10px;
+  }
+  
+  /* Button styles */
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 576px) {
+    .container {
+      padding: 15px;
+    }
+    
+    .form-control {
+      font-size: 0.9rem;
+    }
+    
+    .btn-success {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
+  

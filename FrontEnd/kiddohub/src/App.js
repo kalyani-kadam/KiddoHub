@@ -6,7 +6,7 @@ import HomeComponent from './Components/HomeComponent';
 import AboutUsComponent from './Components/About';
 import ContactUsComponent from './Components/Contact';
 import SignUp from './Components/SignUp';
-import LogOutComponent from './Components/LogOutComponent';
+import Logout from './Components/Logout';
 import Childregistration from './Components/Childregistration';
 import Parentregistration from './Components/ParentRegisration';
 import Login from './Components/Login';
@@ -21,6 +21,8 @@ import ChildUpdate from './Components/ChildUpdate';
 import DoctorDashboard from './Components/DoctorDashboard';
 import ChildRegStatusUpdate from './Components/ChildRegStatusUpdate';
 import ChildProfile from './Components/ChildProfile';
+import ChildRules from './Components/ChildRules';
+import ChildRegStatusByDoctor from './Components/ChildRegStatusByDoctor';
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
               <Route path="/contactus" element={<ContactUsComponent/>}></Route>
               <Route path="/login" element={<Login/>}></Route>
               <Route path="/signup" element={<SignUp/>}></Route>
-              <Route path="/logout" element={<LogOutComponent/>}></Route>
+              <Route path="/logout" element={<Logout/>}></Route>
               <Route path="/childregister" element={<Childregistration/>}></Route>
               <Route path="/parentregister" element={<Parentregistration/>}></Route>
               <Route path="/doctorregister" element={<DoctorRegistration/>}></Route>
@@ -47,6 +49,8 @@ function App() {
               <Route path="/update/:id" element={<ChildUpdate/>}></Route>
               <Route path="/updatestatus/:id" element={<ChildRegStatusUpdate/>}></Route>
               <Route path="/profile" element={<ChildProfile />} />
+              <Route path="/rules" element={<ChildRules />} />
+              <Route path="/updateregstatus/:id" element={<ChildRegStatusByDoctor/>}></Route>
           </Routes>
           <Footer/>
           {/* </Footer> */}

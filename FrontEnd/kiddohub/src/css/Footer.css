@@ -1,0 +1,32 @@
+/* Footer.css */
+
+/* Basic styling for the footer */
+.page-footer {
+    background-color: #f8f9fa; /* Light background color */
+    color: #343a40; /* Dark text color */
+    border-top: 1px solid #dee2e6; /* Subtle border at the top */
+  }
+  
+  /* Container to center and align items */
+  .page-footer .container {
+    max-width: 1200px;
+  }
+  
+  /* Style for social media icons */
+  .social-icon {
+    color: #343a40; /* Dark color for icons */
+    text-decoration: none;
+    font-size: 1.2rem; /* Size of icons */
+  }
+  
+  .social-icon:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .social-icon {
+      font-size: 1rem; /* Smaller icon size on small screens */
+    }
+  }
+  

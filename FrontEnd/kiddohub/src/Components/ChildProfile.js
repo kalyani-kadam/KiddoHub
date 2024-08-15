@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Assuming you're using react-router-dom v6+
+import { useNavigate,Link } from 'react-router-dom'; // Assuming you're using react-router-dom v6+
 
 const ChildProfile = () => {
     const [childDetails, setChildDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate(); // For navigation
-
+    
     useEffect(() => {
         const storedChildId = localStorage.getItem('childId');
         console.log('Retrieved childId:', storedChildId); // For debugging
@@ -43,6 +43,9 @@ const ChildProfile = () => {
 
     return (
         <div>
+            <Link to="/logout">
+                <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
+            </Link>
             {childDetails ? (
                 <div>
                     <h1>Welcome {childDetails.name}</h1>

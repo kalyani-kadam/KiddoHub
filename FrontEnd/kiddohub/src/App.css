@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,7 +35,7 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .footer {
   position: absolute;
@@ -46,3 +46,26 @@
   text-align: center;
   color: white;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.page-footer {
+  background-color: #f8f9fa; /* Light background color */
+  color: #343a40; /* Dark text color */
+  padding: 20px;
+  text-align: center;
+}
+

@@ -1,0 +1,50 @@
+/* ChildRules.css */
+
+/* General Container Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Card Styles */
+  .card {
+    border-radius: 10px;
+    border: none;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title Styles */
+  .card h2 {
+    font-size: 2.5rem;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* List Styles */
+  .list-group-item {
+    font-size: 1.2rem;
+    color: #495057;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px;
+    background-color: #fff;
+  }
+  
+  /* Hover Effect for List Items */
+  .list-group-item:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+  }
+  
+  /* Add spacing at the top of the card */
+  .card-body {
+    padding-top: 30px;
+  }
+  
+  /* Add some margin at the bottom of the list */
+  .list-group {
+    margin-bottom: 20px;
+  }
+  

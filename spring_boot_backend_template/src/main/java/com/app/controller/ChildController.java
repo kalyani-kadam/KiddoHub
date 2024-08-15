@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ChildDTO;
 import com.app.dto.ChildDTOCopy;
+import com.app.dto.ChildUpdateRegStatusDTO;
 import com.app.dto.LoginRequest;
 import com.app.entities.Child;
 import com.app.repository.ParentRepository;
@@ -80,13 +81,19 @@ public class ChildController {
 //		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, child));
 //	}
 	
-	@PutMapping("/updatestatus/{id}")
-	public ResponseEntity<?> registeredchild(@PathVariable Long id,@RequestBody Child child) throws Exception{
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.childApprovalByDoctor(id, child));
-	}
+//	@PutMapping("/updatestatus/{id}")
+//	public ResponseEntity<?> registeredchild(@PathVariable Long id,@RequestBody Child child) throws Exception{
+//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.childApprovalByDoctor(id, child));
+//	}
 	
 	@PutMapping("/updatestatus")
 	public ResponseEntity<?> updateregstatus(@RequestBody ChildDTO child) throws Exception{
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
+	}
+	
+	@PutMapping("/updatestatus/{id}")
+	public ResponseEntity<?> updateregstatus(@RequestBody ChildUpdateRegStatusDTO child) throws Exception{
+		System.out.println("child dto with status "+child);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
 	}
 	

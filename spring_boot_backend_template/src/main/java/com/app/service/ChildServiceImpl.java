@@ -14,6 +14,7 @@ import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.dto.ChildDTOCopy;
+import com.app.dto.ChildUpdateRegStatusDTO;
 import com.app.entities.Child;
 import com.app.entities.ChildRegStatusEnum;
 import com.app.entities.Parent;
@@ -105,15 +106,6 @@ public class ChildServiceImpl implements ChildService {
 	}
 
 	@Override
-	public ApiResponse findById(Long id) throws Exception {
-		if(childRepository.existsById(id)) {
-			childRepository.findById(id);
-			return new ApiResponse("child found");
-		}
-		return new ApiResponse("child not found");
-	}
-
-	@Override
 	public ApiResponse updateChildDetails(ChildDTO child) throws Exception {
 		if(childRepository.existsById(child.getChildId())) {
 			Parent parent =
@@ -153,13 +145,25 @@ public class ChildServiceImpl implements ChildService {
 //        return childRepository.findByEmailId(emailId)
 //                .filter(child -> child.getPassword().equals(password));
     }
-
-    public Optional<Child> getChildById(Long id) {
-        return childRepository.findById(id);
-    }
     
 
     public Optional<Child> findChildById(Long id) {
         return childRepository.findById(id);
     }
+
+
+	@Override
+	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child) throws Exception {
+		if(childRepository.existsById(child.getChildId())) {
+			
+			Child newchild = modelMapper.map(child, Child.class);
+			System.out.println("in service after modelmapper"+newchild);
+			
+			child.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED);
+//			newchild.setChildRegStatusEnum();
+			childRepository.save(newchild);
+			return new ApiResponse("Child details updated successfully!");
+		}
+		return new ApiResponse("Child details not updated!");
+	}
 }

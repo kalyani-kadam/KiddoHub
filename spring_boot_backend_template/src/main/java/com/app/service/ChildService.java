@@ -7,6 +7,7 @@ import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.dto.ChildDTOCopy;
+import com.app.dto.ChildUpdateRegStatusDTO;
 import com.app.entities.Child;
 
 public interface ChildService {
@@ -21,11 +22,10 @@ public interface ChildService {
 	public ApiResponse updateChildDetails(Long id,Child child) throws Exception ;
 	public ApiResponse updateChildDetails(ChildDTO child)throws Exception;
 	public ApiResponse childApprovalByDoctor(Long id,Child child)throws Exception;
-	public ApiResponse findById(Long id)throws Exception;
 	public void updateRegistrationStatus(int id);
 	public ApiResponse updateChildStatus(ChildDTO child)throws Exception;
+	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child)throws Exception;
 	public Child authenticateChild(String emailId, String password);
-	public Optional<Child> getChildById(Long id);
 	 public Optional<Child> findChildById(Long id);
 	
 }

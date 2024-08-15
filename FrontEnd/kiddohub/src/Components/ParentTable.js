@@ -58,9 +58,9 @@ export default function ParentTable(){
             <div>
             <body>
             <div class="sidebar">
-                            <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+                            <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
                             <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-                            <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                            <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
                             <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
                             <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
                             <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>

@@ -8,6 +8,12 @@ import com.app.entities.GenderEnum;
 public class ChildDTOCopy extends BaseDTO {
 
 	private Long childId;
+	public ChildDTOCopy(Long childId, ChildRegStatusEnum childRegStatusEnum) {
+		super();
+		this.childId = childId;
+		this.childRegStatusEnum = childRegStatusEnum;
+	}
+
 	private String name;
 	private Date dateOfBirth;
 	private GenderEnum gender;

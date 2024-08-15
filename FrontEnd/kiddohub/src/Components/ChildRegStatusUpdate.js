@@ -256,7 +256,6 @@ const ChildRegStatusUpdate = () => {
                                         />
                                     </div>
                                 </div>
-
                                 <div className='row mb-3'>
                                     <label className='col-md-3 control-label'>Parent Id</label>
                                     <div className='col-md-9'>
@@ -278,7 +277,7 @@ const ChildRegStatusUpdate = () => {
                                         Submit
                                     </button>
                                 </div>
-                                <p>Have an account? <a href="/login">Login</a></p>
+                               
                             </form>
                         </div>
                     </div>
