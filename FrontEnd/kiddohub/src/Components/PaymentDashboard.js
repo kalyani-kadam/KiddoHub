@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import ActivityService from "../service/ActivityService";
+import PaymentService from "../service/PaymentService";
 
 import '../Style/sidebar.css'
 import '../Style/table.css'
 
-const ActivityDashboard = () =>{
+const PaymentDashboard = () =>{
     const[arr,setarr] = useState([]);
     useEffect(()=>{
         fetchdata();
@@ -15,7 +15,7 @@ const ActivityDashboard = () =>{
     const navigate = useNavigate();
 
     const fetchdata=()=>{ 
-        ActivityService.getallactivities()
+        PaymentService.getallpayments()
         .then((result)=>{
             console.log(result.data);
             setarr(result.data);
@@ -27,15 +27,16 @@ const ActivityDashboard = () =>{
         });
     }
 
-    const deleteActivity=(activityId)=>{
-        ActivityService.deleteactivity(parseFloat(activityId))
+
+    const deletePayment=(tId)=>{
+        PaymentService.deletepayment(parseFloat(tId))
         .then((result)=>{
-            alert("Activity delete succcessful")
+            alert("Payment delete succcessful")
             console.log(result)
-            navigate("/activitydashboard")
+            navigate("/paymentdashboard")
         })
         .catch((err)=>{
-            alert("Activity delete unsucccessful")
+            alert("Payment delete unsucccessful")
             console.log(err);
             // navigate("/home")
         })
@@ -43,7 +44,7 @@ const ActivityDashboard = () =>{
     return(
         <div>
             <br/>
-            <h2>Activity Dashboard</h2>
+            <h2>Payment Dashboard</h2>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         
             {/* <!-- sidebar CSS--> */}
@@ -51,8 +52,8 @@ const ActivityDashboard = () =>{
             <link href="Style/tables.css" rel="stylesheet" media="all"/>
 
             <br/>
-            <Link to="/activityregister">
-                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Activity</button>
+            <Link to="/payment">
+                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Payment</button>
             </Link>&nbsp;&nbsp;
             <Link to="/login">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
@@ -77,37 +78,26 @@ const ActivityDashboard = () =>{
             <table border='2'>
                 <thead>
                     <tr>
-                        <th>ActivityId</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>No of Childs</th>
-                        <th>AgeGroup</th>
-                        <th>Schedule</th>
+                        <th>TransactionId</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Payment Type</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {arr.map(parent => <tr key={parent.parentId}>
-                        <td>{parent.parentId}</td>
-                        {/* <td>{d.creation_date}</td>
-                        <td>{d.updated_on}</td> */}
-                        
-                        {/* <td>{parent.address}</td>
-                        <td>{parent.emailId}</td>
-                        <td>{parent.name}</td>
-                        <td>{parent.phoneNo}</td> } */}
+                   
 
-                    {arr.map(activity => <tr key={activity.activityId}>
-                        <td>{activity.activityId}</td>
-                        <td>{activity.description}</td>
-                        <td>{activity.name}</td>
-                        <td>{activity.no_childs}</td>
-                        <td>{activity.ageGroup}</td>
-                        <td>{activity.schedule}</td>
+                    {arr.map(payment => <tr key={payment.tId}>
+                        <td>{payment.tId}</td>
+                        <td>{payment.amount}</td>
+                        <td>{payment.date}</td>
+                        <td>{payment.pType}</td>
+                       
                        
                         <td>
-                            <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deleteActivity(activity.activityId)}}>Delete</button>
+                            <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deletePayment(payment.tId)}}>Delete</button>
                             &nbsp;&nbsp;
-                            <Link to={`/update/${activity.activityId}`} state={{activitydata:activity}}>
+                            <Link to={`/update/${payment.tId}`} state={{paymentdata:payment}}>
                             <button type="button" name="btn" id="btn" className="btn btn-info">Edit</button>
                             </Link>
                         </td>
@@ -120,4 +110,4 @@ const ActivityDashboard = () =>{
     )
 }
 
-export default ActivityDashboard;
+export default PaymentDashboard;

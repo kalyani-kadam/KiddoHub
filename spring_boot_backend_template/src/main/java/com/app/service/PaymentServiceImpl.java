@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
-import com.app.dto.ActivityDTO;
 import com.app.dto.ApiResponse;
 import com.app.dto.PaymentDTO;
-import com.app.entities.Activity;
+import com.app.dto.PaymentDTOCopy;
 import com.app.entities.Parent;
 import com.app.entities.Payment;
 import com.app.repository.ParentRepository;
@@ -32,10 +31,10 @@ public class PaymentServiceImpl implements  PaymentService{
 	private ModelMapper mapper;
 	
 	@Override
-	public List<PaymentDTO> getAllPayments() {
+	public List<PaymentDTOCopy> getAllPayments() {
 		
 		return (_paymentRepository.findAll().stream()
-				.map(entity -> mapper.map(entity, PaymentDTO.class))
+				.map(entity -> mapper.map(entity, PaymentDTOCopy.class))
 				.collect(Collectors.toList()));
 	}
 

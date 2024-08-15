@@ -1,26 +1,25 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+
 import com.app.entities.PaytypeEnum;
 
-public class PaymentDTO extends BaseDTO {
+public class PaymentDTOCopy {
 	
 	private Long tId;
 	private int amount;
-	private Long parentId;
 	private LocalDate date;
 	private PaytypeEnum pType;
 		
-	public PaymentDTO() {
+	public PaymentDTOCopy() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PaymentDTO(Long tId, int amount, Long parentId, LocalDate date, PaytypeEnum pType) {
+	public PaymentDTOCopy(Long tId, int amount, LocalDate date, PaytypeEnum pType) {
 		super();
 		this.tId = tId;
 		this.amount = amount;
-		this.parentId = parentId;
 		this.date = date;
 		this.pType = pType;
 	}
@@ -41,13 +40,6 @@ public class PaymentDTO extends BaseDTO {
 		this.amount = amount;
 	}
 
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
 
 	public LocalDate getDate() {
 		return date;
@@ -65,11 +57,6 @@ public class PaymentDTO extends BaseDTO {
 		this.pType = pType;
 	}
 
-	@Override
-	public String toString() {
-		return "PaymentDTO [tId=" + tId + ", amount=" + amount + ", parentId=" + parentId + ", date=" + date
-				+ ", pType=" + pType + "]";
-	}
-
+	
 
 }
