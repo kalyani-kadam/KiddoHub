@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
 import com.app.dto.DoctorDTO;
+import com.app.dto.DoctorDTOCopy;
 import com.app.entities.Child;
 import com.app.entities.Doctor;
 import com.app.entities.Parent;
@@ -32,10 +33,10 @@ public class DoctorServiceImpl implements DoctorService {
 	private ModelMapper modelMapper;
 	
 	@Override
-	public List<DoctorDTO> getAllDoctors() {		
+	public List<DoctorDTOCopy> getAllDoctors() {		
 		return doctorRepository.findAll()
 				.stream()
-				.map(entity -> modelMapper.map(entity, DoctorDTO.class))
+				.map(entity -> modelMapper.map(entity, DoctorDTOCopy.class))
 				.collect(Collectors.toList());
 	}
 

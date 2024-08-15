@@ -5,6 +5,7 @@ import ParentService from "../service/ParentService";
 const ParentRegistration = () => {
     const [formdetails, setFormdetails] = useState({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
     const [errors, setErrors] = useState({});
+    const [message, setMessage] = useState({});
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -69,13 +70,18 @@ const ParentRegistration = () => {
                 .then((result) => {
                     console.log(result);
                     setFormdetails({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
-                    navigate("/login");
+                    
                 })
                 .catch((error) => {
                     console.log("Something went wrong: " + error.response);
                 });
         }
     };
+
+    const reset = (e) => {
+        e.preventDefault();
+        setFormdetails({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
+    }
 
     return (
         <div className='container'>
@@ -165,6 +171,8 @@ const ParentRegistration = () => {
 
                                 <div className='form-group mb-3'>
                                     <button type="submit" className='btn btn-primary' onClick={addParent}>Submit</button>
+                                    {"   "}
+                                    <button type="submit" className='btn btn-danger' onClick={reset}>Reset</button>
                                 </div>
                                 <p>Have an account <a href="/login">Login</a></p>
                             </form>

@@ -79,6 +79,18 @@ const DoctorRegistration = () => {
             });
     };
 
+    const reset = (e) => {
+        e.preventDefault();
+        setformdetails({
+            phoneNo: "",
+            specialization: "",
+            emailId: "",
+            name: "",
+            password: "",
+            childId: ""
+        });
+    }
+
     return (
         <div className='container'>
             <br /> <br />
@@ -188,6 +200,8 @@ const DoctorRegistration = () => {
                                     >
                                         Submit
                                     </button>
+                                    {"   "}
+                                    <button type="submit" className='btn btn-danger' onClick={reset}>Reset</button>
                                 </div>
                                 <p>Have an account? <a href="/login">Login</a></p>
                             </form>

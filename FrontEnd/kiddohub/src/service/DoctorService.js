@@ -4,11 +4,11 @@ import httpClient from '../http-common';
 var baseUrl= "http://localhost:8080/doctors"
 
 class DoctorService{
-        getAllchilds(){
+        getAlldoctors(){
             return axios.get(baseUrl);
         }
     
-        deletechild(doctorId){
+        deleteparent(doctorId){
             return axios.delete(baseUrl+"/"+"delete/"+doctorId)
         }
     

@@ -79,14 +79,17 @@ public class ParentServiceImpl implements ParentService {
 //            if (parent != null && passwordEncoder.matches(password, parent.getPassword())) {
 //                return true;
 //            }
-            if (parent.getPassword().equals(password)) {
+            if (parent.getPassword().compareTo(password)==0) {
 //                return parent;
+            	System.out.println("in if");
             	return true;
             } else {
+            	System.out.println("in inner else");
 //                throw new Exception("Invalid Password");
             	return false;
             }
         } else {
+        	System.out.println("in outer else");
 //            throw new Exception("Parent not found with emailId: " + emailId);
         	return false;
         }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.DoctorDTO;
+import com.app.dto.DoctorDTOCopy;
 import com.app.service.DoctorService;
 
 @CrossOrigin("*")
@@ -26,8 +27,8 @@ public class DoctorController {
 	@Autowired
 	private DoctorService doctorService;
 	
-	@GetMapping("/getAllDoctorDetails")
-	List<DoctorDTO> getAllDoctors(){
+	@GetMapping
+	List<DoctorDTOCopy> getAllDoctors(){
 		return doctorService.getAllDoctors();
 	}
 	

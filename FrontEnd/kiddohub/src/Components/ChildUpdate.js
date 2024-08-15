@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import ChildService from "../service/ChildService";
 
-const ChildRegistration = () => {
+const ChildUpdate = () => {
     const [formdetails, setformdetails] = useState({
         emergencyContact: "",
         allergies: "",
@@ -57,33 +57,18 @@ const ChildRegistration = () => {
 
         return errors;
     };
-    const reset = (e) => {
-        e.preventDefault();
-        setformdetails({
-            emergencyContact: "",
-            allergies: "",
-            dateOfBirth: "",
-            emailId: "",
-            medicalInfo: "",
-            name: "",
-            gender: "",
-            password: "",
-            parent: "",
-            childRegStatusEnum:""
-        });
-    }
 
-    const addChild = () => {
+    const updateChild = () => {
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
 
-        console.log("In addChild");
+        console.log("In update Child");
         const data = { ...formdetails };
         // console.log(data);
-        ChildService.addchild(data)
+        ChildService.updatechild(data)
             .then((result) => {
                 console.log(result);
                 setformdetails({
@@ -115,7 +100,7 @@ const ChildRegistration = () => {
                             <h2 className='text-center'>Child Registration Form</h2>
                         </div>
                         <div className='card-body'>
-                            <form onSubmit={(e) => { e.preventDefault(); addChild(); }}>
+                            <form onSubmit={(e) => { e.preventDefault(); updateChild(); }}>
                                 {Object.keys(errors).length > 0 && (
                                     <div className='alert alert-danger'>
                                         {Object.values(errors).map((error, index) => (
@@ -275,9 +260,6 @@ const ChildRegistration = () => {
                                     >
                                         Submit
                                     </button>
-                                    {"   "}
-                                    <button type="submit" className='btn btn-danger' onClick={reset}>Reset</button>
-                                
                                 </div>
                                 <p>Have an account? <a href="/login">Login</a></p>
                             </form>
@@ -289,4 +271,4 @@ const ChildRegistration = () => {
     );
 };
 
-export default ChildRegistration;
+export default ChildUpdate;

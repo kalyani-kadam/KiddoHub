@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import ParentService from "../service/ParentService";
+import ChildService from "../service/ChildService";
 
 const ParentEdit = () => {
     const [formdetails, setFormdetails] = useState({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
@@ -65,7 +66,7 @@ const ParentEdit = () => {
     const addParent = (e) => {
         e.preventDefault();
         if (validate()) {
-            ParentService.updateparent(formdetails)
+            ChildService.updatechild(formdetails)
                 .then((result) => {
                     console.log(result);
                     setFormdetails({ address: "", emailId: "", name: "", phoneNo: "", password: "" });

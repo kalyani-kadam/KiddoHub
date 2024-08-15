@@ -16,6 +16,12 @@ const Login = () => {
         setformdata({ ...formdata, [name]: event.target.value })
     }
 
+    // const admin = () => {
+    //     if(formdata.emailId==="kk@gmail.com" && formdata.password==="Kk@32024")
+    //          navigate("/admin")
+    //     else
+    //         navigate("/login");
+    // }
     const validate = () => {
         let formErrors = {};
         let valid = true;
@@ -54,12 +60,18 @@ const Login = () => {
     const login = async() => {
         
         console.log("in login");
+
+        if(formdata.emailId==="kk@gmail.com" && formdata.password==="Kk@32024")
+            navigate("/admin")
+       else
+           navigate("/login");
+
         if (validate()) {
             const response = await ParentService.loginAPICall(formdata.emailId,formdata.password)
 
             .then(response => {
                 if (response.status === 200) {
-                    navigate("/parentdashboard"); // or wherever you want to navigate after successful login
+                    navigate("/parenttable"); // or wherever you want to navigate after successful login
                 } else {
                     setErrors("Invalid email or password");
                 }
