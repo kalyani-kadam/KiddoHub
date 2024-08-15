@@ -7,7 +7,7 @@ public class ActivityDTOCopy {
 	private Long activityId;	
 	private String name;	
 	private String description;	
-	private int noChilds;
+	private int no_childs;
 	private String ageGroup;
 	private LocalDate schedule;
 	
@@ -22,7 +22,7 @@ public class ActivityDTOCopy {
 		this.activityId = activityId;
 		this.name = name;
 		this.description = description;
-		this.noChilds = no_childs;
+		this.no_childs = no_childs;
 		this.ageGroup = ageGroup;
 		this.schedule = schedule;
 	}
@@ -52,11 +52,11 @@ public class ActivityDTOCopy {
 	}
 
 	public int getNo_childs() {
-		return noChilds;
+		return no_childs;
 	}
 
 	public void setNo_childs(int no_childs) {
-		this.noChilds = no_childs;
+		this.no_childs = no_childs;
 	}
 
 	public String getAgeGroup() {
@@ -78,7 +78,7 @@ public class ActivityDTOCopy {
 	@Override
 	public String toString() {
 		return "ActivityDTOCopy [activityId=" + activityId + ", name=" + name + ", description=" + description
-				+ ", no_childs=" + noChilds + ", ageGroup=" + ageGroup + ", schedule=" + schedule + "]";
+				+ ", no_childs=" + no_childs + ", ageGroup=" + ageGroup + ", schedule=" + schedule + "]";
 	}
 	
 	

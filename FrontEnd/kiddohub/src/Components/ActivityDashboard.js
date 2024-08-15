@@ -79,10 +79,10 @@ const ActivityDashboard = () =>{
                     <tr>
                         <th>ActivityId</th>
                         <th>Name</th>
-                        <th>description</th>
-                        <th>noChilds</th>
-                        <th>ageGroup</th>
-                        <th>schedule</th>
+                        <th>Description</th>
+                        <th>No of Childs</th>
+                        <th>AgeGroup</th>
+                        <th>Schedule</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,7 +100,7 @@ const ActivityDashboard = () =>{
                         <td>{activity.activityId}</td>
                         <td>{activity.description}</td>
                         <td>{activity.name}</td>
-                        <td>{activity.noChilds}</td>
+                        <td>{activity.no_childs}</td>
                         <td>{activity.ageGroup}</td>
                         <td>{activity.schedule}</td>
                        
