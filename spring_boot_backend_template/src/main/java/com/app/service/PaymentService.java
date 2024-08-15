@@ -13,7 +13,7 @@ public interface PaymentService {
 	
 	List<PaymentDTO> getAllPayments();
 	
-	ApiResponse addPayment(Payment payment);
+	ApiResponse addPayment(PaymentDTO payment) throws Exception;
 	
 	ApiResponse updatePaymentDetails(Long id,PaymentDTO paymentDTO) throws ResourceNotFoundException;
 	

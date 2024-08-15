@@ -13,7 +13,9 @@ import com.app.dto.ActivityDTO;
 import com.app.dto.ApiResponse;
 import com.app.dto.PaymentDTO;
 import com.app.entities.Activity;
+import com.app.entities.Parent;
 import com.app.entities.Payment;
+import com.app.repository.ParentRepository;
 import com.app.repository.PaymentRepository;
 
 @Service
@@ -22,6 +24,10 @@ public class PaymentServiceImpl implements  PaymentService{
 
 	@Autowired
 	private PaymentRepository _paymentRepository;
+	
+	@Autowired
+	private ParentRepository _parentRepository;
+	
 	@Autowired
 	private ModelMapper mapper;
 	
@@ -34,8 +40,11 @@ public class PaymentServiceImpl implements  PaymentService{
 	}
 
 	@Override
-	public ApiResponse addPayment(Payment payment) {
-		_paymentRepository.save(payment);	
+	public ApiResponse addPayment(PaymentDTO payment) throws Exception {
+		Parent parent = _parentRepository.findById(payment.getParentId()).orElseThrow(()-> new Exception("Parent Not Found"));
+		Payment newPayment = mapper.map(payment, Payment.class);
+		newPayment.setParentId(parent);
+		_paymentRepository.save(newPayment);	
 		return new ApiResponse("New Payment Added!!");
 	}
 

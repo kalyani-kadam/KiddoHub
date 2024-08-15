@@ -35,7 +35,7 @@ public class PaymentController {
 	
 	//pType adding  blank
 	@PostMapping("/add")
-	public ResponseEntity<?> addPayment(@RequestBody Payment payment){
+	public ResponseEntity<?> addPayment(@RequestBody PaymentDTO payment) throws Exception{
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(_paymentService.addPayment(payment));
 	}

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ParentService from "../service/ParentService";
 import { Link, useNavigate } from "react-router-dom";
+
+import StaffService from "../service/StaffService";
+
 import '../Style/sidebar.css'
 import '../Style/table.css'
 
-export default function ParentTable(){
+const StaffDashboard = () =>{
     const[arr,setarr] = useState([]);
     useEffect(()=>{
         fetchdata();
@@ -12,12 +14,11 @@ export default function ParentTable(){
 
     const navigate = useNavigate();
 
-    const fetchdata=()=>{
-        ParentService.getAllParents()
+    const fetchdata=()=>{ 
+        StaffService.getallstaffs()
         .then((result)=>{
             console.log(result.data);
-           setarr(result.data);
-           //setarr([...arr,result.data])
+            setarr(result.data);
             console.log("database data")
             console.log(arr);
         })
@@ -26,30 +27,32 @@ export default function ParentTable(){
         });
     }
 
-    const deleteParent=(parentId)=>{
-        ParentService.deleteparent(parseFloat(parentId))
+
+    const deleteStaff=(staffId)=>{
+        StaffService.deletestaff(parseFloat(staffId))
         .then((result)=>{
-            console.log("parent delete succcessful")
+            console.log("staff delete succcessful")
             console.log(result)
-            navigate("/parenttable")
+            navigate("/staffdashboard")
         })
         .catch((err)=>{
-            console.log("parent delete unsucccessful")
+            console.log("staff delete unsucccessful")
             console.log(err);
-            navigate("/home")
+            // navigate("/home")
         })
     }
+
     return(
         <div>
-            <h1>Parent Dashboard</h1>
+            <h1>Staff Dashboard</h1>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         
             {/* <!-- sidebar CSS--> */}
             <link href="Style/sidebar.css" rel="stylesheet" media="all"/>
             <link href="Style/tables.css" rel="stylesheet" media="all"/>
 
-            <Link to="/parentregister">
-                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Parent</button>
+            <Link to="/staffregister">
+                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Staff</button>
             </Link>&nbsp;&nbsp;
             <Link to="/login">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
@@ -57,7 +60,7 @@ export default function ParentTable(){
             <br></br><br></br>
             <div>
             <body>
-            <div class="sidebar">
+                <div class="sidebar">
                             <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
                             <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
                             <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
@@ -77,27 +80,38 @@ export default function ParentTable(){
                         <th>Id</th>
                         {/* <th>C date</th>
                         <th>U date</th> */}
-                        <th>Address</th>
-                        <th>EmailId</th>
                         <th>Name</th>
-                        <th>PhoneNo</th>
+                        <th>Email</th>
+                        <th>Mobile No</th>
+                        <th>Address</th>
+                        <th>Joining Date</th>
+                        <th>Post</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {arr.map(parent => <tr key={parent.parentId}>
+                    {/* {arr.map(parent => <tr key={parent.parentId}>
                         <td>{parent.parentId}</td>
                         {/* <td>{d.creation_date}</td>
                         <td>{d.updated_on}</td> */}
                         
-                        <td>{parent.address}</td>
+                        {/* <td>{parent.address}</td>
                         <td>{parent.emailId}</td>
                         <td>{parent.name}</td>
-                        <td>{parent.phoneNo}</td>
+                        <td>{parent.phoneNo}</td> } */}
 
+                    {arr.map(staff => <tr key={staff.staffId}>
+                        <td>{staff.staffId}</td>
+                        <td>{staff.name}</td>
+                        <td>{staff.email}</td>
+                        <td>{staff.mobNo}</td>
+                        <td>{staff.address}</td>
+                        <td>{staff.joiningDate}</td>
+                        <td>{staff.post}</td>
+                       
                         <td>
-                            <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deleteParent(parent.parentId)}}>Delete</button>
+                            <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deleteStaff(staff.staffId)}}>Delete</button>
                             &nbsp;&nbsp;
-                            <Link to={`/update/${parent.parentId}`} state={{parentdata:parent}}>
+                            <Link to={`/update/${staff.staffId}`} state={{staffdata:staff}}>
                             <button type="button" name="btn" id="btn" className="btn btn-info">Edit</button>
                             </Link>
                         </td>
@@ -109,3 +123,5 @@ export default function ParentTable(){
         </div>
     )
 }
+
+export default StaffDashboard;
