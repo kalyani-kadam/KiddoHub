@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ActivityDTO;
+import com.app.dto.ActivityDTOCopy;
 import com.app.dto.ApiResponse;
 import com.app.entities.Activity;
-import com.app.entities.Parent;
 import com.app.entities.Staff;
 import com.app.repository.ActivityRepository;
 import com.app.repository.StaffRepository;
@@ -31,10 +31,10 @@ public class ActivityServiceImpl implements ActivityService {
 	private ModelMapper mapper;
 	
 	@Override
-	public List<ActivityDTO> getAllActivities() {
+	public List<ActivityDTOCopy> getAllActivities() {
 		
 		return (_activityRepository.findAll().stream()
-				.map(entity -> mapper.map(entity, ActivityDTO.class))
+				.map(entity -> mapper.map(entity, ActivityDTOCopy.class))
 				.collect(Collectors.toList()));
 	}
 

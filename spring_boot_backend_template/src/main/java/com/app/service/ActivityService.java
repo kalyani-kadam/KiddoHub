@@ -4,14 +4,13 @@ import java.util.List;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ActivityDTO;
+import com.app.dto.ActivityDTOCopy;
 import com.app.dto.ApiResponse;
-import com.app.dto.StaffDTO;
-import com.app.entities.Activity;
 
 
 public interface ActivityService {
 	
-	List<ActivityDTO> getAllActivities();
+	List<ActivityDTOCopy> getAllActivities();
 	
 	ApiResponse addActivity(ActivityDTO activity) throws Exception;
 	

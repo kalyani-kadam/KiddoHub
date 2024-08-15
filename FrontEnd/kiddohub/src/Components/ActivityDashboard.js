@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import StaffService from "../service/StaffService";
+import ActivityService from "../service/ActivityService";
 
 import '../Style/sidebar.css'
 import '../Style/table.css'
 
-const StaffDashboard = () =>{
+const ActivityDashboard = () =>{
     const[arr,setarr] = useState([]);
     useEffect(()=>{
         fetchdata();
@@ -15,7 +15,7 @@ const StaffDashboard = () =>{
     const navigate = useNavigate();
 
     const fetchdata=()=>{ 
-        StaffService.getallstaffs()
+        ActivityService.getallactivities()
         .then((result)=>{
             console.log(result.data);
             setarr(result.data);
@@ -27,25 +27,23 @@ const StaffDashboard = () =>{
         });
     }
 
-
-    const deleteStaff=(staffId)=>{
-        StaffService.deletestaff(parseFloat(staffId))
+    const deleteActivity=(activityId)=>{
+        ActivityService.deleteactivity(parseFloat(activityId))
         .then((result)=>{
-            console.log("staff delete succcessful")
+            alert("Activity delete succcessful")
             console.log(result)
-            navigate("/staffdashboard")
+            navigate("/activitydashboard")
         })
         .catch((err)=>{
-            console.log("staff delete unsucccessful")
+            alert("Activity delete unsucccessful")
             console.log(err);
             // navigate("/home")
         })
     }
-
     return(
         <div>
             <br/>
-            <h2>Staff Dashboard</h2>
+            <h2>Activity Dashboard</h2>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         
             {/* <!-- sidebar CSS--> */}
@@ -53,8 +51,8 @@ const StaffDashboard = () =>{
             <link href="Style/tables.css" rel="stylesheet" media="all"/>
 
             <br/>
-            <Link to="/staffregister">
-                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Staff</button>
+            <Link to="/activityregister">
+                <button type="button" name="btn" id="btn" className="btn btn-primary">Add Activity</button>
             </Link>&nbsp;&nbsp;
             <Link to="/login">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
@@ -79,15 +77,12 @@ const StaffDashboard = () =>{
             <table border='2'>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        {/* <th>C date</th>
-                        <th>U date</th> */}
+                        <th>ActivityId</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Mobile No</th>
-                        <th>Address</th>
-                        <th>Joining Date</th>
-                        <th>Post</th>
+                        <th>description</th>
+                        <th>noChilds</th>
+                        <th>ageGroup</th>
+                        <th>schedule</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -101,19 +96,18 @@ const StaffDashboard = () =>{
                         <td>{parent.name}</td>
                         <td>{parent.phoneNo}</td> } */}
 
-                    {arr.map(staff => <tr key={staff.staffId}>
-                        <td>{staff.staffId}</td>
-                        <td>{staff.name}</td>
-                        <td>{staff.email}</td>
-                        <td>{staff.mobNo}</td>
-                        <td>{staff.address}</td>
-                        <td>{staff.joiningDate}</td>
-                        <td>{staff.post}</td>
+                    {arr.map(activity => <tr key={activity.activityId}>
+                        <td>{activity.activityId}</td>
+                        <td>{activity.description}</td>
+                        <td>{activity.name}</td>
+                        <td>{activity.noChilds}</td>
+                        <td>{activity.ageGroup}</td>
+                        <td>{activity.schedule}</td>
                        
                         <td>
-                            <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deleteStaff(staff.staffId)}}>Delete</button>
+                            <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={()=>{deleteActivity(activity.activityId)}}>Delete</button>
                             &nbsp;&nbsp;
-                            <Link to={`/update/${staff.staffId}`} state={{staffdata:staff}}>
+                            <Link to={`/update/${activity.activityId}`} state={{activitydata:activity}}>
                             <button type="button" name="btn" id="btn" className="btn btn-info">Edit</button>
                             </Link>
                         </td>
@@ -126,4 +120,4 @@ const StaffDashboard = () =>{
     )
 }
 
-export default StaffDashboard;
+export default ActivityDashboard;

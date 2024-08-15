@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ActivityDTO;
-import com.app.entities.Activity;
+import com.app.dto.ActivityDTOCopy;
 import com.app.service.ActivityService;
 
 @CrossOrigin("*")
@@ -28,8 +28,8 @@ public class ActivityController {
 	@Autowired
 	private ActivityService _activityService;
 	
-	@GetMapping("/getAllActivityDetails")
-	public List<ActivityDTO> getAllActivities() {
+	@GetMapping
+	public List<ActivityDTOCopy> getAllActivities() {
 		return (_activityService.getAllActivities());
 	}
 

@@ -47,12 +47,11 @@ public class Staff {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
-	public Staff(Long staff_id, String name, @NotNull Posts post, LocalDate joiningDate, @NotNull long mobNo,
+
+	public Staff(Long staffId, String name, @NotNull Posts post, LocalDate joiningDate, @NotNull long mobNo,
 			String email, String address) {
 		super();
-		this.staffId = staff_id;
+		this.staffId = staffId;
 		this.name = name;
 		this.post = post;
 		this.joiningDate = joiningDate;
@@ -60,6 +59,10 @@ public class Staff {
 		this.email = email;
 		this.address = address;
 	}
+
+
+
+
 
 
 

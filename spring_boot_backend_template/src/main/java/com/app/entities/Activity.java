@@ -45,6 +45,41 @@ public class Activity {
 	private LocalDate schedule;
 	
 	
+	
+	
+	public Activity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Activity(Long activityId, Staff staffId, @NotNull String name, String description, int noChilds,
+			String ageGroup, LocalDate schedule) {
+		super();
+		this.activityId = activityId;
+		this.staffId = staffId;
+		this.name = name;
+		this.description = description;
+		this.noChilds = noChilds;
+		this.ageGroup = ageGroup;
+		this.schedule = schedule;
+	}
+	
+	
+
+
+	public Activity(Long activityId, @NotNull String name, String description, int noChilds, String ageGroup,
+			LocalDate schedule) {
+		super();
+		this.activityId = activityId;
+		this.name = name;
+		this.description = description;
+		this.noChilds = noChilds;
+		this.ageGroup = ageGroup;
+		this.schedule = schedule;
+	}
+
+
 	public Long getActivityId() {
 		return activityId;
 	}
