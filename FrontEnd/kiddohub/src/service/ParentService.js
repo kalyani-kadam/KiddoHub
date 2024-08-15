@@ -37,7 +37,7 @@ const updateparent=(data)=>{
     return httpClient.put('parents/update/id',data,data.parentId);
 };
 
-const loginAPICall =(emailId,password) =>{
+const loginAPICall = (emailId,password) =>{
     const payload = { emailId, password };
     return httpClient.post('parents/login',payload);
 };

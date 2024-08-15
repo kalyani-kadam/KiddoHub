@@ -39,6 +39,10 @@ class ChildService {
     // getAdmin(admin){
     //     return axios.get(adminurl)
     // }
+    login(emailId,password){
+        const payload = { emailId, password };
+        return axios.post('children/login',payload);
+    };
 }
 export default new ChildService();
 
