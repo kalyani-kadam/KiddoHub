@@ -1,6 +1,6 @@
 import React from "react";
 import '../Style/sidebar.css'
-import '../Style/adminhome.css'
+// import '../Style/adminhome.css'
 
 export default function AdminComponent(){
 

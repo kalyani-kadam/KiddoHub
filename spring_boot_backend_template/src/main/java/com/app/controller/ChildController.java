@@ -91,11 +91,12 @@ public class ChildController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
 	}
 	
-	@PutMapping("/updatestatus/{id}")
-	public ResponseEntity<?> updateregstatus(@RequestBody ChildUpdateRegStatusDTO child) throws Exception{
-		System.out.println("child dto with status "+child);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
-	}
+	//child reg status changedd by doctor method
+//	@PutMapping("/updatestatus")
+//	public ResponseEntity<?> updateregstatus(@RequestBody ChildUpdateRegStatusDTO child) throws Exception{
+//		System.out.println("child dto with status "+child);
+//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
+//	}
 	
 //	@GetMapping("/id")
 //	public ResponseEntity<?> findById(@PathVariable Long id) throws Exception{

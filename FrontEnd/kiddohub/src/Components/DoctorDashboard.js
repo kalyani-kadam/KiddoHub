@@ -38,8 +38,13 @@ const DoctorDashboard = () => {
       <Link to="/doctorregister">
         <button type="button" name="btn" id="btn" className="btn btn-primary">Add Doctor</button>
       </Link>
+      {"  "}
       <Link to="/childdashboard">
         <button type="button" name="btn" id="btn" className="btn btn-warning">Update child</button>
+      </Link>
+      {"  "}
+      <Link to="/logout">
+                <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
       </Link>
       <br></br>
 

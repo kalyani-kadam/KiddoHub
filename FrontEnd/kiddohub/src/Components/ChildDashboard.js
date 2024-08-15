@@ -46,7 +46,12 @@ const ChildDashboard = () => {
       <Link to="/childregister">
         <button type="button" name="btn" id="btn" className="btn btn-primary">Add Child</button>
       </Link>
+      {"  "}
+      <Link to="/logout">
+                <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
+      </Link>
       <br></br>
+
       <link href="css/sidebar.css" rel="stylesheet" media="all" />
       <div>
         <body>

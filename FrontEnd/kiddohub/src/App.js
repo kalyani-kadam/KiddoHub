@@ -23,6 +23,12 @@ import ChildRegStatusUpdate from './Components/ChildRegStatusUpdate';
 import ChildProfile from './Components/ChildProfile';
 import ChildRules from './Components/ChildRules';
 import ChildRegStatusByDoctor from './Components/ChildRegStatusByDoctor';
+import StaffDashboard from './Components/StaffDashboard';
+import ActivityDashboard from './Components/ActivityDashboard';
+import PaymentDashboard from './Components/PaymentDashboard';
+import PaymentComponent from './Components/PaymentComponent';
+import ActivityRegistration from './Components/ActivityRegistrationComponent';
+import StaffRegisteration from './Components/StaffRegistrationComponent';
 
 function App() {
   return (
@@ -43,14 +49,21 @@ function App() {
               <Route path="/parenttable" element={<ParentTable/>}></Route>
               <Route path="/childdashboard" element={<ChildDashboard/>}></Route>
               <Route path="/doctordashboard" element={<DoctorDashboard/>}></Route>
+              <Route path="/staffdashboard" element={<StaffDashboard/>}></Route>
+              <Route path="/activitydashboard" element={<ActivityDashboard/>}></Route>
+              <Route path="/paymentdashboard" element={<PaymentDashboard/>}></Route>
               <Route path="/admin" element={<AdminComponent/>}></Route>
               <Route path="/staffregister" element={<StaffRegistrationComponent/>}></Route>
               {/* <Route path="/update/:id" element={<ParentEdit/>}></Route> */}
               <Route path="/update/:id" element={<ChildUpdate/>}></Route>
               <Route path="/updatestatus/:id" element={<ChildRegStatusUpdate/>}></Route>
               <Route path="/profile" element={<ChildProfile />} />
+              <Route path="/payment" element={<PaymentComponent />} />
               <Route path="/rules" element={<ChildRules />} />
+              <Route path="/activityregister" element={<ActivityRegistration />} />
+              <Route path="/staffregister" element={<StaffRegisteration />} />
               <Route path="/updateregstatus/:id" element={<ChildRegStatusByDoctor/>}></Route>
+              
           </Routes>
           <Footer/>
           {/* </Footer> */}
