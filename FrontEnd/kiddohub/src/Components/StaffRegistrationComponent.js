@@ -32,11 +32,39 @@ const StaffRegisteration = () =>{
         });
     }
 
+    const reset = (e) => {
+        e.preventDefault();
+        setformdetails({ name:"", post:"", joiningDate:"", mobNo:"",email:"",address:""});
+    }
+
     return (
         <div className='container'>
-            <br /> <br />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        
+        {/* <!-- sidebar CSS--> */}
+        <link href="Style/sidebar.css" rel="stylesheet" media="all"/>
+        
+        <br /> <br />
+        <div>
+        <body>
+            <div class="sidebar">
+                        <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+                        <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+                        <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                        <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
+                        <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
+                        <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
+                        <a href="/staffregister"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
+                        <a href="/activityregister"><i class="fa fa-fw fa-calendar"></i> Activities</a>
+                        <a href="/payment"><i class="fa fa-fw fa-credit-card"></i> Payments</a>         
+            </div>
+            
+        </body>
+            </div>
+        
             <div className='row'>
-                <div className='col-md-6 offset-md-3'>
+                <div className='col-md-9 offset-md-1'>
                     <div className='card'>
                         <div className='card-header'>
                             <h2 className='text-center'> Staff Registration Form </h2>
@@ -153,8 +181,11 @@ const StaffRegisteration = () =>{
                                 </div>
     
                                 <div className='form-group mb-3'>
-                                    <button type="button" className='btn btn-primary' onClick={ (e) => addStaff(e)}>Register</button>
+                                    <button type="submit" className='btn btn-primary' onClick={addStaff}>Submit</button>
+                                    {"   "}
+                                    <button type="submit" className='btn btn-danger' onClick={reset}>Reset</button>
                                 </div>
+                                <p>Have an account <a href="/login">Login</a></p>
                             </form>
     
                         </div>
