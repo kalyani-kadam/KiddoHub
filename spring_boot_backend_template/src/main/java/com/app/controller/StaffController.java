@@ -29,7 +29,7 @@ public class StaffController {
 	private StaffService _staffService;
 	
 
-	@GetMapping("getAllStaffDetails")
+	@GetMapping
 	public List<Staff> getAllStaff() {
 		
 		return (_staffService.getAllStaff());

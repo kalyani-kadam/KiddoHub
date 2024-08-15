@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import ActivityService from "../service/ActivityService";
+import PaymentService from "../service/PaymentService";
 
-const ActivityRegistration = () => {
+const PaymentComponent = () => {
     const [formdetails, setformdetails] = useState({
-        activityId: "",
-        staffId: "",
-        name: "",
-        description: "",
-        no_childs: "",
-        ageGroup: "",
-        schedule: "",
+        tId: "",
+        parentId: "",
+        amount: "",
+        date: "",
+        pType: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -21,37 +19,30 @@ const ActivityRegistration = () => {
         setformdetails({ ...formdetails, [name]: value });
     };
 
-    const validate = () => {
-        const errors = {};
-        if (!formdetails.name) errors.name = "Name is required";
-        if (!formdetails.ageGroup) errors.ageGroup = "Age Group is required information is required";
+    // const validate = () => {
+    //     const errors = {};
+    //     if (!formdetails.name) errors.name = "Name is required";
+    //     if (!formdetails.ageGroup) errors.ageGroup = "Age Group is required information is required";
 
-        return errors;
-    };
+    //     return errors;
+    // };
 
-    const addActivity = () => {
-        const validationErrors = validate();
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-            return;
-        }
-
-        console.log("In addActivity");
+    const addPayment = () => {
+  
+        console.log("In addPayment");
         const data = { ...formdetails };
         // console.log(data);
-        ActivityService.addactivity(data)
+        PaymentService.addpayment(data)
             .then((result) => {
                 console.log(result);
                 setformdetails({
-                    activityId: "",
-                    staffId: "",
-                    name: "",
-                    description: "",
-                    no_childs: "",
-                    ageGroup: "",
-                    schedule: "",
+                    tId: "",
+                    parentId: "",
+                    amount: "",
+                    date: "",
+                    pType: ""
                 });
-                alert("Activity Successfully Added!!")
+                alert("Payment Successfully Added!!")
                 // navigate("/login");
             })
             .catch((error) => {
@@ -61,13 +52,11 @@ const ActivityRegistration = () => {
 
     const reset = (e) => {
         e.preventDefault();
-        setformdetails({ activityId: "",
-            staffId: "",
-            name: "",
-            description: "",
-            no_childs: "",
-            ageGroup: "",
-            schedule: "",});
+        setformdetails({ tId: "",
+            parentId: "",
+            amount: "",
+            date: "",
+            pType: ""});
     }
 
     return (
@@ -90,17 +79,17 @@ const ActivityRegistration = () => {
                             <a href="/staffdashboard"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
                             <a href="/activitydashboard"><i class="fa fa-fw fa-calendar"></i> Activities</a>
                             <a href="/paymentdashboard"><i class="fa fa-fw fa-credit-card"></i> Payments</a>         
-                </div>
+                </div>  
         </body>
         </div>
             <div className='row'>
                 <div className='col-md-9 offset-md-1'>
                     <div className='card'>
                         <div className='card-header'>
-                            <h2 className='text-center'>Activity Form</h2>
+                            <h2 className='text-center'>Payment Form</h2>
                         </div>
                         <div className='card-body'>
-                            <form onSubmit={(e) => { e.preventDefault(); addActivity(); }}>
+                            <form onSubmit={(e) => { e.preventDefault(); addPayment(); }}>
                                 {Object.keys(errors).length > 0 && (
                                     <div className='alert alert-danger'>
                                         {Object.values(errors).map((error, index) => (
@@ -109,91 +98,63 @@ const ActivityRegistration = () => {
                                     </div>
                                 )}
                                 <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Name</label>
+                                    <label className='col-md-3 control-label'>Amount</label>
                                     <div className='col-md-9'>
                                         <input
                                             type='text'
-                                            name='name'
+                                            name='amount'
                                             className='form-control'
-                                            placeholder='Enter name'
-                                            value={formdetails.name}
+                                            placeholder='Enter amount'
+                                            value={formdetails.amount}
                                             onChange={handleChange}
                                         />
                                     </div>
                                 </div>
 
                                 <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Description</label>
-                                    <div className='col-md-9'>
-                                        <input
-                                            type='text'
-                                            name='description'
-                                            className='form-control'
-                                            placeholder='Enter description'
-                                            value={formdetails.description}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>No of Childs</label>
-                                    <div className='col-md-9'>
-                                        <input
-                                            type='text'
-                                            name='no_childs'
-                                            className='form-control'
-                                            placeholder='Enter no_childs'
-                                            value={formdetails.no_childs}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Age Group</label>
-                                    <div className='col-md-9'>
-                                        <input
-                                            type='text'
-                                            name='ageGroup'
-                                            className='form-control'
-                                            placeholder='Enter ageGroup'
-                                            value={formdetails.ageGroup}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>schedule</label>
+                                    <label className='col-md-3 control-label'>Date</label>
                                     <div className='col-md-9'>
                                         <input
                                             type='date'
-                                            name='schedule'
+                                            name='date'
                                             className='form-control'
-                                            placeholder='Enter schedule'
-                                            value={formdetails.schedule}
+                                            placeholder='Enter date'
+                                            value={formdetails.date}
                                             onChange={handleChange}
                                         />
                                     </div>
                                 </div>
 
                                 <div className='row mb-3'>
-                                    <label className='col-md-3 control-label'>Staff Id</label>
+                                    <label className='col-md-3 control-label'>Parent ID</label>
                                     <div className='col-md-9'>
                                         <input
                                             type='text'
-                                            name='staffId'
+                                            name='parentId'
                                             className='form-control'
-                                            placeholder='Enter staff ID'
-                                            value={formdetails.staffId}
+                                            placeholder='Enter parent ID'
+                                            value={formdetails.parentId}
                                             onChange={handleChange}
                                         />
                                     </div>
                                 </div>
+
+                                <div className='row mb-3'>
+                                    <label className='col-md-3 control-label'> Payment Type </label>
+                                    <div className='col-md-9'>
+                                        <select 
+                                            id="pType" 
+                                            name="pType" 
+                                            value={formdetails.pType}
+                                            onChange={handleChange}>
+                                            <option value="" disabled selected>Select PaymentType</option>
+                                            <option value={formdetails.post}>ONLINE</option>
+                                            <option value={formdetails.post}>CASH</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div className='form-group mb-3'>
-                                    <button type="submit" className='btn btn-primary' onClick={addActivity}>Submit</button>
+                                    <button type="submit" className='btn btn-primary' onClick={addPayment}>Submit</button>
                                     {"   "}
                                     <button type="submit" className='btn btn-danger' onClick={reset}>Reset</button>
                                 </div>
@@ -206,4 +167,4 @@ const ActivityRegistration = () => {
     );
 };
 
-export default ActivityRegistration;
+export default PaymentComponent;

@@ -48,17 +48,17 @@ const StaffRegisteration = () =>{
         <br /> <br />
         <div>
         <body>
-            <div class="sidebar">
-                        <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-                        <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-                        <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-                        <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
-                        <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
-                        <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
-                        <a href="/staffregister"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
-                        <a href="/activityregister"><i class="fa fa-fw fa-calendar"></i> Activities</a>
-                        <a href="/payment"><i class="fa fa-fw fa-credit-card"></i> Payments</a>         
-            </div>
+        <div class="sidebar">
+                            <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+                            <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+                            <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                            <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
+                            <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
+                            <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
+                            <a href="/staffdashboard"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
+                            <a href="/activitydashboard"><i class="fa fa-fw fa-calendar"></i> Activities</a>
+                            <a href="/paymentdashboard"><i class="fa fa-fw fa-credit-card"></i> Payments</a>         
+                </div>
             
         </body>
             </div>
@@ -111,10 +111,10 @@ const StaffRegisteration = () =>{
                                             value={formdetails.post}
                                             onChange={handlechange}>
                                             <option value="" disabled selected>Select Post</option>
-                                            <option value="DIRECTOR">DIRECTOR</option>
+                                            <option value={formdetails.post}>DIRECTOR</option>
                                             <option value={formdetails.post}>SUPERVISOR</option>
-                                            <option value="EDUCATOR">EDUCATOR</option>
-                                            <option value="ASSISTANT">ASSISTANT</option>
+                                            <option value={formdetails.post}>EDUCATOR</option>
+                                            <option value={formdetails.post}>ASSISTANT</option>
                                             
                                         </select>
                                     </div>
