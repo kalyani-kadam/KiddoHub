@@ -12,7 +12,7 @@ import Parentregistration from './Components/ParentRegisration';
 import Login from './Components/Login';
 import Footer from './Components/Footer';
 import ParentTable from './Components/ParentTable';
-import ParentDashboard from './Components/ParentDashboard';
+import ChildDashboard from './Components/ChildDashboard';
 import StaffRegistrationComponent from './Components/StaffRegistrationComponent'
 import AdminComponent from './Components/AdminComponent'
 import ParentEdit from './Components/ParentEdit';
@@ -37,7 +37,7 @@ function App() {
               <Route path="/parentregister" element={<Parentregistration/>}></Route>
               <Route path="/doctorregister" element={<DoctorRegistration/>}></Route>
               <Route path="/parenttable" element={<ParentTable/>}></Route>
-              <Route path="/childdashboard" element={<ParentDashboard/>}></Route>
+              <Route path="/childdashboard" element={<ChildDashboard/>}></Route>
               <Route path="/doctordashboard" element={<DoctorDashboard/>}></Route>
               <Route path="/admin" element={<AdminComponent/>}></Route>
               <Route path="/staffregister" element={<StaffRegistrationComponent/>}></Route>

@@ -2,8 +2,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import '../css/ParentDashboard.css'
 import ChildService from '../service/ChildService';
+import '../Style/sidebar.css';
 
-const ParentDashboard = () => {
+const ChildDashboard = () => {
   const [children, setChildren] = useState([]);
   const navigate=useNavigate();
 
@@ -43,6 +44,22 @@ const ParentDashboard = () => {
                 <button type="button" name="btn" id="btn" className="btn btn-primary">Add Child</button>
             </Link>
             <br></br>
+            <link href="css/sidebar.css" rel="stylesheet" media="all" />
+            <div>
+            <body>
+                <div class="sidebar">
+                    <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+                    <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                    <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
+                    <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
+                    <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
+                    <a href="/staffregister"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
+                    <a href="/activityregister"><i class="fa fa-fw fa-calendar"></i> Activities</a>
+                    
+                </div>
+            </body>
+            </div>
       <table>
         <thead>
           <tr>
@@ -88,4 +105,4 @@ const ParentDashboard = () => {
   );
 };
 
-export default ParentDashboard;
+export default ChildDashboard;

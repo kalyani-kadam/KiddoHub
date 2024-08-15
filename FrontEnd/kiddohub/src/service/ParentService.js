@@ -1,8 +1,6 @@
 // import React from "react";
 import axios from 'axios'
 import httpClient from '../http-common';
-// var baseUrl = "http://localhost:3003/parents"
-// var adminurl = "http://localhost:3003/admin"
 var baseUrl= "http://localhost:8080/parents"
 
 // class ParentService{
@@ -34,9 +32,11 @@ var baseUrl= "http://localhost:8080/parents"
 const getAllParents =()=>{
     return httpClient.get('parents');
 };
+
 const updateparent=(data)=>{
     return httpClient.put('parents/update/id',data,data.parentId);
 };
+
 const loginAPICall =(emailId,password) =>{
     const payload = { emailId, password };
     return httpClient.post('parents/login',payload);

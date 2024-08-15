@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import ChildService from "../service/ChildService";
 
 const ChildUpdate = () => {
+    // const { childId } = useParams(); // Assume the route includes a childId paramete
     const [formdetails, setformdetails] = useState({
+        childId: "",
         emergencyContact: "",
         allergies: "",
         dateOfBirth: "",
@@ -13,15 +15,38 @@ const ChildUpdate = () => {
         gender: "",
         password: "",
         parent: "",
-        childRegStatusEnum:"PENDING"
+        childRegStatusEnum: "PENDING"
     });
 
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
+    // useEffect(() => {
+    //     if (childId) {
+    //         console.log("child id")
+    //         // Fetch and set child data by ID if editing an existing child
+    //         ChildService.getChildById(childId).then(response => {
+    //             setformdetails(response.data);
+    //         });
+    //     }
+    // }, [childId]);
+
+    // useEffect(() => {
+    //     if (childId) {
+    //         ChildService.getChildById(childId)
+    //             .then(response => {
+    //                 setformdetails(response.data);
+    //             })
+    //             .catch(error => {
+    //                 console.error("Error fetching child data:", error);
+    //             });
+    //     }
+    // }, [childId]);
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setformdetails({ ...formdetails, [name]: value });
+        // setformdetails({ ...formdetails, childId: childId || formdetails.childId });
     };
 
     const validate = () => {
@@ -36,7 +61,7 @@ const ChildUpdate = () => {
         if (!formdetails.parent) errors.parent = "Parent ID is required";
 
         // Phone validation
-        const phonePattern = /^[0-9]{10}$/; 
+        const phonePattern = /^[0-9]{10}$/;
         if (!formdetails.emergencyContact) {
             errors.emergencyContact = "Phone number is required";
         } else if (!phonePattern.test(formdetails.emergencyContact)) {
@@ -54,7 +79,6 @@ const ChildUpdate = () => {
         if (formdetails.password && !passwordPattern.test(formdetails.password)) {
             errors.password = "Password must be at least 8 characters long and include one uppercase letter, one number, and one special character";
         }
-
         return errors;
     };
 
@@ -72,6 +96,7 @@ const ChildUpdate = () => {
             .then((result) => {
                 console.log(result);
                 setformdetails({
+                    childId:"",
                     emergencyContact: "",
                     allergies: "",
                     dateOfBirth: "",
@@ -81,7 +106,7 @@ const ChildUpdate = () => {
                     gender: "",
                     password: "",
                     parent: "",
-                    childRegStatusEnum:""
+                    childRegStatusEnum: ""
                 });
                 navigate("/login");
             })
@@ -108,6 +133,20 @@ const ChildUpdate = () => {
                                         ))}
                                     </div>
                                 )}
+
+                                <div className='row mb-3'>
+                                    <label className='col-md-3 control-label'>childId</label>
+                                    <div className='col-md-9'>
+                                        <input
+                                            type='text'
+                                            name='childId'
+                                            className='form-control'
+                                            placeholder='Enter id'
+                                            value={formdetails.childId}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
                                 <div className='row mb-3'>
                                     <label className='col-md-3 control-label'>Name</label>
                                     <div className='col-md-9'>
