@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.PaymentDTO;
-import com.app.entities.Payment;
+import com.app.dto.PaymentDTOCopy;
 import com.app.service.PaymentService;
 
 @CrossOrigin("*")
@@ -28,8 +28,8 @@ public class PaymentController {
 	@Autowired
 	private PaymentService _paymentService;
 	
-	@GetMapping("/getAllPaymentDetails")
-	public List<PaymentDTO> getAllActivities() {
+	@GetMapping
+	public List<PaymentDTOCopy> getAllActivities() {
 		return (_paymentService.getAllPayments());
 	}
 	
