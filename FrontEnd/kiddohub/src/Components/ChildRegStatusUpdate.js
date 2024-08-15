@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import ChildService from "../service/ChildService";
 
-const ChildUpdate = () => {
+const ChildRegStatusUpdate = () => {
     // const { childId } = useParams(); // Assume the route includes a childId paramete
     const [formdetails, setformdetails] = useState({
         childId: "",
@@ -15,11 +15,33 @@ const ChildUpdate = () => {
         gender: "",
         password: "",
         parent: "",
-        childRegStatusEnum: "PENDING"
+        childRegStatusEnum: ""
     });
 
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     if (childId) {
+    //         console.log("child id")
+    //         // Fetch and set child data by ID if editing an existing child
+    //         ChildService.getChildById(childId).then(response => {
+    //             setformdetails(response.data);
+    //         });
+    //     }
+    // }, [childId]);
+
+    // useEffect(() => {
+    //     if (childId) {
+    //         ChildService.getChildById(childId)
+    //             .then(response => {
+    //                 setformdetails(response.data);
+    //             })
+    //             .catch(error => {
+    //                 console.error("Error fetching child data:", error);
+    //             });
+    //     }
+    // }, [childId]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -70,7 +92,7 @@ const ChildUpdate = () => {
         console.log("In update Child");
         const data = { ...formdetails };
         // console.log(data);
-        ChildService.updatechild(data)
+        ChildService.updateregchild(data)
             .then((result) => {
                 console.log(result);
                 setformdetails({
@@ -100,7 +122,7 @@ const ChildUpdate = () => {
                 <div className='col-md-6 offset-md-3'>
                     <div className='card'>
                         <div className='card-header'>
-                            <h2 className='text-center'>Child Registration Form</h2>
+                            <h2 className='text-center'>Child Update Form</h2>
                         </div>
                         <div className='card-body'>
                             <form onSubmit={(e) => { e.preventDefault(); updateChild(); }}>
@@ -179,10 +201,10 @@ const ChildUpdate = () => {
                                             value={formdetails.childRegStatusEnum}
                                             onChange={handleChange}
                                         >
-                                            <option value='PENDING' disabled> childRegStatusEnum</option>
-                                            {/* <option value='MALE'>MALE</option>
-                                            <option value='FEMALE'>FEMALE</option>
-                                            <option value='OTHER'>OTHER</option> */}
+                                            <option value='' disabled> childRegStatusEnum</option>
+                                            <option value='APPROVED'>APPROVED</option>
+                                            <option value='PENDING'>PENDING</option>
+                                            {/* <option value='OTHER'>OTHER</option> */}
                                         </select>
                                     </div>
                                 </div>
@@ -288,4 +310,4 @@ const ChildUpdate = () => {
     );
 };
 
-export default ChildUpdate;
+export default ChildRegStatusUpdate;

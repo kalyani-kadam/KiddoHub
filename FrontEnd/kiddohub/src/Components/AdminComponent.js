@@ -9,16 +9,22 @@ export default function AdminComponent() {
 
       {/* <!-- sidebar CSS--> */}
       <link href="css/sidebar.css" rel="stylesheet" media="all" />
-      <body>
-        <div class="sidebar">
-          <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
-          <a href="/childdashboard"><i class="fa fa-fw fa-wrench"></i> Child</a>
-          <a href="/doctordashboard"><i class="fa fa-fw fa-wrench"></i> Doctor</a>
-          <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parent</a>
-          <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-        </div>
+      <div>
+        <body>
+          <div class="sidebar">
+            <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+            <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
+            <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
+            <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
+            <a href="/staffregister"><i class="fa fa-fw fa-id-badge"></i> Staffs </a>
+            <a href="/activityregister"><i class="fa fa-fw fa-calendar"></i> Activities</a>
+          </div>
+        </body>
+      </div>
 
-        {/* <div className="admin-portal">
+      {/* <div className="admin-portal">
       <h1>Admin Portal</h1>
       {entities.map((parent) => (
         <div key={parent} className="entity-section">
@@ -30,7 +36,7 @@ export default function AdminComponent() {
         </div>
       ))}
     </div> */}
-      </body>
+      {/* </body> */}
 
 
     </div>

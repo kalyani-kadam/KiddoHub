@@ -18,19 +18,19 @@ class ChildService {
         return axios.post(baseUrl + "/" + "add", formdetails, { headers: myheader })
     }
 
+    updateregchild(childdata) {
+        console.log(childdata)
+        console.log(childdata.childId)
+        var myheader = { 'Content-Type': 'application/json', }
+        return axios.put(baseUrl + "/updatestatus/" , childdata, { headers: myheader })
+    }
+
     updatechild(childdata) {
         console.log(childdata)
         console.log(childdata.childId)
         var myheader = { 'Content-Type': 'application/json', }
-        return axios.put(baseUrl + "/update/" + childdata.childId, childdata, { headers: myheader })
+        return axios.put(baseUrl + "/update" , childdata, { headers: myheader })
     }
-
-    // updatechild(childdata) {
-    //     console.log(childdata)
-    //     console.log(childdata.childId)
-    //     var myheader = { 'Content-Type': 'application/json', }
-    //     return axios.put(baseUrl + "/update" , childdata, { headers: myheader })
-    // }
     // Get a child by childId
     
     getChildById(childId) {

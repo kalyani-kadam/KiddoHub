@@ -46,29 +46,6 @@ public class ChildServiceImpl implements ChildService {
 				.stream()
 				.map(entity -> modelMapper.map(entity, ChildDTOCopy.class))
 				.collect(Collectors.toList());	
-		
-//		List<ChildDTO> childDTOs = childRepository.findAll().stream()
-//			    .map(child -> {
-//			        ChildDTO dto = modelMapper.map(child, ChildDTO.class);
-//			        dto.setParent(child.getParent().getParentId()); // Correct mapping for parentId
-//			        return dto;
-//			    })
-//			    .collect(Collectors.toList());
-//		return childDTOs;
-//		modelMapper.typeMap(Child.class, ChildDTO.class).addMappings(mapper -> {
-//		    mapper.map(src -> src.getParent().getParentId(), ChildDTO::setParentId);
-//		});
-		
-//		List<Child> children = childRepository.findAll();
-//		System.out.println("======= child details ======="+children);
-//        return children.stream()
-//            .map(child -> {
-//                ChildDTO dto = modelMapper.map(child, ChildDTO.class);
-//                dto.setParentID(child.getParent().getParentId());  // Set parentId correctly
-//                System.out.println("dto with fk"+dto);
-//                return dto;
-//            })
-//            .collect(Collectors.toList());
 	}
 //	@Override
 //	public List<ChildDTO> getAllChilds(){
@@ -136,19 +113,6 @@ public class ChildServiceImpl implements ChildService {
 		return new ApiResponse("child deletion failed");
 	}
 
-//	@Override
-//	public ApiResponse updateChildDetails(Long id,ChildDTO childdto) throws ResourceNotFoundException {
-//		Child existingchild = childRepository.findById(id)
-//				.orElseThrow(() -> new ResourceNotFoundException("Child not found!"));		
-//		existingchild.setAllergies(childdto.getAllergies());
-//		existingchild.setDateOfBirth(childdto.getDateOfBirth());
-//		existingchild.setEmergencyContact(childdto.getEmergencyContact());
-//		existingchild.setGender(childdto.getGender());
-//		existingchild.setName(childdto.getName());
-//		existingchild.setMedicalInfo(childdto.getMedicalInfo());		
-//		return new ApiResponse("Child details updated successfully!");
-//	}
-
 	@Override
 	public ApiResponse updateChildDetails(Long id,Child child) throws Exception {
 		Parent parent =
@@ -156,19 +120,15 @@ public class ChildServiceImpl implements ChildService {
 		System.out.println("in service"+child);
 		Child newchild = modelMapper.map(child, Child.class);
 		System.out.println("in service after modelmapper"+newchild);
-		newchild.setParent(parent);
-		childRepository.save(newchild);
+		
 		Child existingchild = childRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Child not found!"));		
-		existingchild.setAllergies(child.getAllergies());
-		existingchild.setDateOfBirth(child.getDateOfBirth());
-		existingchild.setEmergencyContact(child.getEmergencyContact());
-		existingchild.setGender(child.getGender());
-		existingchild.setName(child.getName());
-		existingchild.setMedicalInfo(child.getMedicalInfo());
+		existingchild.setParent(parent);
+		childRepository.save(existingchild);
 		
 		return new ApiResponse("Child details updated successfully!");
 	}
+	
 	@Override
 	public ApiResponse childApprovalByDoctor(Long id, Child child) throws Exception {
 		Child checkchild = childRepository.findById(id).orElseThrow(()->new Exception("Sorry!! Child id not exists!"));
@@ -192,18 +152,37 @@ public class ChildServiceImpl implements ChildService {
 	}
 
 	@Override
-	public ApiResponse updateChildDetails(Child child) throws Exception {
-		System.out.println("in service ========= "+child);
+	public ApiResponse updateChildDetails(ChildDTO child) throws Exception {
 		if(childRepository.existsById(child.getChildId())) {
 			Parent parent =
-					parentRepository.findById(child.getParent().getParentId()).orElseThrow(() -> new Exception("Parent not found"));
-			System.out.println("in service"+child);
+					parentRepository.findById(child.getParentID()).orElseThrow(() -> new Exception("Parent not found"));
 			Child newchild = modelMapper.map(child, Child.class);
 			System.out.println("in service after modelmapper"+newchild);
 			newchild.setParent(parent);
-			childRepository.save(child);
+			childRepository.save(newchild);
 			return new ApiResponse("Child details updated successfully!");
 		}
 		return new ApiResponse("Child details not updated!");
+	}
+	
+	public ApiResponse updateChildStatus(ChildDTO child) throws Exception {
+		if(childRepository.existsById(child.getChildId())) {
+			Parent parent =
+					parentRepository.findById(child.getParentID()).orElseThrow(() -> new Exception("Parent not found"));
+			Child newchild = modelMapper.map(child, Child.class);
+			System.out.println("in service after modelmapper"+newchild);
+			newchild.setParent(parent);
+			child.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED);
+//			newchild.setChildRegStatusEnum();
+			childRepository.save(newchild);
+			return new ApiResponse("Child details updated successfully!");
+		}
+		return new ApiResponse("Child details not updated!");
+	}
+	
+	public void updateRegistrationStatus(int childid)
+	{
+		childRepository.updateRegStatus(childid);
+	
 	}
 }

@@ -62,7 +62,7 @@ public class ChildController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<?> updatechild(@RequestBody Child child) throws Exception{
+	public ResponseEntity<?> updatechild(@RequestBody ChildDTO child) throws Exception{
 		System.out.println("in update "+child);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(child));
 	}
@@ -72,19 +72,29 @@ public class ChildController {
 //		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, childDTO));
 //	}
 	
-	@PutMapping("/update/{id}")
-	public ResponseEntity<?> updatechild(@PathVariable Long id,@RequestBody Child child) throws Exception{
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, child));
-	}
+//	@PutMapping("/update/{id}")
+//	public ResponseEntity<?> updatechild(@PathVariable Long id,@RequestBody Child child) throws Exception{
+//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, child));
+//	}
 	
 	@PutMapping("/updatestatus/{id}")
 	public ResponseEntity<?> registeredchild(@PathVariable Long id,@RequestBody Child child) throws Exception{
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.childApprovalByDoctor(id, child));
 	}
 	
+	@PutMapping("/updatestatus")
+	public ResponseEntity<?> updateregstatus(@RequestBody ChildDTO child) throws Exception{
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
+	}
+	
 	@GetMapping("/id")
 	public ResponseEntity<?> findById(@PathVariable Long id) throws Exception{
 		return ResponseEntity.status(HttpStatus.FOUND).body(childService.findById(id));
 	}
+	
+//	@PutMapping("{/id}")
+//	public ResponseEntity<?> updateregstatus(@PathVariable int id){
+//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateRegistrationStatus(id));
+//	}
 	
 }

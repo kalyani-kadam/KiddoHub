@@ -11,7 +11,7 @@ export default function HomeComponent() {
   const brandStyle = {
     fontSize: '1.5rem',
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#382d2d',
     fontFamily: 'Arial, sans-serif', // You can use any font-family you prefer
     letterSpacing: '1px',
   };
@@ -27,7 +27,7 @@ export default function HomeComponent() {
   
   return (
     <>
-      <Navbar style={{ backgroundColor: bgColor }} variant="dark" fixed="top">
+      <Navbar style={{ backgroundColor: bgColor }} variant="light" fixed="top">
         <Container>
           <div className='d-flex justify-content-between align-items-center w-100'>
             <Navbar.Brand style={brandStyle}>

@@ -18,7 +18,6 @@ public class ChildDTOCopy extends BaseDTO {
 	private String password;
 	private String emailId;
 	
-
 	public String getEmailId() {
 		return emailId;
 	}

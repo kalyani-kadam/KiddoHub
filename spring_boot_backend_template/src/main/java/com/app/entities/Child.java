@@ -54,7 +54,7 @@ public class Child extends BaseEntity{
 	private ChildRegStatusEnum childRegStatusEnum;
 	
 	@ManyToOne(/*cascade = CascadeType.ALL,*/)
-	@JoinColumn(name="parent_id",nullable=false)
+	@JoinColumn(name="parent_id")
 	private Parent parent;
 	
 //	@OneToMany(mappedBy = "child",cascade=CascadeType.ALL)

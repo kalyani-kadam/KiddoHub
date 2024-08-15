@@ -19,6 +19,7 @@ import ParentEdit from './Components/ParentEdit';
 import DoctorRegistration from './Components/DoctorRegistration';
 import ChildUpdate from './Components/ChildUpdate';
 import DoctorDashboard from './Components/DoctorDashboard';
+import ChildRegStatusUpdate from './Components/ChildRegStatusUpdate';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
               <Route path="/staffregister" element={<StaffRegistrationComponent/>}></Route>
               {/* <Route path="/update/:id" element={<ParentEdit/>}></Route> */}
               <Route path="/update/:id" element={<ChildUpdate/>}></Route>
+              <Route path="/updatestatus/:id" element={<ChildRegStatusUpdate/>}></Route>
           </Routes>
           <Footer/>
           {/* </Footer> */}
