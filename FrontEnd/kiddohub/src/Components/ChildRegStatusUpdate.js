@@ -21,28 +21,6 @@ const ChildRegStatusUpdate = () => {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (childId) {
-    //         console.log("child id")
-    //         // Fetch and set child data by ID if editing an existing child
-    //         ChildService.getChildById(childId).then(response => {
-    //             setformdetails(response.data);
-    //         });
-    //     }
-    // }, [childId]);
-
-    // useEffect(() => {
-    //     if (childId) {
-    //         ChildService.getChildById(childId)
-    //             .then(response => {
-    //                 setformdetails(response.data);
-    //             })
-    //             .catch(error => {
-    //                 console.error("Error fetching child data:", error);
-    //             });
-    //     }
-    // }, [childId]);
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setformdetails({ ...formdetails, [name]: value });
