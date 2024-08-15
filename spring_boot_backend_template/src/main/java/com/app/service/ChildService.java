@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ApiResponse;
@@ -23,5 +24,8 @@ public interface ChildService {
 	public ApiResponse findById(Long id)throws Exception;
 	public void updateRegistrationStatus(int id);
 	public ApiResponse updateChildStatus(ChildDTO child)throws Exception;
+	public Child authenticateChild(String emailId, String password);
+	public Optional<Child> getChildById(Long id);
+	 public Optional<Child> findChildById(Long id);
 	
 }

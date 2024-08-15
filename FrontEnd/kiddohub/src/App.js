@@ -20,6 +20,7 @@ import DoctorRegistration from './Components/DoctorRegistration';
 import ChildUpdate from './Components/ChildUpdate';
 import DoctorDashboard from './Components/DoctorDashboard';
 import ChildRegStatusUpdate from './Components/ChildRegStatusUpdate';
+import ChildProfile from './Components/ChildProfile';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               {/* <Route path="/update/:id" element={<ParentEdit/>}></Route> */}
               <Route path="/update/:id" element={<ChildUpdate/>}></Route>
               <Route path="/updatestatus/:id" element={<ChildRegStatusUpdate/>}></Route>
+              <Route path="/profile" element={<ChildProfile />} />
           </Routes>
           <Footer/>
           {/* </Footer> */}

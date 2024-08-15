@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -47,46 +48,7 @@ public class ChildServiceImpl implements ChildService {
 				.map(entity -> modelMapper.map(entity, ChildDTOCopy.class))
 				.collect(Collectors.toList());	
 	}
-//	@Override
-//	public List<ChildDTO> getAllChilds(){
-//		List<Child> children = childRepository.findAll();
-//		System.out.println("======= child details ======= " + children);
-//
-//		return children.stream()
-//		    .map(child -> {
-//		        // Map the Child entity to a ChildDTO using ModelMapper
-//		        ChildDTO dto = modelMapper.map(child, ChildDTO.class);
-//		        
-//		        // Safely set the parentID if the parent is not null
-//		        if (child.getParent() != null) {
-//		            try {
-//		                Long parentId = child.getParent().getParentId();
-//		                dto.setParentID(parentId);  // Directly set the parentId
-//		            } catch (NumberFormatException e) {
-//		                System.err.println("NumberFormatException for parentId: " + e.getMessage());
-//		                dto.setParentID(null);  // or handle it according to your use case
-//		            }
-//		        } else {
-//		            dto.setParentID(null);  // Handle the case where parent is null
-//		        }
-//		        
-//		        System.out.println("dto with fk: " + dto);
-//		        return dto;
-//		    })
-//		    .collect(Collectors.toList());  // Collect the DTOs into a list and return
-//	}
 	
-//	public List<ChildDTO> getAllChilds() {
-//	    List<Child> children = childRepository.findAll();
-//	    return children.stream()
-//	        .map(child -> {
-//	        	System.out.println("Mapping Child ID: " + child.getChildId() + ", Parent ID: " + child.getParent().getParentId());
-//	            ChildDTO dto = new ChildDTO();
-//	            dto.setParentID(child.getParent().getParentId());  // Only set parentId
-//	            return dto;
-//	        })
-//	        .collect(Collectors.toList());
-//	}
 
 	public List<Child> getAllChild(){
 		return childRepository.findAll();
@@ -185,4 +147,19 @@ public class ChildServiceImpl implements ChildService {
 		childRepository.updateRegStatus(childid);
 	
 	}
+	
+	public Child authenticateChild(String emailId, String password) {
+		return childRepository.findByEmailIdAndPassword(emailId, password);
+//        return childRepository.findByEmailId(emailId)
+//                .filter(child -> child.getPassword().equals(password));
+    }
+
+    public Optional<Child> getChildById(Long id) {
+        return childRepository.findById(id);
+    }
+    
+
+    public Optional<Child> findChildById(Long id) {
+        return childRepository.findById(id);
+    }
 }

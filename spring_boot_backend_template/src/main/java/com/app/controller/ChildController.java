@@ -1,6 +1,8 @@
 package com.app.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dto.ChildDTO;
 import com.app.dto.ChildDTOCopy;
+import com.app.dto.LoginRequest;
 import com.app.entities.Child;
 import com.app.repository.ParentRepository;
 import com.app.service.ChildService;
@@ -87,14 +90,31 @@ public class ChildController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
 	}
 	
-	@GetMapping("/id")
-	public ResponseEntity<?> findById(@PathVariable Long id) throws Exception{
-		return ResponseEntity.status(HttpStatus.FOUND).body(childService.findById(id));
-	}
+//	@GetMapping("/id")
+//	public ResponseEntity<?> findById(@PathVariable Long id) throws Exception{
+//		return ResponseEntity.status(HttpStatus.FOUND).body(childService.findById(id));
+//	}
 	
 //	@PutMapping("{/id}")
 //	public ResponseEntity<?> updateregstatus(@PathVariable int id){
 //		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateRegistrationStatus(id));
 //	}
 	
+	
+	@PostMapping("/login")
+    public ResponseEntity<Child> login(@RequestBody LoginRequest loginRequest) {
+        Child child = childService.authenticateChild(loginRequest.getEmailId(), loginRequest.getPassword());
+        if (child != null) {
+            return ResponseEntity.ok(child);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Child> getChildById(@PathVariable Long id) {
+    	System.out.println("child id in "+id);
+        Optional<Child> child = childService.findChildById(id);
+        return child.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
