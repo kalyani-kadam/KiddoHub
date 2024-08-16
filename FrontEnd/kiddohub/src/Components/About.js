@@ -1,61 +1,42 @@
-// import React from 'react'
-
-// const About = () => {
-//     return (
-//         <>
-//             <div className="container">
-//                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-//                 {/* <!-- sidebar CSS--> */}
-//                 <link href="Style/sidebar.css" rel="stylesheet" media="all" />
-//                 <link href="Style/tables.css" rel="stylesheet" media="all" />
-//                 <div>
-//                     {/* <body> */}
-//                     <div class="sidebar">
-//                         <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-//                         <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-//                         <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
-//                         <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
-//                         <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-//                     </div>
-//                     {/* </body> */}
-//                 </div>
-//                 <h3 className="py-3">About Us</h3>
-//                 <p>
-//                     At Kiddohub, we believe in nurturing creativity, curiosity, and learning in every child. Our mission is to provide a safe,
-//                     engaging, and fun environment where children can explore their interests, develop new skills, and make lifelong memories</p>
-
-//                 <p className="text-muted">Regards, from creators:
-//                     <ul>
-//                         <li>Kalyani Kadam</li>
-//                         <li>Kshitija Kurhade</li>
-//                     </ul>
-//                 </p>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default About;
-
-
 import React from 'react';
 import '../css/About.css';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+
+    const navigate = useNavigate();
+
+    function handleSignUpClick() {
+        navigate("/signup");
+    }
+
+    function handleLoginClick() {
+        navigate("/login");
+    }
+
     return (
         <>
-            <div className="container">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-                <div>
-                    <div class="sidebar">
-                        <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-                        <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-                        <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
-                        <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
-                        <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            <Navbar variant="light" fixed="top">
+                <Container>
+                    <div className='d-flex justify-content-between align-items-center w-100'>
+                        <Navbar.Brand>
+                            Kiddohub
+                        </Navbar.Brand>
+                        <Nav className="align-self-end">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/aboutus">About Us</Nav.Link>
+                            <Nav.Link href="/contactus">Contact Us</Nav.Link>
+                            <Nav.Link href="/rules">Rules</Nav.Link>
+                        </Nav>
+                        <div className="d-flex ml-auto">
+                            <Button variant="outline-dark" onClick={handleSignUpClick}>Sign-Up</Button>
+                            <Button variant="outline-dark" className="ml-2" onClick={handleLoginClick}>Log-In</Button>
+                        </div>
                     </div>
-                </div>
+                </Container>
+            </Navbar>
+            <div className="container">
                 <h3 className="py-3">About Us</h3>
                 <p>
                     At Kiddohub, we believe in nurturing creativity, curiosity, and learning in every child. Our mission is to provide a safe,

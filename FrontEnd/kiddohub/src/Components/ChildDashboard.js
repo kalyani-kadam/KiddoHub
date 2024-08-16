@@ -36,9 +36,10 @@ const ChildDashboard = () => {
   return (
 
     <div className="parent-dashboard">
-      <h1>Child Dashboard</h1>
+      <h2 className='header'>Child Dashboard</h2>
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <center>
       <Link to="/parentregister">
         <button type="button" name="btn" id="btn" className="btn btn-primary">Add Parent</button>
       </Link>
@@ -50,13 +51,14 @@ const ChildDashboard = () => {
       <Link to="/logout">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
       </Link>
+      </center>
       <br></br>
 
       <link href="css/sidebar.css" rel="stylesheet" media="all" />
       <div>
         <body>
           <div class="sidebar">
-            <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="/admin"><i class="fa fa-fw fa-home"></i> Home</a>
             <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
             <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
             <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
@@ -99,6 +101,7 @@ const ChildDashboard = () => {
               <td>{child.childRegStatusEnum}</td>
 
               <td>
+                {/* <center> */}
                 <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={() => { deleteParent(child.childId) }}>Delete</button>
                 {"  "}
                 <Link to={`/update/${child.childId}`} state={{ childdata: child }}>
@@ -108,6 +111,7 @@ const ChildDashboard = () => {
                 <Link to={`/updatestatus/${child.childId}`} state={{ childdata: child }}>
                   <button type="button" name="btn" id="btn" className="btn btn-warning">Update Status</button>
                 </Link>
+                {/* </center> */}
                 {/* {"  "}
                 <Link to={`/updateregstatus/${child.childId}`} state={{ childdata: child }}>
                   <button type="button" name="btn" id="btn" className="btn btn-warning">Update Status by doctor</button>

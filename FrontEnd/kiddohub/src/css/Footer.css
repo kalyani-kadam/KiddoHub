@@ -1,32 +1,72 @@
 /* Footer.css */
 
-/* Basic styling for the footer */
-.page-footer {
-    background-color: #f8f9fa; /* Light background color */
-    color: #343a40; /* Dark text color */
-    border-top: 1px solid #dee2e6; /* Subtle border at the top */
-  }
-  
-  /* Container to center and align items */
-  .page-footer .container {
-    max-width: 1200px;
-  }
-  
-  /* Style for social media icons */
-  .social-icon {
-    color: #343a40; /* Dark color for icons */
-    text-decoration: none;
-    font-size: 1.2rem; /* Size of icons */
-  }
-  
-  .social-icon:hover {
-    color: #007bff; /* Change color on hover */
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 576px) {
-    .social-icon {
-      font-size: 1rem; /* Smaller icon size on small screens */
-    }
-  }
-  
+.footer {
+  background-color: #bfbbbb;
+  color: #f10a0a;
+  padding: 40px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+  /* height: 50%; */
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-section p, .footer-section ul {
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ea3838;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+}
+
+.social-media a {
+  color: #b12525;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.social-media a:hover {
+  color: #d60e0e;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer p {
+  margin: 20px 0 0;
+  font-size: 14px;
+}

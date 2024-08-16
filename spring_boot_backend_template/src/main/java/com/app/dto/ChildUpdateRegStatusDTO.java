@@ -5,6 +5,7 @@ import com.app.entities.ChildRegStatusEnum;
 public class ChildUpdateRegStatusDTO {
 	private Long childId;
 	private ChildRegStatusEnum childRegStatusEnum;
+	
 	public Long getChildId() {
 		return childId;
 	}

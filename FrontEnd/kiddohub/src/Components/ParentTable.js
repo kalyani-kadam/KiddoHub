@@ -41,13 +41,13 @@ export default function ParentTable() {
     }
     return (
         <div>
-            <h1>Parent Dashboard</h1>
+            <h2>Parent Dashboard</h2>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
             {/* <!-- sidebar CSS--> */}
             <link href="Style/sidebar.css" rel="stylesheet" media="all" />
             <link href="Style/tables.css" rel="stylesheet" media="all" />
-
+            <center>
             <Link to="/parentregister">
                 <button type="button" name="btn" id="btn" className="btn btn-primary">Add Parent</button>
             </Link>&nbsp;&nbsp;
@@ -56,11 +56,12 @@ export default function ParentTable() {
             <Link to="/logout">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
             </Link>
+            </center>
             <br></br><br></br>
             <div>
                 <body>
                     <div class="sidebar">
-                        <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+                        <a href="/admin"><i class="fa fa-fw fa-home"></i> Home</a>
                         <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
                         <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
                         <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
@@ -73,7 +74,7 @@ export default function ParentTable() {
                 </body>
             </div>
             <div class="container">
-                <table border='2'>
+                <table>
                     <thead>
                         <tr>
                             <th>Id</th>

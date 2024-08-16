@@ -52,6 +52,7 @@ const ActivityRegistration = () => {
                     schedule: "",
                 });
                 alert("Activity Successfully Added!!")
+                navigate("/admin")
                 // navigate("/login");
             })
             .catch((error) => {

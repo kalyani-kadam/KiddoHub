@@ -1,11 +1,22 @@
 import React from 'react'
 // import './Loader.css'
-import '../css/Button.css'
+// import '../css/Button.css'
+import '../css/contact.css'
+
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 // import ReactTooltip from 'react-tooltip';
 
 const Contact = () => {
-
-
+  const navigate = useNavigate();
+  
+  function handleSignUpClick() {
+    navigate("/signup");
+  }
+  
+  function handleLoginClick() {
+    navigate("/login");
+  }
 
   const iframe = '<iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.238729709174!2d73.75950412391427!3d18.653280246812585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9e413287e41%3A0x29d8bfdf427740f2!2s43%2C%20Sector%20No.%2026%2C%20Pradhikaran%2C%20Nigdi%2C%20Pimpri-Chinchwad%2C%20Maharashtra%20411044!5e0!3m2!1sen!2sin!4v1662206951194!5m2!1sen!2sin" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
   function Iframe(props) {
@@ -71,22 +82,25 @@ const Contact = () => {
 
     <>
       <div className="container">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-        {/* <!-- sidebar CSS--> */}
-        <link href="Style/sidebar.css" rel="stylesheet" media="all" />
-        <link href="Style/tables.css" rel="stylesheet" media="all" />
-        <div>
-          {/* <body> */}
-          <div class="sidebar">
-            <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-            <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
-            <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
-            <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <Navbar variant="light" fixed="top">
+        <Container>
+          <div className='d-flex justify-content-between align-items-center w-100'>
+            <Navbar.Brand>
+              Kiddohub
+            </Navbar.Brand>
+            <Nav className="align-self-end">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/aboutus">About Us</Nav.Link>
+              <Nav.Link href="/contactus">Contact Us</Nav.Link>
+              <Nav.Link href="/rules">Rules</Nav.Link>
+            </Nav>
+            <div className="d-flex ml-auto">
+              <Button variant="outline-dark" onClick={handleSignUpClick}>Sign-Up</Button>
+              <Button variant="outline-dark" className="ml-2" onClick={handleLoginClick}>Log-In</Button>
+            </div>
           </div>
-          {/* </body> */}
-        </div>
+        </Container>
+      </Navbar>
         <h2 className="py-3 text-center">Contact</h2>
 
         <h3>
@@ -105,7 +119,7 @@ const Contact = () => {
           <li>
             <h4>
               <input value="kadamkalyani.m@gmail.com" disabled id='copytext2' style={{ "border": "none", "width": "400px" }}></input>
-              <button type="button" class="btn btn-primary" onClick={copyText2}>Primary</button><p id='copy2'></p>
+              <button type="button" class="btn btn-primary" onClick={copyText2}>Copy</button><p id='copy2'></p>
             </h4>
           </li>
           <li>

@@ -477,6 +477,7 @@ input {
     -moz-border-radius: 3px;
     border-radius: 3px;
     background: #fff;
+    width: 100%;
 }
 
 .card-2 {
@@ -500,6 +501,7 @@ input {
     display: table-cell;
     padding: 80px 90px;
     padding-bottom: 88px;
+    /* width:100%; */
 }
 
 @media (max-width: 767px) {

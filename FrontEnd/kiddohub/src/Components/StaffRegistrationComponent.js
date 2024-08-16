@@ -22,10 +22,11 @@ const StaffRegisteration = () => {
 
         console.log("in addStaff");
 
-        StaffService.addStaff(formdetails).then((result) => {
+        StaffService.addstaff(formdetails).then((result) => {
             console.log(result);
             setformdetails({ staffId: "", name: "", post: "", joiningDate: "", mobNo: "", email: "", address: "" })
             alert("Successfully Register!!")
+            navigate("/admin")
         })
             .catch((error) => {
                 console.log("something went wrong" + error.response);
@@ -110,11 +111,11 @@ const StaffRegisteration = () => {
                                             name="post"
                                             value={formdetails.post}
                                             onChange={handlechange}>
-                                            <option value="" disabled selected>Select Post</option>
-                                            <option value={formdetails.post}>DIRECTOR</option>
-                                            <option value={formdetails.post}>SUPERVISOR</option>
-                                            <option value={formdetails.post}>EDUCATOR</option>
-                                            <option value={formdetails.post}>ASSISTANT</option>
+                                            <option value="" disabled >Select Post</option>
+                                            <option value='DIRECTOR'>DIRECTOR</option>
+                                            <option value='SUPERVISOR'>SUPERVISOR</option>
+                                            <option value='EDUCATOR'>EDUCATOR</option>
+                                            <option value='ASSISTANT'>ASSISTANT</option>
 
                                         </select>
                                     </div>

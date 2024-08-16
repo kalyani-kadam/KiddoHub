@@ -1,8 +1,19 @@
 import React from "react";
 import '../css/ChildRules.css'; // Custom CSS file for additional styles
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ChildRules = () => {
+    const navigate = useNavigate();
+  
+    function handleSignUpClick() {
+      navigate("/signup");
+    }
+    
+    function handleLoginClick() {
+      navigate("/login");
+    }
     const rules = [
         "Children must respect their elders and teachers.",
         "Proper hygiene and cleanliness should be maintained.",
@@ -23,23 +34,28 @@ const ChildRules = () => {
     ];
 
     return (
-        <div className="container mt-5">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-            {/* <!-- sidebar CSS--> */}
-            <link href="Style/sidebar.css" rel="stylesheet" media="all" />
-            <link href="Style/tables.css" rel="stylesheet" media="all" />
-            <div>
-                {/* <body> */}
-                <div class="sidebar">
-                    <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-                    <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-                    <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
-                    <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
-                    <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-                </div>
-                {/* </body> */}
+        <>
+        <Navbar variant="light" fixed="top">
+        <Container>
+          <div className='d-flex justify-content-between align-items-center w-100'>
+            <Navbar.Brand>
+              Kiddohub
+            </Navbar.Brand>
+            <Nav className="align-self-end">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/aboutus">About Us</Nav.Link>
+              <Nav.Link href="/contactus">Contact Us</Nav.Link>
+              <Nav.Link href="/rules">Rules</Nav.Link>
+            </Nav>
+            <div className="d-flex ml-auto">
+              <Button variant="outline-dark" onClick={handleSignUpClick}>Sign-Up</Button>
+              <Button variant="outline-dark" className="ml-2" onClick={handleLoginClick}>Log-In</Button>
             </div>
+          </div>
+        </Container>
+      </Navbar>
+        <div className="container mt-5">
+            
             <div className="card shadow-lg p-4">
                 <div className="card-body">
                     <h2 className="text-center mb-4">Child Rules</h2>
@@ -53,6 +69,7 @@ const ChildRules = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

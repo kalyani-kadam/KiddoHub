@@ -35,6 +35,7 @@ const DoctorDashboard = () => {
 
     <div className="doctor-dashboard">
       <h2>Doctor Dashboard</h2>
+      <center>
       <Link to="/doctorregister">
         <button type="button" name="btn" id="btn" className="btn btn-primary">Add Doctor</button>
       </Link>
@@ -46,12 +47,13 @@ const DoctorDashboard = () => {
       <Link to="/logout">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
       </Link>
+      </center>
       <br></br>
 
       <div>
         <body>
           <div class="sidebar">
-            <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="/admin"><i class="fa fa-fw fa-home"></i> Home</a>
             <a href="/clients"><i class="fa fa-fw fa-user"></i> Clients</a>
             <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
             <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>

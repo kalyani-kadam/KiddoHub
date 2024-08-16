@@ -131,7 +131,7 @@ const ChildRegistration = () => {
                 <div className='col-md-6 offset-md-3'>
                     <div className='card'>
                         <div className='card-header'>
-                            <h2 className='text-center'>Child Registration Form</h2>
+                            <h2 className='text-center'>Child Registration</h2>
                         </div>
                         <div className='card-body'>
                             <form onSubmit={(e) => { e.preventDefault(); addChild(); }}>

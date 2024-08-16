@@ -1,24 +1,97 @@
 .parent-dashboard {
-    padding: 20px;
+    padding: 100px;
   }
   
   table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-left: 250px;
   }
   
   th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #a75d5d;
     padding: 8px;
     text-align: left;
   }
   
   th {
-    background-color: #f2f2f2;
+    background-color: #fc7a46;
   }
   
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+
+
+
+   /* ParentDashboard.css */
+
+/* General Page Styling */
+.parent-dashboard {
+  padding: 20px; /* Adjust padding as needed */
+  background-color: #f4f4f4;
+}
+
+/* Button Container Styling */
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  margin-bottom: 20px; /* Space between buttons and table */
+}
+
+/* Button Styling */
+.button-container .btn {
+  margin-left: 10px;
+}
+.h2{
+  text-align: center;
+}
+/* Table Styling */
+/* table {
+  width: 100%; /* Make table take full width */
+  /* border-collapse: collapse;
+  margin-top: 20px;
+} */
+
+/* th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+} */ */
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding-top: 20px;
+  padding-left: 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+.sidebar a {
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}

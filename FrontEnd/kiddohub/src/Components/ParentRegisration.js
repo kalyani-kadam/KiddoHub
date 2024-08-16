@@ -70,7 +70,7 @@ const ParentRegistration = () => {
                 .then((result) => {
                     console.log(result);
                     setFormdetails({ address: "", emailId: "", name: "", phoneNo: "", password: "" });
-                    navigate("/login");
+                    navigate("/childregister");
                 })
                 .catch((error) => {
                     console.log("Something went wrong: " + error.response);
@@ -101,7 +101,7 @@ const ParentRegistration = () => {
                 <div className='col-md-6 offset-md-3'>
                     <div className='card'>
                         <div className='card-header'>
-                            <h2 className='text-center'> Parent Registration Form </h2>
+                            <h2 className='text-center'>Parent Registration</h2>
                         </div>
                         <div className='card-body'>
                             <form>

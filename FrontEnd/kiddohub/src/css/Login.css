@@ -1,16 +1,127 @@
-.social .go, .social .fb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    padding: 10px 0;
+/* General Page Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff6f61;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff6f61;
+}
+
+.navbar .btn {
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar .btn-outline-dark {
+  color: #ff6f61;
+  border-color: #ff6f61;
+}
+
+.navbar .btn-outline-dark:hover {
+  background-color: #ff6f61;
+  color: #fff;
+}
+
+/* Main Content Styling */
+.container {
+  margin-top: 200px; /* Adjust to account for the height of the navbar */
+  padding: 20px;
+  background-color: #a53737;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100px; /* Center the form and limit its width */
+  margin: 80px auto 20px auto; /* Center the container horizontally */
+}
+
+h2 {
+  text-align: center;
+  color: #ff6f61;
+  font-family: 'Comic Sans MS', cursive;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  padding: 10px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.alert {
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-brand {
+      font-size: 1.5rem;
   }
-  
-  .social .go {
-    background-color: #db4437; /* Google button color */
+
+  .navbar-nav .nav-link {
+      font-size: 1rem;
   }
-  
-  .social .fb {
-    background-color: #3b5998; /* Facebook button color */
+
+  .container {
+      margin-top: 100px; /* Adjust for smaller screens */
+      padding: 15px;
   }
-  
+
+  h2 {
+      font-size: 1.8rem;
+  }
+
+  .btn-success {
+      font-size: 0.9rem;
+  }
+}

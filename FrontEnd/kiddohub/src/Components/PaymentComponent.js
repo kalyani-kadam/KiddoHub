@@ -43,6 +43,7 @@ const PaymentComponent = () => {
                     pType: ""
                 });
                 alert("Payment Successfully Added!!")
+                navigate("/profile")
                 // navigate("/login");
             })
             .catch((error) => {

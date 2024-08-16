@@ -53,19 +53,21 @@ const StaffDashboard = () => {
             <link href="Style/tables.css" rel="stylesheet" media="all" />
 
             <br />
+            <center>
             <Link to="/staffregister">
                 <button type="button" name="btn" id="btn" className="btn btn-primary">Add Staff</button>
             </Link>&nbsp;&nbsp;
             <Link to="/login">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
             </Link>
+            </center>
             <br></br><br></br>
             <div>
                 <body>
                     <div class="sidebar">
-                        <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+                        <a href="/admin"><i class="fa fa-fw fa-home"></i> Home</a>
                         <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-                        <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                        <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
                         <a href="/parenttable"><i class="fa fa-fw fa-user"></i> Parents </a>
                         <a href="/childdashboard"><i class="fa fa-fw fa-child"></i> Children </a>
                         <a href="/doctordashboard"><i class="fa fa-fw fa-user-md"></i> Doctors</a>
@@ -76,7 +78,7 @@ const StaffDashboard = () => {
                 </body>
             </div>
             <div class="container">
-                <table border='2'>
+                <table>
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -88,6 +90,7 @@ const StaffDashboard = () => {
                             <th>Address</th>
                             <th>Joining Date</th>
                             <th>Post</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
