@@ -41,9 +41,9 @@ public class StaffController {
 				.body(_staffService.addStaff(staff));
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<?> updateStaff(@PathVariable Long id, @RequestBody StaffDTO staffdto) throws ResourceNotFoundException{
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(_staffService.updateStaffDetails(id, staffdto));
+	@PutMapping("/update")
+	public ResponseEntity<?> updateStaff( @RequestBody StaffDTO staffdto) throws ResourceNotFoundException{
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(_staffService.updateStaffDetails(staffdto));
 	}
 	
 	@DeleteMapping("/delete/{id}")

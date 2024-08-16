@@ -13,7 +13,7 @@ public interface StaffService {
 	
 	ApiResponse addStaff(Staff staff);
 	
-	ApiResponse updateStaffDetails(Long id,StaffDTO staffDTO) throws ResourceNotFoundException;
+	ApiResponse updateStaffDetails(StaffDTO staffDTO) throws ResourceNotFoundException;
 	
 	ApiResponse deleteStaffDetails(Long id);
 
