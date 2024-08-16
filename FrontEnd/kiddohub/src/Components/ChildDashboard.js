@@ -1,10 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import '../css/ParentDashboard.css'
 import ChildService from '../service/ChildService';
 import '../Style/sidebar.css';
 
 const ChildDashboard = () => {
+  const { childId } = useParams(); // Get childId from URL
+    console.log("Retrieved childId:", childId);
   const [children, setChildren] = useState([]);
   const navigate = useNavigate();
 

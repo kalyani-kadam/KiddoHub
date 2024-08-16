@@ -45,8 +45,6 @@ public class Activity {
 	private LocalDate schedule;
 	
 	
-	
-	
 	public Activity() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -64,9 +62,6 @@ public class Activity {
 		this.ageGroup = ageGroup;
 		this.schedule = schedule;
 	}
-	
-	
-
 
 	public Activity(Long activityId, @NotNull String name, String description, int noChilds, String ageGroup,
 			LocalDate schedule) {

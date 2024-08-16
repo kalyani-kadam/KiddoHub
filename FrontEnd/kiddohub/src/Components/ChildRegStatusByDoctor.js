@@ -109,11 +109,13 @@
 // export default ChildRegStatusByDoctor;
 
 
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState,useEffect } from "react";
+import { useNavigate,useParams } from 'react-router-dom';
 import ChildService from "../service/ChildService";
 
 const ChildRegStatusUpdate = () => {
+    const { childId } = useParams(); // Get childId from URL
+    console.log("Retrieved childId:", childId);
     const [formdetails, setFormdetails] = useState({
         childId: "",
         childRegStatusEnum: ""
@@ -133,6 +135,20 @@ const ChildRegStatusUpdate = () => {
         if (!formdetails.childRegStatusEnum) errors.childRegStatusEnum = "Registration Status is required";
         return errors;
     };
+
+    // Fetch child data when component mounts
+    useEffect(() => {
+        if (formdetails.childId) {
+            ChildService.getChildById(formdetails.childId) // Implement this method in your service
+                .then(response => {
+                    console.log(response.data);
+                    setFormdetails(response.data);
+                })
+                .catch(error => {
+                    console.error("Error fetching child data", error);
+                });
+        }
+    }, [formdetails.childId]);
 
     const updateChild = () => {
         const validationErrors = validate();

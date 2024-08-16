@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
+import com.app.dto.ApiResponse;
 import com.app.dto.ChildDTO;
 import com.app.dto.ChildDTOCopy;
 import com.app.dto.ChildUpdateRegStatusDTO;
@@ -25,6 +26,7 @@ import com.app.dto.LoginRequest;
 import com.app.entities.Child;
 import com.app.repository.ParentRepository;
 import com.app.service.ChildService;
+import com.app.service.EmailService;
 import com.app.service.ParentService;
 
 @CrossOrigin("*")
@@ -37,6 +39,9 @@ public class ChildController {
 	private ChildService childService;
 	
 	@Autowired
+    private EmailService emailService;
+	
+	@Autowired
 	private ParentRepository parentRepository;
 	@GetMapping
 	List<ChildDTOCopy> getAllChild(){
@@ -47,18 +52,23 @@ public class ChildController {
 //		return test1;
 	}
 	
-//	@GetMapping("/getAllChildren")
-//	List<Child> getAll(){
-//		return childService.getAllChild();
-//	}
-	
-	@PostMapping("/add")
-	public ResponseEntity<?> addChild(@RequestBody ChildDTO child) throws Exception{
-//		System.out.println("in child controller test");
-//		System.out.println("Received child object: " + child.getParentID());
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(childService.addChild(child));
-	}
+	 @PostMapping("/add")
+	    public ResponseEntity<?> addChild(@RequestBody ChildDTO child) throws Exception {
+	        // Add child to the database
+	        ApiResponse savedChild = childService.addChild(child);
+	        
+	        // After successful registration, send email
+//	        String subject = "Welcome to Our Service!";
+//	        String text = "Dear " + child.getName() + ",\n\n" +
+//	                      "Thank you for registering with us. Your registration is successful.\n\n" +
+//	                      "Best regards,\n" +
+//	                      "The Team";
+//
+//	        emailService.sendEmail(child.getEmailId(), subject, text);
+
+	        return ResponseEntity.status(HttpStatus.CREATED)
+	                             .body(savedChild);
+	    }
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deletechild(@PathVariable Long id){
@@ -71,25 +81,6 @@ public class ChildController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(child));
 	}
 
-//	@PutMapping("/update/{id}")
-//	public ResponseEntity<?> updatechild(@PathVariable Long id,@RequestBody ChildDTO childDTO) throws ResourceNotFoundException{
-//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, childDTO));
-//	}
-	
-//	@PutMapping("/update/{id}")
-//	public ResponseEntity<?> updatechild(@PathVariable Long id,@RequestBody Child child) throws Exception{
-//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildDetails(id, child));
-//	}
-	
-//	@PutMapping("/updatestatus/{id}")
-//	public ResponseEntity<?> registeredchild(@PathVariable Long id,@RequestBody Child child) throws Exception{
-//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.childApprovalByDoctor(id, child));
-//	}
-	
-//	@PutMapping("/updatestatus")
-//	public ResponseEntity<?> updateregstatus(@RequestBody ChildDTO child) throws Exception{
-//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
-//	}
 	
 //	child reg status changedd by doctor method
 	
@@ -98,16 +89,6 @@ public class ChildController {
 		System.out.println("child dto with status "+child);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
 	}
-	
-//	@GetMapping("/id")
-//	public ResponseEntity<?> findById(@PathVariable Long id) throws Exception{
-//		return ResponseEntity.status(HttpStatus.FOUND).body(childService.findById(id));
-//	}
-	
-//	@PutMapping("{/id}")
-//	public ResponseEntity<?> updateregstatus(@PathVariable int id){
-//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateRegistrationStatus(id));
-//	}
 	
 	
 	@PostMapping("/login")

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import DoctorService from '../service/DoctorService';
 
 const DoctorDashboard = () => {
@@ -41,7 +40,7 @@ const DoctorDashboard = () => {
       </Link>
       {"  "}
       <Link to="/childdashboard">
-        <button type="button" name="btn" id="btn" className="btn btn-warning">Update child</button>
+        <button type="button" name="btn" id="btn" className="btn btn-warning">View children Data</button>
       </Link>
       {"  "}
       <Link to="/logout">

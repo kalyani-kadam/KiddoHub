@@ -55,14 +55,14 @@ function App() {
               <Route path="/admin" element={<AdminComponent/>}></Route>
               <Route path="/staffregister" element={<StaffRegistrationComponent/>}></Route>
               {/* <Route path="/update/:id" element={<ParentEdit/>}></Route> */}
-              <Route path="/update/:id" element={<ChildUpdate/>}></Route>
-              <Route path="/updatestatus/:id" element={<ChildRegStatusUpdate/>}></Route>
+              <Route path="/update/:childId" element={<ChildUpdate/>}></Route>
+              <Route path="/updatestatus/:childId" element={<ChildRegStatusUpdate/>}></Route>
               <Route path="/profile" element={<ChildProfile />} />
               <Route path="/payment" element={<PaymentComponent />} />
               <Route path="/rules" element={<ChildRules />} />
               <Route path="/activityregister" element={<ActivityRegistration />} />
               <Route path="/staffregister" element={<StaffRegisteration />} />
-              <Route path="/updateregstatus/:id" element={<ChildRegStatusByDoctor/>}></Route>
+              <Route path="/updateregstatus/:childId" element={<ChildRegStatusByDoctor/>}></Route>
               
           </Routes>
           <Footer/>
