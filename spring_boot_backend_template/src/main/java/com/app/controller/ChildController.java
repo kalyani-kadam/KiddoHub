@@ -51,7 +51,7 @@ public class ChildController {
 //	List<Child> getAll(){
 //		return childService.getAllChild();
 //	}
-//	
+	
 	@PostMapping("/add")
 	public ResponseEntity<?> addChild(@RequestBody ChildDTO child) throws Exception{
 //		System.out.println("in child controller test");
@@ -86,17 +86,18 @@ public class ChildController {
 //		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.childApprovalByDoctor(id, child));
 //	}
 	
-	@PutMapping("/updatestatus")
-	public ResponseEntity<?> updateregstatus(@RequestBody ChildDTO child) throws Exception{
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
-	}
-	
-	//child reg status changedd by doctor method
 //	@PutMapping("/updatestatus")
-//	public ResponseEntity<?> updateregstatus(@RequestBody ChildUpdateRegStatusDTO child) throws Exception{
-//		System.out.println("child dto with status "+child);
+//	public ResponseEntity<?> updateregstatus(@RequestBody ChildDTO child) throws Exception{
 //		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
 //	}
+	
+//	child reg status changedd by doctor method
+	
+	@PutMapping("/updatestatus")
+	public ResponseEntity<?> updateregstatus(@RequestBody ChildUpdateRegStatusDTO child) throws Exception{
+		System.out.println("child dto with status "+child);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(childService.updateChildStatus(child));
+	}
 	
 //	@GetMapping("/id")
 //	public ResponseEntity<?> findById(@PathVariable Long id) throws Exception{

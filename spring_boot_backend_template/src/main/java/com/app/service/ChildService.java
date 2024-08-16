@@ -22,7 +22,7 @@ public interface ChildService {
 	public ApiResponse updateChildDetails(Long id,Child child) throws Exception ;
 	public ApiResponse updateChildDetails(ChildDTO child)throws Exception;
 	public ApiResponse childApprovalByDoctor(Long id,Child child)throws Exception;
-	public void updateRegistrationStatus(int id);
+//	public void updateRegistrationStatus(int id);
 	public ApiResponse updateChildStatus(ChildDTO child)throws Exception;
 	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child)throws Exception;
 	public Child authenticateChild(String emailId, String password);

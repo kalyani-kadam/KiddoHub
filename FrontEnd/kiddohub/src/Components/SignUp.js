@@ -1,30 +1,31 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
+import '../css/signup.css';
 
 const SignUp = () => {
   const backgroundcolor = {
-    backgroundcolor:"#fafcfb"
+    backgroundcolor: "#fafcfb"
   };
   return (
-    
+
     <div style={{ paddingTop: '160px', background: '#fcfcfc' }}>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
       {/* <!-- sidebar CSS--> */}
       <link href="Style/sidebar.css" rel="stylesheet" media="all" />
       <link href="Style/tables.css" rel="stylesheet" media="all" />
       <div>
         {/* <body> */}
-          <div class="sidebar">
-            <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-            <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
-            <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
-            <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-          </div>
+        <div class="sidebar">
+          <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+          <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+          <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
+          <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
+          <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+        </div>
         {/* </body> */}
-      </div>
+      </div> 
       <div style={{ padding: '30px', textAlign: 'center', color: '#261d1d', textShadow: '1px 1px 2px #0000' }}>
         <h1 style={{ fontFamily: 'cursive', fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}>
           👼A Second Home for Your Little One!🎉
@@ -35,28 +36,26 @@ const SignUp = () => {
         </p>
         <h3>Choose Your Role</h3>
         <Container style={backgroundcolor}>
-        <Row className="mb-5">
-          <Col sm={5}>
-            <h3><Link to='/parentregister'> Custodian </Link></h3>
-            <div className="img-wrapper">
-              <Link to="/parentregister">
-                <img className="inner-img img-fluid" src="./images/parent1.png" alt="Parent" />
-              </Link>
-            </div>
-          </Col>
-          <Col sm={5}>
-            <h3><Link to='/childregister'> Youngster </Link></h3>
-            <div className="img-wrapper">
-              <Link to="/childregister">
-                <img className="inner-img img-fluid" src="./images/child11.png" alt="Child" />
-              </Link>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+          <Row className="mb-5">
+            <Col sm={5}>
+              <h3><Link to='/parentregister'> Custodian </Link></h3>
+              <div className="img-wrapper">
+                <Link to="/parentregister">
+                  <img className="inner-img img-fluid" src="./images/parent1.png" alt="Parent" />
+                </Link>
+              </div>
+            </Col>
+            <Col sm={5}>
+              <h3><Link to='/childregister'> Youngster </Link></h3>
+              <div className="img-wrapper">
+                <Link to="/childregister">
+                  <img className="inner-img img-fluid" src="./images/child11.png" alt="Child" />
+                </Link>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
-
-      
     </div>
   );
 };

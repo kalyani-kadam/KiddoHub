@@ -108,10 +108,10 @@ const ChildDashboard = () => {
                 <Link to={`/updatestatus/${child.childId}`} state={{ childdata: child }}>
                   <button type="button" name="btn" id="btn" className="btn btn-warning">Update Status</button>
                 </Link>
-                {"  "}
+                {/* {"  "}
                 <Link to={`/updateregstatus/${child.childId}`} state={{ childdata: child }}>
                   <button type="button" name="btn" id="btn" className="btn btn-warning">Update Status by doctor</button>
-                </Link>
+                </Link> */}
               </td>
             </tr>
           ))}

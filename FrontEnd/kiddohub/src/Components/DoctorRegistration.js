@@ -7,7 +7,7 @@ const DoctorRegistration = () => {
         phoneNo: "",
         emailId: "",
         name: "",
-        specialization:"",
+        specialization: "",
         password: "",
         childId: ""
     });
@@ -29,7 +29,7 @@ const DoctorRegistration = () => {
         if (!formdetails.childId) errors.childId = "childId ID is required";
 
         // Phone validation
-        const phonePattern = /^[0-9]{10}$/; 
+        const phonePattern = /^[0-9]{10}$/;
         if (!formdetails.phoneNo) {
             errors.phoneNo = "Phone number is required";
         } else if (!phonePattern.test(formdetails.phoneNo)) {
@@ -93,6 +93,22 @@ const DoctorRegistration = () => {
 
     return (
         <div className='container'>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+            {/* <!-- sidebar CSS--> */}
+            <link href="Style/sidebar.css" rel="stylesheet" media="all" />
+            <link href="Style/tables.css" rel="stylesheet" media="all" />
+            <div>
+                {/* <body> */}
+                <div class="sidebar">
+                    <a href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+                    <a href="/rules"><i class="fa fa-fw fa-square"></i> Rules </a>
+                    <a href="/aboutus"><i class="fa fa-fw fa-child"></i> About Us </a>
+                    <a href="/contactus"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                </div>
+                {/* </body> */}
+            </div>
             <br /> <br />
             <div className='row'>
                 <div className='col-md-6 offset-md-3'>
@@ -137,7 +153,7 @@ const DoctorRegistration = () => {
                                     </div>
                                 </div>
 
-                                
+
                                 <div className='row mb-3'>
                                     <label className='col-md-3 control-label'>Phone No</label>
                                     <div className='col-md-9'>

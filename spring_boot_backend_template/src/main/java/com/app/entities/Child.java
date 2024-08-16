@@ -53,6 +53,10 @@ public class Child extends BaseEntity{
 	@Column(name="childstatusreg")
 	private ChildRegStatusEnum childRegStatusEnum;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(name="role")
+	private Role role;
+	
 	@ManyToOne(/*cascade = CascadeType.ALL,*/)
 	@JoinColumn(name="parent_id")
 	private Parent parent;
@@ -64,17 +68,34 @@ public class Child extends BaseEntity{
 		super();
 	}
 	
+	
+
+//	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
+//			String emergencyContact, String emailId, String password, ChildRegStatusEnum childRegStatusEnum
+//			) {
+//		super();
+//		this.childId = childId;
+//		this.name = name;
+//		this.dateOfBirth = dateOfBirth;
+//		this.gender = gender;
+//		this.allergies = allergies;
+//		this.medicalInfo = medicalInfo;
+//		this.emergencyContact = emergencyContact;
+//		this.emailId = emailId;
+//		this.password = password;
+//		this.childRegStatusEnum = childRegStatusEnum.PENDING;
+////		this.parentId = parent;
+//	}
+	
+	
+
 	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public Child(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies, String medicalInfo,
-			String emergencyContact, String emailId, String password, ChildRegStatusEnum childRegStatusEnum
-			) {
+			String emergencyContact, String emailId, String password, ChildRegStatusEnum childRegStatusEnum,
+			Role role) {
 		super();
 		this.childId = childId;
 		this.name = name;
@@ -85,10 +106,14 @@ public class Child extends BaseEntity{
 		this.emergencyContact = emergencyContact;
 		this.emailId = emailId;
 		this.password = password;
-		this.childRegStatusEnum = childRegStatusEnum.PENDING;
-//		this.parentId = parent;
+		this.childRegStatusEnum = childRegStatusEnum;
+		this.role = role;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	public Parent getParent() {
 		return parent;
 	}
@@ -158,6 +183,19 @@ public class Child extends BaseEntity{
 		return medicalInfo;
 	}
 
+	
+	public Role getRole() {
+		return role;
+	}
+
+
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+
+
 	public void setMedicalInfo(String medicalInfo) {
 		this.medicalInfo = medicalInfo;
 	}
@@ -170,13 +208,22 @@ public class Child extends BaseEntity{
 		this.emergencyContact = emergencyContact;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Child [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
 				+ ", emailId=" + emailId + ", password=" + password + ", childRegStatusEnum=" + childRegStatusEnum
-				+ ", parent=" + parent + "]";
+				+ ", role=" + role + ", parent=" + parent + "]";
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Child [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
+//				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
+//				+ ", emailId=" + emailId + ", password=" + password + ", childRegStatusEnum=" + childRegStatusEnum
+//				+ ", parent=" + parent + "]";
+//	}
 
 	
 

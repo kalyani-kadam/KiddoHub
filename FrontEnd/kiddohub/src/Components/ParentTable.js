@@ -51,7 +51,7 @@ export default function ParentTable() {
             <Link to="/parentregister">
                 <button type="button" name="btn" id="btn" className="btn btn-primary">Add Parent</button>
             </Link>&nbsp;&nbsp;
-            
+
             {"  "}
             <Link to="/logout">
                 <button type="button" name="btn" id="btn" className="btn btn-danger">Logout</button>
@@ -83,6 +83,7 @@ export default function ParentTable() {
                             <th>EmailId</th>
                             <th>Name</th>
                             <th>PhoneNo</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,7 +101,7 @@ export default function ParentTable() {
                                 <button type="button" name="btn" id="btn" className="btn btn-danger" onClick={() => { deleteParent(parent.parentId) }}>Delete</button>
                                 &nbsp;&nbsp;
                                 <Link to={`/update/${parent.parentId}`} state={{ parentdata: parent }}>
-                                    <button type="button" name="btn" id="btn" className="btn btn-info">Edit</button>
+                                    <button type="button" name="btn" id="btn" className="btn btn-info">Update</button>
                                 </Link>
                             </td>
                         </tr>)}

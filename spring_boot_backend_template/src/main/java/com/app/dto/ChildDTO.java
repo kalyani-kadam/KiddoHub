@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import com.app.entities.ChildRegStatusEnum;
 import com.app.entities.GenderEnum;
+import com.app.entities.Role;
 
 public class ChildDTO extends BaseDTO {
 
@@ -18,7 +19,8 @@ public class ChildDTO extends BaseDTO {
 	private String password;
 	private String emailId;
 	private Long parentID;
-
+	private Role role;
+	
 	public ChildDTO(Long childId, Long parentID) {
 		super();
 		this.childId = childId;
@@ -100,6 +102,15 @@ public class ChildDTO extends BaseDTO {
 	public void setAllergies(String allergies) {
 		this.allergies = allergies;
 	}
+	
+	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public String getMedicalInfo() {
 		return medicalInfo;
@@ -121,12 +132,39 @@ public class ChildDTO extends BaseDTO {
 		super();
 	}
 
+	public ChildDTO(Long childId, String name, Date dateOfBirth, GenderEnum gender, String allergies,
+			String medicalInfo, String emergencyContact, ChildRegStatusEnum childRegStatusEnum, String password,
+			String emailId, Long parentID, Role role) {
+		super();
+		this.childId = childId;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.allergies = allergies;
+		this.medicalInfo = medicalInfo;
+		this.emergencyContact = emergencyContact;
+		this.childRegStatusEnum = childRegStatusEnum;
+		this.password = password;
+		this.emailId = emailId;
+		this.parentID = parentID;
+		this.role = role;
+	}
+
 	@Override
 	public String toString() {
 		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
 				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
 				+ ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password + ", emailId=" + emailId
-				+ ", parent=" + parentID + "]";
+				+ ", parentID=" + parentID + ", role=" + role + "]";
 	}
+
+//	@Override
+//	public String toString() {
+//		return "ChildDTO [childId=" + childId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
+//				+ ", allergies=" + allergies + ", medicalInfo=" + medicalInfo + ", emergencyContact=" + emergencyContact
+//				+ ", childRegStatusEnum=" + childRegStatusEnum + ", password=" + password + ", emailId=" + emailId
+//				+ ", parent=" + parentID + "]";
+//	}
+	
 
 }

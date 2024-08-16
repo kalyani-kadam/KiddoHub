@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
@@ -40,6 +42,9 @@ public class ChildServiceImpl implements ChildService {
 	
 	@Autowired
 	private RegisteredChildService registeredChildService;
+	
+	@PersistenceContext
+	private EntityManager entityManager;
 	
 	@Override
 	public List<ChildDTOCopy> getAllChilds(){
@@ -114,11 +119,14 @@ public class ChildServiceImpl implements ChildService {
 			System.out.println("in service after modelmapper"+newchild);
 			newchild.setParent(parent);
 			childRepository.save(newchild);
+//			registeredChildService.addChild(checkchild);
 			return new ApiResponse("Child details updated successfully!");
 		}
 		return new ApiResponse("Child details not updated!");
 	}
 	
+	
+	//for updating reg status by doctor
 	public ApiResponse updateChildStatus(ChildDTO child) throws Exception {
 		if(childRepository.existsById(child.getChildId())) {
 			Parent parent =
@@ -127,6 +135,7 @@ public class ChildServiceImpl implements ChildService {
 			System.out.println("in service after modelmapper"+newchild);
 			newchild.setParent(parent);
 			child.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED);
+			registeredChildService.addChild(newchild);
 //			newchild.setChildRegStatusEnum();
 			childRepository.save(newchild);
 			return new ApiResponse("Child details updated successfully!");
@@ -134,11 +143,10 @@ public class ChildServiceImpl implements ChildService {
 		return new ApiResponse("Child details not updated!");
 	}
 	
-	public void updateRegistrationStatus(int childid)
-	{
-		childRepository.updateRegStatus(childid);
-	
-	}
+//	public void updateRegistrationStatus(int childid)
+//	{
+//		childRepository.updateRegStatus(childid);	
+//	}
 	
 	public Child authenticateChild(String emailId, String password) {
 		return childRepository.findByEmailIdAndPassword(emailId, password);
@@ -152,18 +160,39 @@ public class ChildServiceImpl implements ChildService {
     }
 
 
+//	@Override
+//	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child) throws Exception {
+//		if(childRepository.existsById(child.getChildId())) {
+//			
+//			Child newchild = modelMapper.map(child, Child.class);
+//			System.out.println("in service after modelmapper"+newchild);
+//			child.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED);
+//			int updatedRows = childRepository.updateChildRegStatus(ChildRegStatusEnum.APPROVED, child.getChildId());
+//			
+////			newchild.setChildRegStatusEnum();
+//			childRepository.save(newchild);
+//			return new ApiResponse("Child details updated successfully!");
+//		}
+//		return new ApiResponse("Child details not updated!");
+//	}
+	
+	
 	@Override
 	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child) throws Exception {
-		if(childRepository.existsById(child.getChildId())) {
-			
-			Child newchild = modelMapper.map(child, Child.class);
-			System.out.println("in service after modelmapper"+newchild);
-			
-			child.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED);
-//			newchild.setChildRegStatusEnum();
-			childRepository.save(newchild);
-			return new ApiResponse("Child details updated successfully!");
-		}
-		return new ApiResponse("Child details not updated!");
+	    // Check if the child exists
+	    if (childRepository.existsById(child.getChildId())) {
+	        // Update the status using the custom query
+	        int updatedRows = childRepository.updateChildRegStatus(ChildRegStatusEnum.APPROVED, child.getChildId());
+	        entityManager.flush(); // Force flush the changes to the database
+	        // Return appropriate response based on update operation
+	        if (updatedRows > 0) {
+	            return new ApiResponse("Child registration status updated to APPROVED successfully!");
+	        } else {
+	            return new ApiResponse("Failed to update child registration status.");
+	        }
+	    } else {
+	        return new ApiResponse("Child with ID " + child.getChildId() + " not found!");
+	    }
 	}
+
 }

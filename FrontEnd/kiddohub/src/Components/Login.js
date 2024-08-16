@@ -11,16 +11,17 @@ const ChildLogin = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-
             const response = await axios.post('http://localhost:8080/children/login', {
                 emailId,
                 password
             });
 
             // Ensure that response.data contains the correct structure
-            const { childId, name, emailId: email, emergencyContact, medicalInfo, gender, allergies, childRegStatusEnum } = response.data;
-
-            if (childId && name) {
+            const {role, childId, name, emailId: email, emergencyContact, medicalInfo, gender, allergies, childRegStatusEnum } = response.data;
+            if(role==="ROLE_ADMIN"){
+                navigate("/admin")
+            }
+            if(role ==="ROLE_USER" && childId && name) {
                 // Store the childId and other details in localStorage
                 localStorage.setItem('childId', childId);
                 localStorage.setItem('childName', name);
@@ -31,7 +32,7 @@ const ChildLogin = () => {
                 localStorage.setItem('allergies', allergies);
                 localStorage.setItem('childRegStatusEnum', childRegStatusEnum);
                 localStorage.setItem('password', password);
-
+                
                 // Navigate to profile page
                 navigate('/profile');
             } else {
