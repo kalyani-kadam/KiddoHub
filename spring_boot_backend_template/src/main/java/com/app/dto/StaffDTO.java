@@ -7,7 +7,7 @@ import com.app.entities.Posts;
 
 public class StaffDTO {
 
-	//private Long staffId;
+	private Long staffId;
 	private String name;
 	private Posts post;
 	private LocalDate joiningDate;
@@ -24,10 +24,22 @@ public class StaffDTO {
 	
 	
 	
+	public Long getStaffId() {
+		return staffId;
+	}
+
+
+
+	public void setStaffId(Long staffId) {
+		this.staffId = staffId;
+	}
+
+
+
 	public StaffDTO(Long staffId, String name, Posts post, LocalDate joiningDate, long mobNo, String email,
 			String address) {
 		super();
-		//this.staffId = staffId;
+		this.staffId = staffId;
 		this.name = name;
 		this.post = post;
 		this.joiningDate = joiningDate;

@@ -1,21 +1,29 @@
 import axios from 'axios'
 import httpClient from '../http-common';
 
+var baseUrl= "http://localhost:8080/staff"
 
-const getallstaffs =()=>{
-    return httpClient.get('staff');
-};
-
-const addstaff=(data) => {
-    return httpClient.post('staff/add',data)
-};
-
-const updatestaff=(data)=>{
-    return httpClient.put('staff/update/id',data,data.parentId);
-};
-
-const deletestaff = (id) => {
-    return httpClient.delete(`staff/delete/${id}`);
-};
-export default {getallstaffs,addstaff,updatestaff,deletestaff};
+class StaffService{
+        getallstaffs(){
+            return axios.get(baseUrl);
+        }
+    
+        deletestaff(staffId){
+            return axios.delete(baseUrl+"/"+"delete/"+staffId)
+        }
+    
+        addstaff(formdetails){
+            console.log(formdetails)
+            var myheader= {'Content-Type': 'application/json'}
+            return axios.post(baseUrl+"/"+"add",formdetails,{Headers:myheader})
+        }
+    
+        updatestaff(staffdata){
+            var myheader = {'Content-Type': 'application/json',}
+            return axios.put(baseUrl+"/update",staffdata,{Headers:myheader})
+        }
+    
+        
+    }
+export default new StaffService();
 
