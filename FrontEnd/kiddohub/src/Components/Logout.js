@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
@@ -17,7 +17,7 @@ const Logout = () => {
         localStorage.removeItem('password');
 
         // Show a logout message (optional, you can replace this with your own method)
-        alert('You have successfully logged out/nThank you!');
+        alert('You have successfully logged out! Thank you!');
 
         // Redirect to home page
         navigate('/');
