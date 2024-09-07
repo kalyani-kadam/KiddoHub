@@ -159,23 +159,6 @@ public class ChildServiceImpl implements ChildService {
         return childRepository.findById(id);
     }
 
-
-//	@Override
-//	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child) throws Exception {
-//		if(childRepository.existsById(child.getChildId())) {
-//			
-//			Child newchild = modelMapper.map(child, Child.class);
-//			System.out.println("in service after modelmapper"+newchild);
-//			child.getChildRegStatusEnum().equals(ChildRegStatusEnum.APPROVED);
-//			int updatedRows = childRepository.updateChildRegStatus(ChildRegStatusEnum.APPROVED, child.getChildId());
-//			
-////			newchild.setChildRegStatusEnum();
-//			childRepository.save(newchild);
-//			return new ApiResponse("Child details updated successfully!");
-//		}
-//		return new ApiResponse("Child details not updated!");
-//	}
-	
 	
 	@Override
 	public ApiResponse updateChildStatus(ChildUpdateRegStatusDTO child) throws Exception {
